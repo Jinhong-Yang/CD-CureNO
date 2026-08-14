@@ -5,10 +5,10 @@
 The manuscript is structurally aligned with the official SoftwareX original
 article template (Version 6, March 2026), compiles as an Elsevier `elsarticle`
 manuscript, and confines scientific statements to stored P0-P5 evidence. It is
-not yet administratively submission-ready because the public GitHub URL,
-documentation URL, CRediT, acknowledgements, and conflict statement remain
-unresolved. Authorship, affiliations, corresponding/support email, funding,
-and the Apache-2.0 open-source license have been supplied.
+not yet administratively submission-ready because the CRediT and conflict
+statements remain unresolved. Authorship, affiliations, corresponding/support
+email, funding, acknowledgements, Apache-2.0 open-source license, public GitHub
+URL, and documentation URL have been supplied.
 
 ## Methodology review
 
@@ -50,12 +50,12 @@ and the Apache-2.0 open-source license have been supplied.
 
 ## Material caveats
 
-1. **High:** no public GitHub release currently exists; the mandatory permanent
-   code URL and developer-documentation URL are unresolved.
+1. **Medium:** the public GitHub release, permanent tag URL, README
+   documentation, and Apache-2.0 license satisfy the software-sharing package
+   structure, subject to publisher review.
 2. **Medium:** author identity, affiliations, corresponding/support email,
-   funding, and Apache-2.0 license are supplied, but copyright ownership,
-   CRediT roles, acknowledgements, and competing-interest confirmation remain
-   author-level decisions.
+   funding, acknowledgements, and Apache-2.0 license are supplied, but CRediT
+   roles and competing-interest confirmation remain author-level decisions.
 3. **Medium:** the upstream ResFNO license remains `NOASSERTION`; public release
    packaging must not silently redistribute upstream code/data.
 4. **Medium:** P6 confirmatory held-out evidence and final external validation
@@ -73,7 +73,7 @@ The package compiled locally to a 13-page PDF with no unresolved citations,
 references, LaTeX errors, or overfull boxes. All 13 final rendered pages were
 visually inspected for clipping, overlap, table fit, figure legibility, and
 placeholder visibility. The placeholder-tolerant structural checker passed
-with 2,039 estimated words, two figure environments, and 12 intentionally
+with 2,060 estimated words, two figure environments, and two intentionally
 unresolved human-input markers.
 
 Resolve every item in `SUBMISSION_CHECKLIST.md`, run the strict checker, and

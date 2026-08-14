@@ -50,18 +50,18 @@ The strict pre-submission check is:
 python submission_check.py
 ```
 
-The strict check must fail until the public GitHub URL, documentation URL,
-CRediT statement, acknowledgements, and conflict-of-interest confirmation have
-been completed. Author, affiliation, corresponding/support email, funding, and
-Apache-2.0 license fields have been populated from author-supplied decisions.
+The strict check must fail until the CRediT statement and
+conflict-of-interest confirmation have been completed. Author, affiliation,
+corresponding/support email, funding, acknowledgements, Apache-2.0 license,
+public GitHub URL, and documentation URL have been populated.
 
 ## Important release constraint
 
 SoftwareX requires a public GitHub repository with a documented `README.md`
-and `License.txt`. CD-CureNO uses the OSI-approved Apache License 2.0, but the
-current working repository still has no public remote. The upstream ResFNO
-repository/data have no explicit license recorded in this project; do not
-redistribute or relicense them by assumption.
+and `License.txt`. CD-CureNO uses the OSI-approved Apache License 2.0 and its
+public release is `https://github.com/Jinhong-Yang/CD-CureNO`. The upstream
+ResFNO repository/data have no explicit license recorded in this project; do
+not redistribute or relicense them by assumption.
 
 ## Package contents
 
