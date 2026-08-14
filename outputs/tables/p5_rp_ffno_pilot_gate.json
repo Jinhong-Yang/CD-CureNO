@@ -1,0 +1,1857 @@
+{
+  "checks": {
+    "all_four_runs_share_frozen_contract": true,
+    "all_leakage_checks_pass": true,
+    "all_restriction_checks_pass": true,
+    "alpha_guardrail_budget_16": true,
+    "alpha_guardrail_budget_8": true,
+    "budget_16_paired_median_improvement_positive": true,
+    "budget_16_relative_improvement_at_least_1_percent": true,
+    "method_conditions_match_at_budget_16": true,
+    "method_conditions_match_at_budget_8": true,
+    "peak_temperature_guardrail_budget_16": true,
+    "peak_temperature_guardrail_budget_8": true,
+    "transfer_temperature_lower_at_budget_16": true,
+    "transfer_temperature_lower_at_budget_8": true
+  },
+  "comparisons": {
+    "16": {
+      "alpha_transfer_to_scratch_ratio": 0.11332083379360913,
+      "paired_case_relative_improvement_median": 0.25243784633421146,
+      "paired_case_transfer_better_count": 28,
+      "peak_error_transfer_to_scratch_ratio": 0.5123072287614393,
+      "scratch_alpha_relative_l2_mean": 0.14766191272065043,
+      "scratch_peak_temperature_absolute_error_K_mean": 1.4528017044067383,
+      "scratch_run_id": "p5-rp-ffno-scratch-budget16-seed0",
+      "scratch_temperature_relative_l2_mean": 0.0030820151969237486,
+      "temperature_relative_improvement": 0.15361411761778793,
+      "transfer_alpha_relative_l2_mean": 0.016733171069063246,
+      "transfer_peak_temperature_absolute_error_K_mean": 0.7442808151245117,
+      "transfer_run_id": "p5-rp-ffno-transfer-budget16-seed0",
+      "transfer_temperature_relative_l2_mean": 0.002608574151963694,
+      "validation_case_count": 32
+    },
+    "8": {
+      "alpha_transfer_to_scratch_ratio": 0.05956821147713142,
+      "paired_case_relative_improvement_median": 0.5340377548141024,
+      "paired_case_transfer_better_count": 23,
+      "peak_error_transfer_to_scratch_ratio": 0.6535683632180955,
+      "scratch_alpha_relative_l2_mean": 0.2882317937910557,
+      "scratch_peak_temperature_absolute_error_K_mean": 1.3066787719726562,
+      "scratch_run_id": "p5-rp-ffno-scratch-budget8-seed0",
+      "scratch_temperature_relative_l2_mean": 0.0037827770865987986,
+      "temperature_relative_improvement": 0.26147683741181427,
+      "transfer_alpha_relative_l2_mean": 0.01716945244697854,
+      "transfer_peak_temperature_absolute_error_K_mean": 0.85400390625,
+      "transfer_run_id": "p5-rp-ffno-transfer-budget8-seed0",
+      "transfer_temperature_relative_l2_mean": 0.002793668497361068,
+      "validation_case_count": 32
+    }
+  },
+  "criteria": {
+    "alpha_relative_l2_maximum_worsening": 0.1,
+    "budget_16_paired_median_improvement_positive": true,
+    "budget_16_relative_improvement_minimum": 0.01,
+    "peak_temperature_error_maximum_worsening": 0.1,
+    "restriction_and_leakage_checks_required": true,
+    "temperature_lower_at_both_budgets": true
+  },
+  "decision": "passed",
+  "gate": "rp_ffno_transfer_initialization_pilot",
+  "passed": true,
+  "phase": "P5",
+  "restriction_inflation_gate": {
+    "passed": true,
+    "path": "outputs/tables/p5_restriction_gate.json",
+    "sha256": "4d1691247c096ac4a14ec10332f9464aca816c145b724f5a0f5cec4166db406b"
+  },
+  "run_directories": {
+    "restriction_transfer_ffno_budget_16": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0",
+    "restriction_transfer_ffno_budget_8": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0",
+    "scratch_ffno_budget_16": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0",
+    "scratch_ffno_budget_8": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0"
+  },
+  "run_evidence": {
+    "restriction_transfer_ffno_budget_16": {
+      "auditable_artifacts": {
+        "history": {
+          "bytes": 30269,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/history.parquet",
+          "sha256": "27d2ba478576ac6a86804fa241861e2f718b21d4c4c1f9fa72fa793e666bdd84"
+        },
+        "restriction_validation": {
+          "bytes": 1867,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/restriction_validation.json",
+          "sha256": "d3d34455de52dc9108bc4bac55726fc82d26646f162d26e765c5ba00a2bc5736"
+        },
+        "validation_metrics_per_case": {
+          "bytes": 11651,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/metrics_per_case_validation.parquet",
+          "sha256": "38a32b8bdc36064422d11d62888e6af7bd97af738397053338c26a5fa53e4090"
+        },
+        "validation_predictions": {
+          "bytes": 54573856,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/predictions/validation_best.npz",
+          "sha256": "75efba34a9f2618ef2f88e05f0787c41c7e189178e41cf9ec8a1f2e9e78b3d23"
+        }
+      },
+      "checkpoints": {
+        "best": {
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/checkpoints/best.pt",
+          "selected_epoch": 108,
+          "sha256": "067e68ed6ac87ce726ee2de402f559a80008e9efa6c941b7ab58f9d7176fefc4"
+        },
+        "last": {
+          "epoch": 120,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget16-seed0/checkpoints/last.pt",
+          "sha256": "efbdf00df58c04eecb57cb98036a4bfc0dbe5c626879e692e2f9c26d3bae0360"
+        }
+      },
+      "config_resolved_sha256": "7d6361f3fb697227ad6c8c729915ad6f498782f17d1b367c3f167fb39eb89a8b",
+      "git_sha": "7bbceb2dc78782f7ad00d174e0e11227cff442a2",
+      "implementation_sha256": "65ed1e956118e0cdf6ab2dff892c7bd44224316f297ecc59a91538cf015df6a0",
+      "initialization": {
+        "deterministic_seed": 20260726,
+        "inflated_checkpoint_sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0",
+        "inflated_checkpoint_weights_loaded": true,
+        "inflation_verification_passed": true,
+        "initial_state_sha256": "191de8efe232716872d65690ef5ac1f68c5c87854cd32487b3007099698b241d",
+        "method": "restriction_transfer_ffno",
+        "source_checkpoint_weights_loaded": true,
+        "trainability": {
+          "frozen_parameters": 0,
+          "stage": "T2",
+          "total_parameters": 172610,
+          "trainable_parameters": 172610
+        }
+      },
+      "input_checksums": {
+        "declared_experiment_config": {
+          "bytes": 2742,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/experiment/p5_rp_ffno_pilot_v1.yaml",
+          "sha256": "959a161372efcd8f0bd60d4116fe9d2990569f14eac3eadddcd1bbe05c344f40"
+        },
+        "inflated_checkpoint": {
+          "bytes": 1370838,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/checkpoints/p5_inflated_source.pt",
+          "sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0"
+        },
+        "source_checkpoint": {
+          "bytes": 1246553,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/runs/p3-source-factorized-v4-seed0/best.pt",
+          "sha256": "82d7a497f99a884f2b08eeac799fd7e7ab6391309d3e3037864ecddd8fa3f5f6"
+        },
+        "source_virtual_input_data": {
+          "bytes": 56653493,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/data/processed/p3_source_1d_v3.npz",
+          "sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa"
+        },
+        "source_virtual_input_split": {
+          "bytes": 5876,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/p3_source_1d_v3.json",
+          "sha256": "9b06a09734ac04eb5b835948421b07b1db9244f5248841c39d8621b5a42f188c"
+        },
+        "target_id_manifest": {
+          "bytes": 41320,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/2d_id_v1.json",
+          "sha256": "0628acabce004df2d9d3bb1ac6928e2439dfdbc636575e52ffb1afd9103417f0"
+        },
+        "target_model_config": {
+          "bytes": 2025,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/model/cdcureno_2d.yaml",
+          "sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f"
+        }
+      },
+      "label_budget": 16,
+      "loss_weights": {
+        "alpha_relative_l2": 0.5,
+        "gradient_x_relative_l2": 0.05,
+        "gradient_z_relative_l2": 0.05,
+        "homogeneous_lateral_invariance": 0.1,
+        "temperature_relative_l2": 1.0
+      },
+      "method": "restriction_transfer_ffno",
+      "metrics_sha256": "5672967b889c5c96544a8d349bd2907d32f7fc989120b14426a03e5518502aae",
+      "model": {
+        "axis_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "channel"
+        ],
+        "causal": false,
+        "channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure",
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "config_sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f",
+        "depth": 4,
+        "family": "axis_factorized_2d",
+        "input_channels": 20,
+        "lateral_rank": 4,
+        "modes_time": 24,
+        "modes_x": 12,
+        "modes_z": 12,
+        "new_channel_names": [
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "output_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "field"
+        ],
+        "parameter_count": 172610,
+        "source_channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure"
+        ],
+        "temporal_family": "spectral_noncausal",
+        "trainable_parameter_count": 172610,
+        "transfer_stage": "T2",
+        "width": 32
+      },
+      "parameter_groups": {
+        "adapter": {
+          "initial_learning_rate": 0.001,
+          "lr_ratio": 1.0,
+          "parameter_count": 12480,
+          "parameter_names": [
+            "lift.geometry.weight",
+            "blocks.0.lateral.input_factor",
+            "blocks.0.lateral.output_factor",
+            "blocks.1.lateral.input_factor",
+            "blocks.1.lateral.output_factor",
+            "blocks.2.lateral.input_factor",
+            "blocks.2.lateral.output_factor",
+            "blocks.3.lateral.input_factor",
+            "blocks.3.lateral.output_factor"
+          ],
+          "parameter_tensor_count": 9
+        },
+        "lift_and_heads": {
+          "initial_learning_rate": 0.0005,
+          "lr_ratio": 0.5,
+          "parameter_count": 3714,
+          "parameter_names": [
+            "lift.shared.weight",
+            "lift.shared.bias",
+            "lift.projection.weight",
+            "lift.projection.bias",
+            "head.temperature_residual.0.weight",
+            "head.temperature_residual.0.bias",
+            "head.temperature_residual.2.weight",
+            "head.temperature_residual.2.bias",
+            "head.cure_rate.0.weight",
+            "head.cure_rate.0.bias",
+            "head.cure_rate.2.weight",
+            "head.cure_rate.2.bias"
+          ],
+          "parameter_tensor_count": 12
+        },
+        "shared_core": {
+          "initial_learning_rate": 0.0001,
+          "lr_ratio": 0.1,
+          "parameter_count": 156416,
+          "parameter_names": [
+            "blocks.0.spatial.weight",
+            "blocks.0.temporal.weight",
+            "blocks.0.spatial_local.weight",
+            "blocks.0.spatial_local.bias",
+            "blocks.0.temporal_local.weight",
+            "blocks.0.temporal_local.bias",
+            "blocks.0.spatial_norm.weight",
+            "blocks.0.spatial_norm.bias",
+            "blocks.0.temporal_norm.weight",
+            "blocks.0.temporal_norm.bias",
+            "blocks.1.spatial.weight",
+            "blocks.1.temporal.weight",
+            "blocks.1.spatial_local.weight",
+            "blocks.1.spatial_local.bias",
+            "blocks.1.temporal_local.weight",
+            "blocks.1.temporal_local.bias",
+            "blocks.1.spatial_norm.weight",
+            "blocks.1.spatial_norm.bias",
+            "blocks.1.temporal_norm.weight",
+            "blocks.1.temporal_norm.bias",
+            "blocks.2.spatial.weight",
+            "blocks.2.temporal.weight",
+            "blocks.2.spatial_local.weight",
+            "blocks.2.spatial_local.bias",
+            "blocks.2.temporal_local.weight",
+            "blocks.2.temporal_local.bias",
+            "blocks.2.spatial_norm.weight",
+            "blocks.2.spatial_norm.bias",
+            "blocks.2.temporal_norm.weight",
+            "blocks.2.temporal_norm.bias",
+            "blocks.3.spatial.weight",
+            "blocks.3.temporal.weight",
+            "blocks.3.spatial_local.weight",
+            "blocks.3.spatial_local.bias",
+            "blocks.3.temporal_local.weight",
+            "blocks.3.temporal_local.bias",
+            "blocks.3.spatial_norm.weight",
+            "blocks.3.spatial_norm.bias",
+            "blocks.3.temporal_norm.weight",
+            "blocks.3.temporal_norm.bias"
+          ],
+          "parameter_tensor_count": 40
+        },
+        "total_parameter_count": 172610
+      },
+      "restriction_validation": {
+        "audit": "selected_model_label_free_homogeneous_restriction",
+        "case_count": 4,
+        "case_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "contract_checks": {
+          "alpha_is_finite": true,
+          "alpha_lateral_invariance_score": true,
+          "alpha_maximum_lateral_range": true,
+          "source_input_shape_is_canonical": true,
+          "source_teacher_predictions_absent": true,
+          "target_labels_absent": true,
+          "target_suffix_is_exact_zero": true,
+          "temperature_is_finite": true,
+          "temperature_lateral_invariance_score": true,
+          "temperature_maximum_lateral_range": true
+        },
+        "fields": {
+          "alpha": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 5.1211113571980604e-08,
+            "maximum_lateral_range": 2.384185791015625e-07,
+            "mean_lateral_range": 2.3202193943916427e-08
+          },
+          "temperature": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 7.085302655696069e-08,
+            "maximum_lateral_range": 5.960464477539063e-08,
+            "mean_lateral_range": 2.252677333558495e-08
+          }
+        },
+        "nx": 40,
+        "passed": true,
+        "provenance": {
+          "source_teacher_predictions_used": false,
+          "target_labels_used": false
+        },
+        "schema_version": 1,
+        "selection": "first_frozen_source_train_cases_in_manifest_order",
+        "source_input_shape": [
+          4,
+          112,
+          51,
+          14
+        ],
+        "target_input_shape": [
+          4,
+          112,
+          51,
+          40,
+          20
+        ],
+        "threshold_note": "Thresholds were frozen in the pilot YAML and protocol before either target method trained.",
+        "thresholds": {
+          "lateral_invariance_score_max": 1e-06,
+          "maximum_lateral_range_max": 1e-05
+        }
+      },
+      "run_id": "p5-rp-ffno-transfer-budget16-seed0",
+      "seed": 0,
+      "selection": {
+        "best_validation_objective": 0.27798973419703543,
+        "objective": "temperature_relL2_plus_alpha_relL2_plus_xz_gradient",
+        "selected_epoch": 108,
+        "split": "validation",
+        "target_test_or_ood_labels_used": false
+      },
+      "target_label_access_audit": {
+        "id_test": [],
+        "ood": [],
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "validation": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287
+        ]
+      },
+      "training": {
+        "all_session_wall_seconds": 531.6882790999953,
+        "configured_epochs": 120,
+        "device": "cuda:0",
+        "effective_batch_size": 4,
+        "executed_epochs": 120,
+        "gradient_accumulation_steps": 2,
+        "micro_batch_size": 2,
+        "mixed_precision": false,
+        "optimizer": "AdamW",
+        "peak_accelerator_memory_bytes": 6257862144,
+        "peak_python_tracemalloc_bytes": 764485238,
+        "scheduler": "CosineAnnealingLR",
+        "stopped_early": false,
+        "summed_epoch_seconds": 510.30877690040506
+      },
+      "validation_metrics_recomputed": {
+        "alpha_mae_composite_max": 0.011493171565234661,
+        "alpha_mae_composite_mean": 0.0054960987326921895,
+        "alpha_mae_composite_median": 0.005233583273366094,
+        "alpha_relative_l2_composite_max": 0.0370548814535141,
+        "alpha_relative_l2_composite_mean": 0.016733171069063246,
+        "alpha_relative_l2_composite_median": 0.01594983320683241,
+        "case_count": 32,
+        "maximum_lateral_gradient_error_K_per_m_max": 534.6679687500001,
+        "maximum_lateral_gradient_error_K_per_m_mean": 156.1958312988281,
+        "maximum_lateral_gradient_error_K_per_m_median": 143.19763183593756,
+        "peak_temperature_absolute_error_K_max": 2.09063720703125,
+        "peak_temperature_absolute_error_K_mean": 0.7442808151245117,
+        "peak_temperature_absolute_error_K_median": 0.6519622802734375,
+        "temperature_gradient_x_relative_l2_max": 2163692500439388.0,
+        "temperature_gradient_x_relative_l2_mean": 197445174206437.25,
+        "temperature_gradient_x_relative_l2_median": 0.6803459834944907,
+        "temperature_gradient_z_relative_l2_max": 0.173537811242027,
+        "temperature_gradient_z_relative_l2_mean": 0.07156207291592057,
+        "temperature_gradient_z_relative_l2_median": 0.05263302052729372,
+        "temperature_linf_K_composite_max": 19.876617431640625,
+        "temperature_linf_K_composite_mean": 5.936191558837891,
+        "temperature_linf_K_composite_median": 2.8345184326171875,
+        "temperature_mae_K_composite_max": 2.199293851852417,
+        "temperature_mae_K_composite_mean": 0.7169025223702192,
+        "temperature_mae_K_composite_median": 0.3966544568538666,
+        "temperature_relative_l2_K_composite_max": 0.007647367659956217,
+        "temperature_relative_l2_K_composite_mean": 0.002608574151963694,
+        "temperature_relative_l2_K_composite_median": 0.0013133693719282746,
+        "temperature_rmse_K_composite_max": 3.333437442779541,
+        "temperature_rmse_K_composite_mean": 1.069306559395045,
+        "temperature_rmse_K_composite_median": 0.5235932469367981
+      }
+    },
+    "restriction_transfer_ffno_budget_8": {
+      "auditable_artifacts": {
+        "history": {
+          "bytes": 25210,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/history.parquet",
+          "sha256": "b53fc29f8fd9f88f135b0cbcd4f226213b73a2728fa61999f506c7d3d3d8d375"
+        },
+        "restriction_validation": {
+          "bytes": 1868,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/restriction_validation.json",
+          "sha256": "2e5b8b3e902c50c02aae3c01ee8acf63e08308105d9d415d0a90e25af865e0b9"
+        },
+        "validation_metrics_per_case": {
+          "bytes": 11653,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/metrics_per_case_validation.parquet",
+          "sha256": "b661843b11d05ae50cf3a1c985f61b63ea46909f0b84e0b00dcac10c404605f5"
+        },
+        "validation_predictions": {
+          "bytes": 53582623,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/predictions/validation_best.npz",
+          "sha256": "ffbe6721621dff47115996d943034e669f73226f4f1529ca8a4a4e732cc16223"
+        }
+      },
+      "checkpoints": {
+        "best": {
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/checkpoints/best.pt",
+          "selected_epoch": 65,
+          "sha256": "68f1c1d864d69a2775900c1e6c0006cc748593a850678438144ba4f2975b9b25"
+        },
+        "last": {
+          "epoch": 85,
+          "path": "outputs/runs/p5-rp-ffno-transfer-budget8-seed0/checkpoints/last.pt",
+          "sha256": "30560081730d1a1de9cb9dab445b8f7b7b4b874b04a10f2fc53fa2e190a14c4f"
+        }
+      },
+      "config_resolved_sha256": "c663d900406e75f2a73d2e3246fca670652d2d95601f806cb1b55e97ddb2a1e9",
+      "git_sha": "7bbceb2dc78782f7ad00d174e0e11227cff442a2",
+      "implementation_sha256": "65ed1e956118e0cdf6ab2dff892c7bd44224316f297ecc59a91538cf015df6a0",
+      "initialization": {
+        "deterministic_seed": 20260726,
+        "inflated_checkpoint_sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0",
+        "inflated_checkpoint_weights_loaded": true,
+        "inflation_verification_passed": true,
+        "initial_state_sha256": "191de8efe232716872d65690ef5ac1f68c5c87854cd32487b3007099698b241d",
+        "method": "restriction_transfer_ffno",
+        "source_checkpoint_weights_loaded": true,
+        "trainability": {
+          "frozen_parameters": 0,
+          "stage": "T2",
+          "total_parameters": 172610,
+          "trainable_parameters": 172610
+        }
+      },
+      "input_checksums": {
+        "declared_experiment_config": {
+          "bytes": 2742,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/experiment/p5_rp_ffno_pilot_v1.yaml",
+          "sha256": "959a161372efcd8f0bd60d4116fe9d2990569f14eac3eadddcd1bbe05c344f40"
+        },
+        "inflated_checkpoint": {
+          "bytes": 1370838,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/checkpoints/p5_inflated_source.pt",
+          "sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0"
+        },
+        "source_checkpoint": {
+          "bytes": 1246553,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/runs/p3-source-factorized-v4-seed0/best.pt",
+          "sha256": "82d7a497f99a884f2b08eeac799fd7e7ab6391309d3e3037864ecddd8fa3f5f6"
+        },
+        "source_virtual_input_data": {
+          "bytes": 56653493,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/data/processed/p3_source_1d_v3.npz",
+          "sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa"
+        },
+        "source_virtual_input_split": {
+          "bytes": 5876,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/p3_source_1d_v3.json",
+          "sha256": "9b06a09734ac04eb5b835948421b07b1db9244f5248841c39d8621b5a42f188c"
+        },
+        "target_id_manifest": {
+          "bytes": 41320,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/2d_id_v1.json",
+          "sha256": "0628acabce004df2d9d3bb1ac6928e2439dfdbc636575e52ffb1afd9103417f0"
+        },
+        "target_model_config": {
+          "bytes": 2025,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/model/cdcureno_2d.yaml",
+          "sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f"
+        }
+      },
+      "label_budget": 8,
+      "loss_weights": {
+        "alpha_relative_l2": 0.5,
+        "gradient_x_relative_l2": 0.05,
+        "gradient_z_relative_l2": 0.05,
+        "homogeneous_lateral_invariance": 0.1,
+        "temperature_relative_l2": 1.0
+      },
+      "method": "restriction_transfer_ffno",
+      "metrics_sha256": "3fe18aa73e898b4d9ee49b4153f72e5327e5cb9baf12e86476b03a8573d12365",
+      "model": {
+        "axis_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "channel"
+        ],
+        "causal": false,
+        "channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure",
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "config_sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f",
+        "depth": 4,
+        "family": "axis_factorized_2d",
+        "input_channels": 20,
+        "lateral_rank": 4,
+        "modes_time": 24,
+        "modes_x": 12,
+        "modes_z": 12,
+        "new_channel_names": [
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "output_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "field"
+        ],
+        "parameter_count": 172610,
+        "source_channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure"
+        ],
+        "temporal_family": "spectral_noncausal",
+        "trainable_parameter_count": 172610,
+        "transfer_stage": "T2",
+        "width": 32
+      },
+      "parameter_groups": {
+        "adapter": {
+          "initial_learning_rate": 0.001,
+          "lr_ratio": 1.0,
+          "parameter_count": 12480,
+          "parameter_names": [
+            "lift.geometry.weight",
+            "blocks.0.lateral.input_factor",
+            "blocks.0.lateral.output_factor",
+            "blocks.1.lateral.input_factor",
+            "blocks.1.lateral.output_factor",
+            "blocks.2.lateral.input_factor",
+            "blocks.2.lateral.output_factor",
+            "blocks.3.lateral.input_factor",
+            "blocks.3.lateral.output_factor"
+          ],
+          "parameter_tensor_count": 9
+        },
+        "lift_and_heads": {
+          "initial_learning_rate": 0.0005,
+          "lr_ratio": 0.5,
+          "parameter_count": 3714,
+          "parameter_names": [
+            "lift.shared.weight",
+            "lift.shared.bias",
+            "lift.projection.weight",
+            "lift.projection.bias",
+            "head.temperature_residual.0.weight",
+            "head.temperature_residual.0.bias",
+            "head.temperature_residual.2.weight",
+            "head.temperature_residual.2.bias",
+            "head.cure_rate.0.weight",
+            "head.cure_rate.0.bias",
+            "head.cure_rate.2.weight",
+            "head.cure_rate.2.bias"
+          ],
+          "parameter_tensor_count": 12
+        },
+        "shared_core": {
+          "initial_learning_rate": 0.0001,
+          "lr_ratio": 0.1,
+          "parameter_count": 156416,
+          "parameter_names": [
+            "blocks.0.spatial.weight",
+            "blocks.0.temporal.weight",
+            "blocks.0.spatial_local.weight",
+            "blocks.0.spatial_local.bias",
+            "blocks.0.temporal_local.weight",
+            "blocks.0.temporal_local.bias",
+            "blocks.0.spatial_norm.weight",
+            "blocks.0.spatial_norm.bias",
+            "blocks.0.temporal_norm.weight",
+            "blocks.0.temporal_norm.bias",
+            "blocks.1.spatial.weight",
+            "blocks.1.temporal.weight",
+            "blocks.1.spatial_local.weight",
+            "blocks.1.spatial_local.bias",
+            "blocks.1.temporal_local.weight",
+            "blocks.1.temporal_local.bias",
+            "blocks.1.spatial_norm.weight",
+            "blocks.1.spatial_norm.bias",
+            "blocks.1.temporal_norm.weight",
+            "blocks.1.temporal_norm.bias",
+            "blocks.2.spatial.weight",
+            "blocks.2.temporal.weight",
+            "blocks.2.spatial_local.weight",
+            "blocks.2.spatial_local.bias",
+            "blocks.2.temporal_local.weight",
+            "blocks.2.temporal_local.bias",
+            "blocks.2.spatial_norm.weight",
+            "blocks.2.spatial_norm.bias",
+            "blocks.2.temporal_norm.weight",
+            "blocks.2.temporal_norm.bias",
+            "blocks.3.spatial.weight",
+            "blocks.3.temporal.weight",
+            "blocks.3.spatial_local.weight",
+            "blocks.3.spatial_local.bias",
+            "blocks.3.temporal_local.weight",
+            "blocks.3.temporal_local.bias",
+            "blocks.3.spatial_norm.weight",
+            "blocks.3.spatial_norm.bias",
+            "blocks.3.temporal_norm.weight",
+            "blocks.3.temporal_norm.bias"
+          ],
+          "parameter_tensor_count": 40
+        },
+        "total_parameter_count": 172610
+      },
+      "restriction_validation": {
+        "audit": "selected_model_label_free_homogeneous_restriction",
+        "case_count": 4,
+        "case_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "contract_checks": {
+          "alpha_is_finite": true,
+          "alpha_lateral_invariance_score": true,
+          "alpha_maximum_lateral_range": true,
+          "source_input_shape_is_canonical": true,
+          "source_teacher_predictions_absent": true,
+          "target_labels_absent": true,
+          "target_suffix_is_exact_zero": true,
+          "temperature_is_finite": true,
+          "temperature_lateral_invariance_score": true,
+          "temperature_maximum_lateral_range": true
+        },
+        "fields": {
+          "alpha": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 5.129324875952079e-08,
+            "maximum_lateral_range": 1.7881393432617188e-07,
+            "mean_lateral_range": 2.3682202865416002e-08
+          },
+          "temperature": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 7.637414256578268e-08,
+            "maximum_lateral_range": 5.960464477539063e-08,
+            "mean_lateral_range": 2.6079153059299642e-08
+          }
+        },
+        "nx": 40,
+        "passed": true,
+        "provenance": {
+          "source_teacher_predictions_used": false,
+          "target_labels_used": false
+        },
+        "schema_version": 1,
+        "selection": "first_frozen_source_train_cases_in_manifest_order",
+        "source_input_shape": [
+          4,
+          112,
+          51,
+          14
+        ],
+        "target_input_shape": [
+          4,
+          112,
+          51,
+          40,
+          20
+        ],
+        "threshold_note": "Thresholds were frozen in the pilot YAML and protocol before either target method trained.",
+        "thresholds": {
+          "lateral_invariance_score_max": 1e-06,
+          "maximum_lateral_range_max": 1e-05
+        }
+      },
+      "run_id": "p5-rp-ffno-transfer-budget8-seed0",
+      "seed": 0,
+      "selection": {
+        "best_validation_objective": 0.30265375482849777,
+        "objective": "temperature_relL2_plus_alpha_relL2_plus_xz_gradient",
+        "selected_epoch": 65,
+        "split": "validation",
+        "target_test_or_ood_labels_used": false
+      },
+      "target_label_access_audit": {
+        "id_test": [],
+        "ood": [],
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "validation": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287
+        ]
+      },
+      "training": {
+        "all_session_wall_seconds": 286.52294840000104,
+        "configured_epochs": 120,
+        "device": "cuda:0",
+        "effective_batch_size": 4,
+        "executed_epochs": 85,
+        "gradient_accumulation_steps": 2,
+        "micro_batch_size": 2,
+        "mixed_precision": false,
+        "optimizer": "AdamW",
+        "peak_accelerator_memory_bytes": 6257862144,
+        "peak_python_tracemalloc_bytes": 764420474,
+        "scheduler": "CosineAnnealingLR",
+        "stopped_early": true,
+        "summed_epoch_seconds": 268.34448650025297
+      },
+      "validation_metrics_recomputed": {
+        "alpha_mae_composite_max": 0.016016336157917976,
+        "alpha_mae_composite_mean": 0.0056471903080819175,
+        "alpha_mae_composite_median": 0.00531983096152544,
+        "alpha_relative_l2_composite_max": 0.0331222228705883,
+        "alpha_relative_l2_composite_mean": 0.01716945244697854,
+        "alpha_relative_l2_composite_median": 0.017005030065774918,
+        "case_count": 32,
+        "maximum_lateral_gradient_error_K_per_m_max": 550.3234863281251,
+        "maximum_lateral_gradient_error_K_per_m_mean": 178.90663146972656,
+        "maximum_lateral_gradient_error_K_per_m_median": 158.15124511718756,
+        "peak_temperature_absolute_error_K_max": 2.227935791015625,
+        "peak_temperature_absolute_error_K_mean": 0.85400390625,
+        "peak_temperature_absolute_error_K_median": 0.7185516357421875,
+        "temperature_gradient_x_relative_l2_max": 2288265709266706.0,
+        "temperature_gradient_x_relative_l2_mean": 212056024067014.8,
+        "temperature_gradient_x_relative_l2_median": 0.8901731962746631,
+        "temperature_gradient_z_relative_l2_max": 0.18465287471914568,
+        "temperature_gradient_z_relative_l2_mean": 0.07770599415657341,
+        "temperature_gradient_z_relative_l2_median": 0.06356416216559763,
+        "temperature_linf_K_composite_max": 21.574127197265625,
+        "temperature_linf_K_composite_mean": 7.046364784240723,
+        "temperature_linf_K_composite_median": 3.2044830322265625,
+        "temperature_mae_K_composite_max": 2.3711562156677246,
+        "temperature_mae_K_composite_mean": 0.7566656544804573,
+        "temperature_mae_K_composite_median": 0.39037060737609863,
+        "temperature_relative_l2_K_composite_max": 0.007687438279390335,
+        "temperature_relative_l2_K_composite_mean": 0.002793668497361068,
+        "temperature_relative_l2_K_composite_median": 0.0014224491314962506,
+        "temperature_rmse_K_composite_max": 3.350903272628784,
+        "temperature_rmse_K_composite_mean": 1.1445703064091504,
+        "temperature_rmse_K_composite_median": 0.5725805163383484
+      }
+    },
+    "scratch_ffno_budget_16": {
+      "auditable_artifacts": {
+        "history": {
+          "bytes": 30404,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/history.parquet",
+          "sha256": "0f6645f9d90bc68354d96434b68fcf8dead53988eee4d6098096a7f7b1a81321"
+        },
+        "restriction_validation": {
+          "bytes": 1869,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/restriction_validation.json",
+          "sha256": "4ce952f93d3420371fe7a08760f601de20b091801c1a31b7eaeab04fc413dec9"
+        },
+        "validation_metrics_per_case": {
+          "bytes": 11653,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/metrics_per_case_validation.parquet",
+          "sha256": "0405a4c504ebc3c6062e0b1bcc590dd0cc56f2198fa29bbe07d9391ff0969f61"
+        },
+        "validation_predictions": {
+          "bytes": 56195289,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/predictions/validation_best.npz",
+          "sha256": "7682c27e6dd53f72c989676e5524c534382a4f8e5dca19903ec1823ea2a69b45"
+        }
+      },
+      "checkpoints": {
+        "best": {
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/checkpoints/best.pt",
+          "selected_epoch": 119,
+          "sha256": "cda0dd64253a4dde4c049b0cbbbda244b9c7182da0690cadea84a1365ec88b22"
+        },
+        "last": {
+          "epoch": 120,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget16-seed0/checkpoints/last.pt",
+          "sha256": "54dc38b1c9820e458bf8bf0a3085ab61c4365d4e087ecad1609a1a5a061c7688"
+        }
+      },
+      "config_resolved_sha256": "9bdc88fffa22b2e54643a4f9fa29d60b956f8ec57a70b05e4156ac5107ddca76",
+      "git_sha": "7bbceb2dc78782f7ad00d174e0e11227cff442a2",
+      "implementation_sha256": "65ed1e956118e0cdf6ab2dff892c7bd44224316f297ecc59a91538cf015df6a0",
+      "initialization": {
+        "architecture_specific_lateral_zero_residual_preserved": true,
+        "deterministic_seed": 0,
+        "inflated_checkpoint_weights_loaded": false,
+        "initial_state_sha256": "5359528e73024c36f7077f3fbad51d517b2d11a134c1354d8af58fb5afd1d758",
+        "method": "scratch_ffno",
+        "source_checkpoint_weights_loaded": false,
+        "trainability": {
+          "frozen_parameters": 0,
+          "stage": "T2",
+          "total_parameters": 172610,
+          "trainable_parameters": 172610
+        }
+      },
+      "input_checksums": {
+        "declared_experiment_config": {
+          "bytes": 2742,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/experiment/p5_rp_ffno_pilot_v1.yaml",
+          "sha256": "959a161372efcd8f0bd60d4116fe9d2990569f14eac3eadddcd1bbe05c344f40"
+        },
+        "inflated_checkpoint": {
+          "bytes": 1370838,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/checkpoints/p5_inflated_source.pt",
+          "sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0"
+        },
+        "source_checkpoint": {
+          "bytes": 1246553,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/runs/p3-source-factorized-v4-seed0/best.pt",
+          "sha256": "82d7a497f99a884f2b08eeac799fd7e7ab6391309d3e3037864ecddd8fa3f5f6"
+        },
+        "source_virtual_input_data": {
+          "bytes": 56653493,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/data/processed/p3_source_1d_v3.npz",
+          "sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa"
+        },
+        "source_virtual_input_split": {
+          "bytes": 5876,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/p3_source_1d_v3.json",
+          "sha256": "9b06a09734ac04eb5b835948421b07b1db9244f5248841c39d8621b5a42f188c"
+        },
+        "target_id_manifest": {
+          "bytes": 41320,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/2d_id_v1.json",
+          "sha256": "0628acabce004df2d9d3bb1ac6928e2439dfdbc636575e52ffb1afd9103417f0"
+        },
+        "target_model_config": {
+          "bytes": 2025,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/model/cdcureno_2d.yaml",
+          "sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f"
+        }
+      },
+      "label_budget": 16,
+      "loss_weights": {
+        "alpha_relative_l2": 0.5,
+        "gradient_x_relative_l2": 0.05,
+        "gradient_z_relative_l2": 0.05,
+        "homogeneous_lateral_invariance": 0.1,
+        "temperature_relative_l2": 1.0
+      },
+      "method": "scratch_ffno",
+      "metrics_sha256": "0744a043438770c049f96643e06f464401fbc4f81681ab70f523b84f17199a0f",
+      "model": {
+        "axis_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "channel"
+        ],
+        "causal": false,
+        "channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure",
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "config_sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f",
+        "depth": 4,
+        "family": "axis_factorized_2d",
+        "input_channels": 20,
+        "lateral_rank": 4,
+        "modes_time": 24,
+        "modes_x": 12,
+        "modes_z": 12,
+        "new_channel_names": [
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "output_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "field"
+        ],
+        "parameter_count": 172610,
+        "source_channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure"
+        ],
+        "temporal_family": "spectral_noncausal",
+        "trainable_parameter_count": 172610,
+        "transfer_stage": "T2",
+        "width": 32
+      },
+      "parameter_groups": {
+        "adapter": {
+          "initial_learning_rate": 0.001,
+          "lr_ratio": 1.0,
+          "parameter_count": 12480,
+          "parameter_names": [
+            "lift.geometry.weight",
+            "blocks.0.lateral.input_factor",
+            "blocks.0.lateral.output_factor",
+            "blocks.1.lateral.input_factor",
+            "blocks.1.lateral.output_factor",
+            "blocks.2.lateral.input_factor",
+            "blocks.2.lateral.output_factor",
+            "blocks.3.lateral.input_factor",
+            "blocks.3.lateral.output_factor"
+          ],
+          "parameter_tensor_count": 9
+        },
+        "lift_and_heads": {
+          "initial_learning_rate": 0.0005,
+          "lr_ratio": 0.5,
+          "parameter_count": 3714,
+          "parameter_names": [
+            "lift.shared.weight",
+            "lift.shared.bias",
+            "lift.projection.weight",
+            "lift.projection.bias",
+            "head.temperature_residual.0.weight",
+            "head.temperature_residual.0.bias",
+            "head.temperature_residual.2.weight",
+            "head.temperature_residual.2.bias",
+            "head.cure_rate.0.weight",
+            "head.cure_rate.0.bias",
+            "head.cure_rate.2.weight",
+            "head.cure_rate.2.bias"
+          ],
+          "parameter_tensor_count": 12
+        },
+        "shared_core": {
+          "initial_learning_rate": 0.0001,
+          "lr_ratio": 0.1,
+          "parameter_count": 156416,
+          "parameter_names": [
+            "blocks.0.spatial.weight",
+            "blocks.0.temporal.weight",
+            "blocks.0.spatial_local.weight",
+            "blocks.0.spatial_local.bias",
+            "blocks.0.temporal_local.weight",
+            "blocks.0.temporal_local.bias",
+            "blocks.0.spatial_norm.weight",
+            "blocks.0.spatial_norm.bias",
+            "blocks.0.temporal_norm.weight",
+            "blocks.0.temporal_norm.bias",
+            "blocks.1.spatial.weight",
+            "blocks.1.temporal.weight",
+            "blocks.1.spatial_local.weight",
+            "blocks.1.spatial_local.bias",
+            "blocks.1.temporal_local.weight",
+            "blocks.1.temporal_local.bias",
+            "blocks.1.spatial_norm.weight",
+            "blocks.1.spatial_norm.bias",
+            "blocks.1.temporal_norm.weight",
+            "blocks.1.temporal_norm.bias",
+            "blocks.2.spatial.weight",
+            "blocks.2.temporal.weight",
+            "blocks.2.spatial_local.weight",
+            "blocks.2.spatial_local.bias",
+            "blocks.2.temporal_local.weight",
+            "blocks.2.temporal_local.bias",
+            "blocks.2.spatial_norm.weight",
+            "blocks.2.spatial_norm.bias",
+            "blocks.2.temporal_norm.weight",
+            "blocks.2.temporal_norm.bias",
+            "blocks.3.spatial.weight",
+            "blocks.3.temporal.weight",
+            "blocks.3.spatial_local.weight",
+            "blocks.3.spatial_local.bias",
+            "blocks.3.temporal_local.weight",
+            "blocks.3.temporal_local.bias",
+            "blocks.3.spatial_norm.weight",
+            "blocks.3.spatial_norm.bias",
+            "blocks.3.temporal_norm.weight",
+            "blocks.3.temporal_norm.bias"
+          ],
+          "parameter_tensor_count": 40
+        },
+        "total_parameter_count": 172610
+      },
+      "restriction_validation": {
+        "audit": "selected_model_label_free_homogeneous_restriction",
+        "case_count": 4,
+        "case_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "contract_checks": {
+          "alpha_is_finite": true,
+          "alpha_lateral_invariance_score": true,
+          "alpha_maximum_lateral_range": true,
+          "source_input_shape_is_canonical": true,
+          "source_teacher_predictions_absent": true,
+          "target_labels_absent": true,
+          "target_suffix_is_exact_zero": true,
+          "temperature_is_finite": true,
+          "temperature_lateral_invariance_score": true,
+          "temperature_maximum_lateral_range": true
+        },
+        "fields": {
+          "alpha": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 4.6442917067679446e-08,
+            "maximum_lateral_range": 1.7881393432617188e-07,
+            "mean_lateral_range": 1.8869064533078017e-08
+          },
+          "temperature": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 9.359565211752852e-08,
+            "maximum_lateral_range": 1.1920928955078125e-07,
+            "mean_lateral_range": 3.969860529196012e-08
+          }
+        },
+        "nx": 40,
+        "passed": true,
+        "provenance": {
+          "source_teacher_predictions_used": false,
+          "target_labels_used": false
+        },
+        "schema_version": 1,
+        "selection": "first_frozen_source_train_cases_in_manifest_order",
+        "source_input_shape": [
+          4,
+          112,
+          51,
+          14
+        ],
+        "target_input_shape": [
+          4,
+          112,
+          51,
+          40,
+          20
+        ],
+        "threshold_note": "Thresholds were frozen in the pilot YAML and protocol before either target method trained.",
+        "thresholds": {
+          "lateral_invariance_score_max": 1e-06,
+          "maximum_lateral_range_max": 1e-05
+        }
+      },
+      "run_id": "p5-rp-ffno-scratch-budget16-seed0",
+      "seed": 0,
+      "selection": {
+        "best_validation_objective": 0.4423637720756233,
+        "objective": "temperature_relL2_plus_alpha_relL2_plus_xz_gradient",
+        "selected_epoch": 119,
+        "split": "validation",
+        "target_test_or_ood_labels_used": false
+      },
+      "target_label_access_audit": {
+        "id_test": [],
+        "ood": [],
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "validation": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287
+        ]
+      },
+      "training": {
+        "all_session_wall_seconds": 531.2342943000258,
+        "configured_epochs": 120,
+        "device": "cuda:0",
+        "effective_batch_size": 4,
+        "executed_epochs": 120,
+        "gradient_accumulation_steps": 2,
+        "micro_batch_size": 2,
+        "mixed_precision": false,
+        "optimizer": "AdamW",
+        "peak_accelerator_memory_bytes": 6257862144,
+        "peak_python_tracemalloc_bytes": 764485813,
+        "scheduler": "CosineAnnealingLR",
+        "stopped_early": false,
+        "summed_epoch_seconds": 509.3962707000901
+      },
+      "validation_metrics_recomputed": {
+        "alpha_mae_composite_max": 0.1053440123796463,
+        "alpha_mae_composite_mean": 0.05873242823872715,
+        "alpha_mae_composite_median": 0.05614648573100567,
+        "alpha_relative_l2_composite_max": 0.23252081871032715,
+        "alpha_relative_l2_composite_mean": 0.14766191272065043,
+        "alpha_relative_l2_composite_median": 0.1356462463736534,
+        "case_count": 32,
+        "maximum_lateral_gradient_error_K_per_m_max": 501.2329101562499,
+        "maximum_lateral_gradient_error_K_per_m_mean": 184.59434509277338,
+        "maximum_lateral_gradient_error_K_per_m_median": 203.4973144531249,
+        "peak_temperature_absolute_error_K_max": 3.211700439453125,
+        "peak_temperature_absolute_error_K_mean": 1.4528017044067383,
+        "peak_temperature_absolute_error_K_median": 1.27197265625,
+        "temperature_gradient_x_relative_l2_max": 2788080526118653.0,
+        "temperature_gradient_x_relative_l2_mean": 259460555568314.4,
+        "temperature_gradient_x_relative_l2_median": 0.8818078673539174,
+        "temperature_gradient_z_relative_l2_max": 0.196078388779974,
+        "temperature_gradient_z_relative_l2_mean": 0.09865413570656749,
+        "temperature_gradient_z_relative_l2_median": 0.09761868622947825,
+        "temperature_linf_K_composite_max": 20.886810302734375,
+        "temperature_linf_K_composite_mean": 7.148886680603027,
+        "temperature_linf_K_composite_median": 4.7228546142578125,
+        "temperature_mae_K_composite_max": 2.149649143218994,
+        "temperature_mae_K_composite_mean": 0.832944150082767,
+        "temperature_mae_K_composite_median": 0.5962015688419342,
+        "temperature_relative_l2_K_composite_max": 0.007852556183934212,
+        "temperature_relative_l2_K_composite_mean": 0.0030820151969237486,
+        "temperature_relative_l2_K_composite_median": 0.0021764180855825543,
+        "temperature_rmse_K_composite_max": 3.4228789806365967,
+        "temperature_rmse_K_composite_mean": 1.264381144195795,
+        "temperature_rmse_K_composite_median": 0.8964842855930328
+      }
+    },
+    "scratch_ffno_budget_8": {
+      "auditable_artifacts": {
+        "history": {
+          "bytes": 30327,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/history.parquet",
+          "sha256": "eaf78feec53dafb3e52adc141b27c174b8531318b9c9d55a0422285081ab107b"
+        },
+        "restriction_validation": {
+          "bytes": 1869,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/restriction_validation.json",
+          "sha256": "3b8178ea7f6570739fdd3216c7d04270476c9bb91bf3e97d066f36c7770c6809"
+        },
+        "validation_metrics_per_case": {
+          "bytes": 11650,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/metrics_per_case_validation.parquet",
+          "sha256": "adc8ae0cd0ab5e23f64cf89829fe862a1a201839e46e0691e74005f830062d32"
+        },
+        "validation_predictions": {
+          "bytes": 57100224,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/predictions/validation_best.npz",
+          "sha256": "6ed5417edf6dfc8af83feb69cd4af859db35bc358f97f26085de12470c9afc19"
+        }
+      },
+      "checkpoints": {
+        "best": {
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/checkpoints/best.pt",
+          "selected_epoch": 117,
+          "sha256": "b8ca9854fb2da173504fff994d18d19127ea52fbac7c41d3d0dc5a4cb9b218ea"
+        },
+        "last": {
+          "epoch": 120,
+          "path": "outputs/runs/p5-rp-ffno-scratch-budget8-seed0/checkpoints/last.pt",
+          "sha256": "fd7f697c1c963999f8d6a505617ba3a1009c581a14c28e26af06e3a996025110"
+        }
+      },
+      "config_resolved_sha256": "e228b6bc97260f2452156fdaa951bd01760248c3a26b2ba0398e38c0754c3749",
+      "git_sha": "7bbceb2dc78782f7ad00d174e0e11227cff442a2",
+      "implementation_sha256": "65ed1e956118e0cdf6ab2dff892c7bd44224316f297ecc59a91538cf015df6a0",
+      "initialization": {
+        "architecture_specific_lateral_zero_residual_preserved": true,
+        "deterministic_seed": 0,
+        "inflated_checkpoint_weights_loaded": false,
+        "initial_state_sha256": "5359528e73024c36f7077f3fbad51d517b2d11a134c1354d8af58fb5afd1d758",
+        "method": "scratch_ffno",
+        "source_checkpoint_weights_loaded": false,
+        "trainability": {
+          "frozen_parameters": 0,
+          "stage": "T2",
+          "total_parameters": 172610,
+          "trainable_parameters": 172610
+        }
+      },
+      "input_checksums": {
+        "declared_experiment_config": {
+          "bytes": 2742,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/experiment/p5_rp_ffno_pilot_v1.yaml",
+          "sha256": "959a161372efcd8f0bd60d4116fe9d2990569f14eac3eadddcd1bbe05c344f40"
+        },
+        "inflated_checkpoint": {
+          "bytes": 1370838,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/checkpoints/p5_inflated_source.pt",
+          "sha256": "b66918640ddd80bbfccfd0d16c3557155ef26cb415bf280ba965c94d9f2264f0"
+        },
+        "source_checkpoint": {
+          "bytes": 1246553,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/outputs/runs/p3-source-factorized-v4-seed0/best.pt",
+          "sha256": "82d7a497f99a884f2b08eeac799fd7e7ab6391309d3e3037864ecddd8fa3f5f6"
+        },
+        "source_virtual_input_data": {
+          "bytes": 56653493,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/data/processed/p3_source_1d_v3.npz",
+          "sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa"
+        },
+        "source_virtual_input_split": {
+          "bytes": 5876,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/p3_source_1d_v3.json",
+          "sha256": "9b06a09734ac04eb5b835948421b07b1db9244f5248841c39d8621b5a42f188c"
+        },
+        "target_id_manifest": {
+          "bytes": 41320,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/splits/2d_id_v1.json",
+          "sha256": "0628acabce004df2d9d3bb1ac6928e2439dfdbc636575e52ffb1afd9103417f0"
+        },
+        "target_model_config": {
+          "bytes": 2025,
+          "path": "C:/Codex Research/202607 CD-CureNo/CD-CureNO/configs/model/cdcureno_2d.yaml",
+          "sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f"
+        }
+      },
+      "label_budget": 8,
+      "loss_weights": {
+        "alpha_relative_l2": 0.5,
+        "gradient_x_relative_l2": 0.05,
+        "gradient_z_relative_l2": 0.05,
+        "homogeneous_lateral_invariance": 0.1,
+        "temperature_relative_l2": 1.0
+      },
+      "method": "scratch_ffno",
+      "metrics_sha256": "81e8dde9ad45797f5c61a2b5dcfb9d77b6d3ffe288a9d1e8e5968749931740aa",
+      "model": {
+        "axis_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "channel"
+        ],
+        "causal": false,
+        "channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure",
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "config_sha256": "6fb813d5d90e6868f132de1d4c6041b3e2d434bdc954ede4408ce30183dc8c7f",
+        "depth": 4,
+        "family": "axis_factorized_2d",
+        "input_channels": 20,
+        "lateral_rank": 4,
+        "modes_time": 24,
+        "modes_x": 12,
+        "modes_z": 12,
+        "new_channel_names": [
+          "heterogeneity_gated_in_plane_position_normalized",
+          "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+          "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+          "top_htc_anomaly_normalized",
+          "edge_htc_boundary_map_normalized",
+          "lateral_conductivity_scale_delta_normalized"
+        ],
+        "output_order": [
+          "batch",
+          "time",
+          "z",
+          "x",
+          "field"
+        ],
+        "parameter_count": 172610,
+        "source_channel_names": [
+          "air_temperature_normalized",
+          "causal_physics_temperature_baseline_normalized",
+          "time_normalized",
+          "through_thickness_position_normalized",
+          "composite_mask",
+          "signed_distance_to_interface_normalized",
+          "initial_degree_of_cure",
+          "tool_thickness_normalized",
+          "composite_thickness_normalized",
+          "lower_htc_normalized",
+          "upper_htc_normalized",
+          "composite_conductivity_scale_normalized",
+          "heat_of_reaction_scale_normalized",
+          "low_fidelity_degree_of_cure"
+        ],
+        "temporal_family": "spectral_noncausal",
+        "trainable_parameter_count": 172610,
+        "transfer_stage": "T2",
+        "width": 32
+      },
+      "parameter_groups": {
+        "adapter": {
+          "initial_learning_rate": 0.001,
+          "lr_ratio": 1.0,
+          "parameter_count": 12480,
+          "parameter_names": [
+            "lift.geometry.weight",
+            "blocks.0.lateral.input_factor",
+            "blocks.0.lateral.output_factor",
+            "blocks.1.lateral.input_factor",
+            "blocks.1.lateral.output_factor",
+            "blocks.2.lateral.input_factor",
+            "blocks.2.lateral.output_factor",
+            "blocks.3.lateral.input_factor",
+            "blocks.3.lateral.output_factor"
+          ],
+          "parameter_tensor_count": 9
+        },
+        "lift_and_heads": {
+          "initial_learning_rate": 0.0005,
+          "lr_ratio": 0.5,
+          "parameter_count": 3714,
+          "parameter_names": [
+            "lift.shared.weight",
+            "lift.shared.bias",
+            "lift.projection.weight",
+            "lift.projection.bias",
+            "head.temperature_residual.0.weight",
+            "head.temperature_residual.0.bias",
+            "head.temperature_residual.2.weight",
+            "head.temperature_residual.2.bias",
+            "head.cure_rate.0.weight",
+            "head.cure_rate.0.bias",
+            "head.cure_rate.2.weight",
+            "head.cure_rate.2.bias"
+          ],
+          "parameter_tensor_count": 12
+        },
+        "shared_core": {
+          "initial_learning_rate": 0.0001,
+          "lr_ratio": 0.1,
+          "parameter_count": 156416,
+          "parameter_names": [
+            "blocks.0.spatial.weight",
+            "blocks.0.temporal.weight",
+            "blocks.0.spatial_local.weight",
+            "blocks.0.spatial_local.bias",
+            "blocks.0.temporal_local.weight",
+            "blocks.0.temporal_local.bias",
+            "blocks.0.spatial_norm.weight",
+            "blocks.0.spatial_norm.bias",
+            "blocks.0.temporal_norm.weight",
+            "blocks.0.temporal_norm.bias",
+            "blocks.1.spatial.weight",
+            "blocks.1.temporal.weight",
+            "blocks.1.spatial_local.weight",
+            "blocks.1.spatial_local.bias",
+            "blocks.1.temporal_local.weight",
+            "blocks.1.temporal_local.bias",
+            "blocks.1.spatial_norm.weight",
+            "blocks.1.spatial_norm.bias",
+            "blocks.1.temporal_norm.weight",
+            "blocks.1.temporal_norm.bias",
+            "blocks.2.spatial.weight",
+            "blocks.2.temporal.weight",
+            "blocks.2.spatial_local.weight",
+            "blocks.2.spatial_local.bias",
+            "blocks.2.temporal_local.weight",
+            "blocks.2.temporal_local.bias",
+            "blocks.2.spatial_norm.weight",
+            "blocks.2.spatial_norm.bias",
+            "blocks.2.temporal_norm.weight",
+            "blocks.2.temporal_norm.bias",
+            "blocks.3.spatial.weight",
+            "blocks.3.temporal.weight",
+            "blocks.3.spatial_local.weight",
+            "blocks.3.spatial_local.bias",
+            "blocks.3.temporal_local.weight",
+            "blocks.3.temporal_local.bias",
+            "blocks.3.spatial_norm.weight",
+            "blocks.3.spatial_norm.bias",
+            "blocks.3.temporal_norm.weight",
+            "blocks.3.temporal_norm.bias"
+          ],
+          "parameter_tensor_count": 40
+        },
+        "total_parameter_count": 172610
+      },
+      "restriction_validation": {
+        "audit": "selected_model_label_free_homogeneous_restriction",
+        "case_count": 4,
+        "case_ids": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "contract_checks": {
+          "alpha_is_finite": true,
+          "alpha_lateral_invariance_score": true,
+          "alpha_maximum_lateral_range": true,
+          "source_input_shape_is_canonical": true,
+          "source_teacher_predictions_absent": true,
+          "target_labels_absent": true,
+          "target_suffix_is_exact_zero": true,
+          "temperature_is_finite": true,
+          "temperature_lateral_invariance_score": true,
+          "temperature_maximum_lateral_range": true
+        },
+        "fields": {
+          "alpha": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 5.782222345374066e-08,
+            "maximum_lateral_range": 1.7881393432617188e-07,
+            "mean_lateral_range": 2.1548247630676087e-08
+          },
+          "temperature": {
+            "checks": {
+              "lateral_invariance_score": true,
+              "maximum_lateral_range": true
+            },
+            "finite": true,
+            "lateral_invariance_score": 1.1081391448897193e-07,
+            "maximum_lateral_range": 1.1920928955078125e-07,
+            "mean_lateral_range": 5.400366731578288e-08
+          }
+        },
+        "nx": 40,
+        "passed": true,
+        "provenance": {
+          "source_teacher_predictions_used": false,
+          "target_labels_used": false
+        },
+        "schema_version": 1,
+        "selection": "first_frozen_source_train_cases_in_manifest_order",
+        "source_input_shape": [
+          4,
+          112,
+          51,
+          14
+        ],
+        "target_input_shape": [
+          4,
+          112,
+          51,
+          40,
+          20
+        ],
+        "threshold_note": "Thresholds were frozen in the pilot YAML and protocol before either target method trained.",
+        "thresholds": {
+          "lateral_invariance_score_max": 1e-06,
+          "maximum_lateral_range_max": 1e-05
+        }
+      },
+      "run_id": "p5-rp-ffno-scratch-budget8-seed0",
+      "seed": 0,
+      "selection": {
+        "best_validation_objective": 0.586439854465425,
+        "objective": "temperature_relL2_plus_alpha_relL2_plus_xz_gradient",
+        "selected_epoch": 117,
+        "split": "validation",
+        "target_test_or_ood_labels_used": false
+      },
+      "target_label_access_audit": {
+        "id_test": [],
+        "ood": [],
+        "train": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7
+        ],
+        "validation": [
+          256,
+          257,
+          258,
+          259,
+          260,
+          261,
+          262,
+          263,
+          264,
+          265,
+          266,
+          267,
+          268,
+          269,
+          270,
+          271,
+          272,
+          273,
+          274,
+          275,
+          276,
+          277,
+          278,
+          279,
+          280,
+          281,
+          282,
+          283,
+          284,
+          285,
+          286,
+          287
+        ]
+      },
+      "training": {
+        "all_session_wall_seconds": 393.11525309999706,
+        "configured_epochs": 120,
+        "device": "cuda:0",
+        "effective_batch_size": 4,
+        "executed_epochs": 120,
+        "gradient_accumulation_steps": 2,
+        "micro_batch_size": 2,
+        "mixed_precision": false,
+        "optimizer": "AdamW",
+        "peak_accelerator_memory_bytes": 6257862144,
+        "peak_python_tracemalloc_bytes": 764423418,
+        "scheduler": "CosineAnnealingLR",
+        "stopped_early": false,
+        "summed_epoch_seconds": 371.30572580039734
+      },
+      "validation_metrics_recomputed": {
+        "alpha_mae_composite_max": 0.2056066244840622,
+        "alpha_mae_composite_mean": 0.13676615268923342,
+        "alpha_mae_composite_median": 0.133040152490139,
+        "alpha_relative_l2_composite_max": 0.3812108039855957,
+        "alpha_relative_l2_composite_mean": 0.2882317937910557,
+        "alpha_relative_l2_composite_median": 0.28771282732486725,
+        "case_count": 32,
+        "maximum_lateral_gradient_error_K_per_m_max": 467.3645019531249,
+        "maximum_lateral_gradient_error_K_per_m_mean": 190.02075195312494,
+        "maximum_lateral_gradient_error_K_per_m_median": 213.03710937499994,
+        "peak_temperature_absolute_error_K_max": 3.74371337890625,
+        "peak_temperature_absolute_error_K_mean": 1.3066787719726562,
+        "peak_temperature_absolute_error_K_median": 1.1576080322265625,
+        "temperature_gradient_x_relative_l2_max": 3234695189467566.5,
+        "temperature_gradient_x_relative_l2_mean": 298047878468572.56,
+        "temperature_gradient_x_relative_l2_median": 1.0136885986341615,
+        "temperature_gradient_z_relative_l2_max": 0.2070310587192804,
+        "temperature_gradient_z_relative_l2_mean": 0.10620601509993233,
+        "temperature_gradient_z_relative_l2_median": 0.10338778971693546,
+        "temperature_linf_K_composite_max": 19.871612548828125,
+        "temperature_linf_K_composite_mean": 7.422582626342773,
+        "temperature_linf_K_composite_median": 4.7622222900390625,
+        "temperature_mae_K_composite_max": 2.648073196411133,
+        "temperature_mae_K_composite_mean": 1.14406618475914,
+        "temperature_mae_K_composite_median": 1.0326123237609863,
+        "temperature_relative_l2_K_composite_max": 0.008350500836968422,
+        "temperature_relative_l2_K_composite_mean": 0.0037827770865987986,
+        "temperature_relative_l2_K_composite_median": 0.0031318169785663486,
+        "temperature_rmse_K_composite_max": 3.32013201713562,
+        "temperature_rmse_K_composite_mean": 1.5500881671905518,
+        "temperature_rmse_K_composite_median": 1.286618947982788
+      }
+    }
+  },
+  "schema_version": 2,
+  "scope": "one_seed_validation_only_stage_gate",
+  "uses_target_id_test_or_ood_labels": false
+}

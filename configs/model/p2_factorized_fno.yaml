@@ -1,0 +1,8 @@
+name: factorized_fno
+input_channels: 7
+width: 32
+depth: 4
+modes_time: 16
+modes_space: 12
+axis_order: [batch, time, through_thickness_position, channel]
+causal: false

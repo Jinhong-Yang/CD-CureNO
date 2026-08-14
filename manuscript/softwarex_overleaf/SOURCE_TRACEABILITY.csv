@@ -1,0 +1,17 @@
+claim_id,manuscript_location,value_or_statement,source_path,source_locator,scope_note
+software.version,metadata C1,"v0.0.1; public tag v0.0.1",pyproject.toml and Git,/project/version and tag,Structural only
+p0.public_shape,Table 4 P0-P1,"200 cycles; 51 positions; 223 times",outputs/audit/data_shapes.json,Case1 arrays,Public Case1 audit
+p0.legacy_defects,Impact,"nine defects regression-tested",KNOWN_ISSUES.md,L1-L9,Software audit result
+p1.legacy_parameter_count,Illustrative examples,"15,076,467",outputs/tables/p2_extended_seed0_summary.json,/p1_reference/total_parameter_count,Aggregate of 51 independent models
+p2.factorized,Illustrative examples and Table 4,"198,282 parameters; temperature relL2 0.0011923816",outputs/tables/p2_extended_seed0_runs.csv,run_id=p2extended200-factorized-w40d4-seed0-bbdc829,Seed-0 descriptive
+p2.causal,Illustrative examples and Table 4,"225,162 parameters; temperature relL2 0.0013100097",outputs/tables/p2_extended_seed0_runs.csv,run_id=p2extended200-causal-w40d8-seed0-8ae6702,Seed-0 descriptive
+p2.causality,Illustrative examples,"zero prefix change",outputs/tables/p2extended200-causal-w40d8-seed0-8ae6702_causality.json,/aggregate,Fixed cases/cutoffs; descriptive
+p3.public_solver,Table 4,"temperature relL2 0.0011432268; global energy residual 5.3037571e-13",outputs/tables/p3_gate_summary.json,/solver/public_case_validation,200 public cases
+p4.dataset,Illustrative examples and Table 4,"512 cases; shape [512,112,50,40]; zero failures",outputs/tables/p4_gate_summary.json,/dataset,Canonical generated benchmark
+p4.energy,Illustrative examples,"maximum relative global energy residual 1.3448985e-12",outputs/tables/p4_gate_summary.json,/dataset/maximum_relative_global_energy_residual,Canonical benchmark
+p4.replay,Illustrative examples,"11 selected cases reproduced float32 slice hashes",analysis/p4_validation.md,/Deterministic replay,Plan-metadata selection
+p5.causal_mapping,Illustrative examples,"100 copied tensors; 17 initialized tensors; 117 recreated",outputs/tables/p5_causal_restriction_gate.json,/checkpoint_integrity,Causal target initialization
+p5.restriction,Illustrative examples,"temperature RVS 3.3319429e-8; LIS 1.7551875e-8",outputs/tables/p5_causal_restriction_gate.json,/actual_p4_validation_f0/fields/temperature,Label-free homogeneous input
+p5.future_invariance,Illustrative examples,"maximum prefix absolute difference 0",outputs/tables/p5_causal_restriction_gate.json,/actual_validation_future_invariance,Three cutoffs/four outputs/all 20 channels
+p5.pilot,Table 4,"passed at budgets 8 and 16",outputs/tables/p5_rp_ffno_pilot_gate.json,/decision,One-seed validation-only gate
+template.requirements,metadata and structure,"SoftwareX template v6 March 2026; C1-C8; five mandatory sections; 4000 words; <=6 figures",https://legacyfileshare.elsevier.com/promis_misc/softwarex-osp-template.docx,template paragraphs and metadata table,Publisher template

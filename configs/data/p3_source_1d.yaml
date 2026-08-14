@@ -1,0 +1,39 @@
+schema_version: 1
+dataset_id: p3_source_1d_v1
+seed: 20260723
+case_count_per_family: 100
+families:
+  training:
+    - single_hold
+    - two_hold
+  held_out:
+    - smart_cure
+    - three_hold
+split_within_training_families:
+  train_per_family: 80
+  validation_per_family: 10
+  in_family_test_per_family: 10
+time:
+  initial_K: 293.0
+  duration_s: 13320.0
+  output_interval_s: 60.0
+space:
+  solver_spacing_m: 0.001
+  resampled_position_count: 51
+conditioning_ranges:
+  tool_thickness_m: [0.010, 0.040]
+  composite_thickness_m: [0.010, 0.040]
+  lower_htc_W_per_m2_K: [40.0, 100.0]
+  upper_htc_W_per_m2_K: [80.0, 160.0]
+  composite_conductivity_scale: [0.8, 1.2]
+  heat_of_reaction_scale: [0.9, 1.1]
+solver:
+  maximum_step_s: 20.0
+  maximum_coupling_iterations: 16
+  energy_tolerance:
+    maximum_abs_residual_W_per_m3: 1.0e-4
+    maximum_relative_global_residual: 1.0e-8
+outputs:
+  array_artifact: data/processed/p3_source_1d_v1.npz
+  manifest: splits/p3_source_1d_v1.json
+  summary: outputs/tables/p3_source_1d_generation.json

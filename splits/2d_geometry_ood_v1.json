@@ -1,0 +1,23 @@
+{
+  "case_ids": [],
+  "dataset_array_sha256": {
+    "air_temperature_K": "9b63fdaedbe3c598d47645567cbfc61c7ab38c67b332a836c71463c844f4d270",
+    "alpha": "229162bce49c3e5b108b7e9f5b279c90be64605ca9f385f83435a280061f6f06",
+    "composite_mask": "023bf5c66343c9212f9f04203ee09e4e9d1a3bdbc412364eedc41f49fd976af3",
+    "temperature_K": "2a6aa1f75ee91041e296522649c57f94d5225ffb60a9a07c50899e1b0619e18b",
+    "time_s": "b193db76ab3e4833ca0ba0c250ab9a34f857a57b0847c7b80d9c4f8e6b620762",
+    "top_h_W_m2_K": "19dd34d37de9faef1348d6f47346e5d8a172bec32195e9bcb6caa596223a0ac8",
+    "x_m": "3889c82360e38e5ae507d634b5258f8e4bc4d29bc276b215953eeae3cdba0854",
+    "z_m": "0e70b3ed41ee2c76017f6182c3bb557a4aca5169d52051acf7d07cba68ac702d"
+  },
+  "dataset_id": "p4_2d_core_v1",
+  "dataset_metadata_sha256": "239f5ba04af79bc7819f3e6f9b90a6dfe5bcbe69139bddc29b5d290bebc42a7c",
+  "dataset_plan_sha256": "a97511e192450a11d3af3c966bae3fd26523b3eb12b8df5728ca49b25d55b0bb",
+  "phase": "P4",
+  "reason": "P4 is pre-registered for F0--F2 only; geometry OOD begins after stable variable-geometry F3 generation.",
+  "role": "geometry_ood",
+  "schema_version": 2,
+  "source_manifest": "splits/p4_2d_core_v1.json",
+  "source_manifest_sha256": "983ced5f4bcb8bfb06de88b6f17ad46dccd479932e1ae18b942e693957dbd445",
+  "status": "deferred_until_F3"
+}

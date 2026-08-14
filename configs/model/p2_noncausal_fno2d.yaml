@@ -1,0 +1,8 @@
+name: noncausal_fno2d
+input_channels: 7
+width: 24
+depth: 4
+modes_time: 16
+modes_space: 12
+axis_order: [batch, time, through_thickness_position, channel]
+causal: false

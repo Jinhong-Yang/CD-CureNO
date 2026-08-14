@@ -1,0 +1,27 @@
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Runtime and training artifacts are not part of the source release.
+data/raw/
+data/processed/
+outputs/runs/
+outputs/logs/
+outputs/checkpoints/
+tmp/
+*.pt
+*.pth
+*.ckpt
+*.log
+
+# LaTeX auxiliaries.
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.spl

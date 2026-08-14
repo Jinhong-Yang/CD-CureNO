@@ -1,0 +1,39 @@
+schema_version: 1
+phase: P3
+experiment: source_factorized_cdcureno
+seed: 0
+data:
+  path: data/processed/p3_source_1d_v1.npz
+  split_manifest: splits/p3_source_1d_v1.json
+  time_stride: 2
+  input_channels: 13
+model:
+  family: factorized_fno
+  width: 24
+  depth: 3
+  modes_time: 12
+  modes_space: 10
+training:
+  epochs: 80
+  minimum_epochs: 40
+  early_stopping_patience: 20
+  batch_size: 4
+  optimizer: AdamW
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  loss_weights:
+    temperature: 1.0
+    alpha: 0.5
+    spatial_gradient: 0.1
+  gradient_clip: 1.0
+  device: cpu
+  num_threads: 8
+acceptance:
+  in_family_temperature_relative_l2_mean_max: 5.0e-3
+  held_out_temperature_relative_l2_mean_max: 1.0e-2
+  held_out_each_family_temperature_relative_l2_mean_max: 1.25e-2
+  held_out_alpha_relative_l2_mean_max: 1.2e-1
+  held_out_temperature_linf_K_max: 20.0
+  alpha_bound_violation_count_max: 0
+  alpha_monotonicity_violation_count_max: 0

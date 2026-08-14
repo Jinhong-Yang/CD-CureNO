@@ -1,0 +1,141 @@
+schema_version: 2
+phase: P4
+dataset_version: v1
+dataset_family: public_anchored_open_2d_thermochemical_benchmark
+seed: 20260723
+geometry:
+  width_m: 0.20
+  tool_thickness_m: 0.020
+  composite_thickness_m: 0.030
+material:
+  composite_system: AS4_8552
+  layup: unidirectional_fibres_along_x
+  conductivity_reference_temperature_K: 293.15
+  composite_base_conductivity_x_W_m_K: 4.6724
+  composite_base_conductivity_z_W_m_K: 0.6369803
+  conductivity_x_source: Johnston_1997_Fig_6_5_kc11_at_293_15K
+  conductivity_z_source: public_Springer_Tsai_anchor
+time:
+  duration_s: 13320.0
+  output_interval_s: 120.0
+tiers:
+  debug:
+    role: historical_exploratory
+    generation_enabled: false
+    case_count: 8
+    spacing_x_m: 0.020
+    spacing_z_m: 0.005
+    maximum_step_s: 30.0
+    split_counts:
+      debug: 8
+    nested_training_budgets: []
+  pilot:
+    role: historical_exploratory
+    generation_enabled: false
+    case_count: 64
+    spacing_x_m: 0.010
+    spacing_z_m: 0.0025
+    maximum_step_s: 20.0
+    split_counts:
+      train: 40
+      validation: 8
+      id_test: 8
+      htc_ood: 4
+      pattern_ood: 4
+    nested_training_budgets: []
+  core:
+    role: canonical
+    generation_enabled: true
+    case_count: 512
+    spacing_x_m: 0.005
+    spacing_z_m: 0.001
+    maximum_step_s: 10.0
+    split_counts:
+      train: 256
+      validation: 32
+      id_test: 64
+      cycle_ood: 40
+      htc_ood: 40
+      pattern_ood: 40
+      combined_ood: 40
+    nested_training_budgets: [8, 16, 32, 64, 128, 256]
+families:
+  F0: exact_extrusion_anchor
+  F1_smooth: spatially_varying_smooth_top_htc
+  F1_piecewise: spatially_varying_piecewise_top_htc
+  F2_left: one_sided_edge_convection
+  F2_both: asymmetric_two_sided_edge_convection
+  F1_F2_combined: combined_pattern_and_edge_ood_only
+sampling:
+  design: scrambled_sobol
+  # Every named coordinate has one exclusive Sobol dimension. In particular,
+  # cycle parameters are not reused for spatial-family or HTC selection.
+  dimensions:
+    - cycle_family_selector
+    - cycle_p0
+    - cycle_p1
+    - cycle_p2
+    - cycle_p3
+    - cycle_p4
+    - cycle_p5
+    - cycle_p6
+    - cycle_p7
+    - cycle_p8
+    - difficulty_selector
+    - difficulty_variant
+    - bottom_htc
+    - top_htc_center
+    - top_htc_amplitude
+    - top_htc_frequency
+    - top_htc_phase
+    - edge_htc
+    - edge_asymmetry
+    - conductivity_scale
+    - reaction_enthalpy_scale
+  category_thresholds:
+    id_single_hold_fraction: 0.35
+    ood_smart_cure_fraction: 0.50
+    f0_fraction: 0.10
+    f1_upper_fraction: 0.55
+  ranges:
+    id:
+      bottom_h_W_m2_K: [45.0, 95.0]
+      top_h_center_W_m2_K: [90.0, 145.0]
+      top_h_amplitude_W_m2_K: [8.0, 25.0]
+      edge_h_W_m2_K: [10.0, 55.0]
+      top_h_frequencies_per_width: [1, 2]
+    ood:
+      bottom_h_W_m2_K: [95.0, 115.0]
+      top_h_center_W_m2_K: [155.0, 175.0]
+      top_h_amplitude_W_m2_K: [25.0, 40.0]
+      edge_h_W_m2_K: [75.0, 100.0]
+      top_h_frequencies_per_width: [3, 4]
+    common:
+      # Applied to both axes while preserving the sourced anisotropy ratio.
+      composite_conductivity_scale: [0.85, 1.15]
+      reaction_enthalpy_scale: [0.90, 1.10]
+  parameter_rationale: references/parameter_range_rationale.md
+solver:
+  coupling_tolerance_K: 1.0e-9
+  maximum_coupling_iterations: 16
+storage:
+  format: directory_of_npy_arrays_plus_jsonl_metadata
+  canonical_order: "[case,time,z,x]"
+  root: data/processed/p4_2d_{tier}_v1
+  dtype: float32
+  minimum_free_disk_bytes: 536870912
+  minimum_free_memory_bytes: 1073741824
+  maximum_in_flight_per_worker: 2
+acceptance:
+  maximum_abs_energy_residual_W_m3_max: 1.0e-4
+  maximum_relative_global_energy_residual_max: 1.0e-8
+  maximum_interface_flux_imbalance_W_max: 1.0e-9
+  maximum_temperature_interface_jump_K_max: 1.0e-10
+  maximum_robin_flux_imbalance_W_max: 1.0e-9
+  maximum_converged_coupling_update_K_max: 1.0e-9
+  alpha_bound_violation_count_max: 0
+  alpha_monotonicity_violation_count_max: 0
+  tool_alpha_nonzero_count_max: 0
+  finite_field_required: true
+  all_coupling_steps_converged_required: true
+  silent_failure_count_max: 0

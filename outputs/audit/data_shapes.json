@@ -1,0 +1,219 @@
+{
+  "_validation": {
+    "case1_expected_shapes": {
+      "dataA": [
+        200,
+        51,
+        223
+      ],
+      "dataT": [
+        200,
+        51,
+        223
+      ],
+      "dataTair": [
+        200,
+        223
+      ]
+    },
+    "case1_observed_shapes": {
+      "dataA": [
+        200,
+        51,
+        223
+      ],
+      "dataT": [
+        200,
+        51,
+        223
+      ],
+      "dataTair": [
+        200,
+        223
+      ]
+    },
+    "passed": true
+  },
+  "data/Case1.mat": {
+    "arrays": {
+      "dataA": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 0.9513242692139152,
+        "minimum": 0.0,
+        "shape": [
+          200,
+          51,
+          223
+        ]
+      },
+      "dataT": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 522.0422777132437,
+        "minimum": 292.9999999999892,
+        "shape": [
+          200,
+          51,
+          223
+        ]
+      },
+      "dataTair": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 519.0,
+        "minimum": 293.0,
+        "shape": [
+          200,
+          223
+        ]
+      }
+    },
+    "bytes": 36750736,
+    "sha256": "5ec5d1a879bd4a398f856206008402c0a2f7abf92fb71f890fb753ff3e88f5a3"
+  },
+  "data/double_hold_200_HL.mat": {
+    "arrays": {
+      "dataA": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 1.0000094941171964,
+        "minimum": 0.0010033038651803643,
+        "shape": [
+          200,
+          21,
+          501
+        ]
+      },
+      "dataT": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 496.0402706701344,
+        "minimum": 292.99569966626484,
+        "shape": [
+          200,
+          21,
+          501
+        ]
+      },
+      "dataTair": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 492.0,
+        "minimum": 293.0,
+        "shape": [
+          200,
+          501
+        ]
+      }
+    },
+    "bytes": 34469136,
+    "sha256": "3a55c5a9155b7d9c79064f645f01ce0b675933dc1c173250aa610f8c49f7975b"
+  },
+  "logs/ResFNO_T_X0_loss_50.mat": {
+    "arrays": {
+      "deltaT": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 86.89663696289062,
+        "minimum": 5.781005859375,
+        "shape": [
+          1,
+          300
+        ]
+      },
+      "test_error": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 0.2747657251358032,
+        "minimum": 0.008873188992341359,
+        "shape": [
+          1,
+          300
+        ]
+      },
+      "train_error": {
+        "dtype": "float64",
+        "finite": true,
+        "maximum": 0.28702841758728026,
+        "minimum": 0.005614975467324257,
+        "shape": [
+          1,
+          300
+        ]
+      }
+    },
+    "bytes": 7536,
+    "sha256": "2adc340990a3d4d98f413b72a18fbfa8c441a272f54d0d020c0537b15b36b7f2"
+  },
+  "logs/ResFNO_T_X0_pre_50.mat": {
+    "arrays": {
+      "pre_test": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 517.24755859375,
+        "minimum": 290.9059753417969,
+        "shape": [
+          150,
+          223,
+          1
+        ]
+      },
+      "pre_train": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 512.2210083007812,
+        "minimum": 291.5624694824219,
+        "shape": [
+          50,
+          223,
+          1
+        ]
+      },
+      "x_test": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 519.0,
+        "minimum": 293.0,
+        "shape": [
+          150,
+          223,
+          1
+        ]
+      },
+      "x_train": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 516.0,
+        "minimum": 293.0,
+        "shape": [
+          50,
+          223,
+          1
+        ]
+      },
+      "y_test": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 517.220458984375,
+        "minimum": 293.0,
+        "shape": [
+          150,
+          223
+        ]
+      },
+      "y_train": {
+        "dtype": "float32",
+        "finite": true,
+        "maximum": 512.8671264648438,
+        "minimum": 293.0,
+        "shape": [
+          50,
+          223
+        ]
+      }
+    },
+    "bytes": 535752,
+    "sha256": "d210587c57e3197890f36051edf6386d83d5c9a0597748b7942e90ffc4670f64"
+  }
+}

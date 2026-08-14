@@ -1,0 +1,38 @@
+schema_version: 1
+phase: P3
+experiment: source_factorized_cdcureno_v3
+supersedes: p3_source_pretrain_v2.yaml
+change_reason: "v2 failed only the frozen held-out 20 K Linf criterion; v3 predicts a residual from a causal, label-free, zero-reaction conservative-conduction baseline."
+seed: 0
+data:
+  path: data/processed/p3_source_1d_v2.npz
+  split_manifest: splits/p3_source_1d_v2.json
+  time_stride: 2
+  input_channels: 13
+  thermochemical_labels_used_by_baseline: false
+model:
+  family: factorized_fno
+  width: 32
+  depth: 4
+  modes_time: 24
+  modes_space: 12
+training:
+  epochs: 120
+  minimum_epochs: 70
+  early_stopping_patience: 30
+  batch_size: 4
+  learning_rate: 1.0e-3
+  loss_weights:
+    temperature_relative_l2: 1.0
+    temperature_normalized_l4: 0.2
+    alpha_relative_l2: 0.5
+    spatial_gradient_relative_l2: 0.1
+acceptance:
+  inherited_unchanged_from_v1: true
+  in_family_temperature_relative_l2_mean_max: 5.0e-3
+  held_out_temperature_relative_l2_mean_max: 1.0e-2
+  held_out_each_family_temperature_relative_l2_mean_max: 1.25e-2
+  held_out_alpha_relative_l2_mean_max: 1.2e-1
+  held_out_temperature_linf_K_max: 20.0
+  alpha_bound_violation_count_max: 0
+  alpha_monotonicity_violation_count_max: 0

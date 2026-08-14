@@ -1,0 +1,26 @@
+schema_version: 1
+dataset_id: p3_source_1d_v3
+supersedes: p3_source_1d_v2
+change_reason: "Adds a label-free 16-interval/60-second low-fidelity thermochemical baseline. Fine labels, seed, families, parameters, and splits remain unchanged."
+seed: 20260723
+case_count_per_family: 100
+families:
+  training: [single_hold, two_hold]
+  held_out: [smart_cure, three_hold]
+low_fidelity_baseline:
+  governing_equations: same sourced thermochemical equations as the fine solver
+  spatial_interval_count: 16
+  maximum_step_s: 60.0
+  thermochemical_labels_used: false
+high_fidelity_labels:
+  solver_spacing_m: 0.001
+  maximum_step_s: 20.0
+time:
+  duration_s: 13320.0
+  output_interval_s: 60.0
+space:
+  resampled_position_count: 51
+outputs:
+  array_artifact: data/processed/p3_source_1d_v3.npz
+  manifest: splits/p3_source_1d_v3.json
+  summary: outputs/tables/p3_source_1d_v3_generation.json

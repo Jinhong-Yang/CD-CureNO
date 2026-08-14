@@ -1,0 +1,205 @@
+{
+  "artifact_role": "p6_v2_preheldout_sci_readiness_meta_gate",
+  "branch_policy": [
+    {
+      "action": "stop_analysis_and_manuscript_work_and_repair_integrity_only",
+      "condition": "G0_integrity_fails",
+      "state": "BLOCKED_INVALID"
+    },
+    {
+      "action": "preserve_the_negative_result_and_either_pivot_to_a_supported_physical_validity_claim_or_register_a_new_protocol_on_untouched_data",
+      "condition": "G0_passes_and_G1_central_evidence_fails",
+      "state": "PIVOT_OR_NOT_SCI_VIABLE_FOR_CURRENT_CLAIM"
+    },
+    {
+      "action": "narrow_to_full_system_performance_and_remove_unsupported_component_mechanism_claims",
+      "condition": "G0_and_G1_pass_but_G2_mechanism_or_comparator_coverage_is_partial",
+      "state": "CONDITIONAL_NARROW_CLAIM"
+    },
+    {
+      "action": "prepare_a_numerical_or_computational_methods_SCI_manuscript_with_explicit_external_validation_limits",
+      "condition": "G0_G1_G2_and_G4_pass_and_G3_is_context_only",
+      "state": "CORE_COMPUTATIONAL_SCI_CANDIDATE"
+    },
+    {
+      "action": "prepare_the_strongest_evidence_backed_SCI_manuscript_without_guaranteeing_acceptance",
+      "condition": "G0_G1_G2_G3_and_G4_pass",
+      "state": "STRONG_SCI_CANDIDATE"
+    }
+  ],
+  "claim_permissions": {
+    "component_mechanism_claims": "only_for_components_supported_by_registered_structural_and_ablation_evidence",
+    "data_efficiency_or_label_saving": "requires_G1_primary_support_and_lower_six_budget_log2_AUC_for_P_than_B7",
+    "external_validation": "requires_a_prelabel_compatible_quantitative_external_bundle",
+    "first_or_first_ever": "forbidden",
+    "primary_superiority": "requires_G1_all_checks",
+    "source_seed_generality": "descriptive_only_under_the_frozen_3_by_3_supplemental_design",
+    "state_of_the_art": "requires_superiority_to_the_strongest_faithful_registered_comparator_with_the_registered_multiplicity_control"
+  },
+  "current_assessment": {
+    "assessment_basis_commit": "32d2bb7292039d93b5fabf4536defbf703140576",
+    "execution_decision": "GO_CONTINUE",
+    "execution_scope": {
+      "allowed": "resume_and_complete_only_the_11_pending_rows_of_the_frozen_24_row_supplemental_v1_roster",
+      "completed_rows": 13,
+      "first_pending_row_index": 13,
+      "pending_rows": 11,
+      "prohibited": [
+        "change_primary_or_secondary_endpoints",
+        "change_thresholds_or_test_families",
+        "add_result_selected_methods_seeds_cases_or_retries",
+        "open_ID_test_or_OOD_labels_before_the_registered_release",
+        "treat_P5_validation_only_results_as_confirmatory_evidence"
+      ],
+      "recheck_immediately_before_launch": [
+        "no_live_python_worker_or_validator",
+        "no_live_supplemental_launcher_lock",
+        "frozen_execution_closure_matches_its_authority"
+      ]
+    },
+    "gate_A_checks": {
+      "frozen_protocol_and_statistical_plans": "PASS",
+      "frozen_run_population_and_comparator_plan": "PASS",
+      "no_empirical_claim_is_currently_approved": "PASS",
+      "single_writer_idle_boundary": "PASS_RECHECK_ON_LAUNCH",
+      "target_ID_test_and_OOD_labels_remain_sealed": "PASS",
+      "v7_transient_failure_recovery_is_audited_and_non_scientific": "PASS"
+    },
+    "publication_readiness_state": "PROMISING_INCOMPLETE",
+    "reason": "The design, preregistration, comparator coverage, leakage firewall, and statistical implementation support continued evidence collection, but confirmatory heldout outcomes and final reproduction evidence do not yet exist.",
+    "v7_recovery_event_sha256": "2db63fa6bfddeb717f0ae9a713072b95750a66333f8fe9ce4896bf99cb5fc8fd"
+  },
+  "gate_id": "p6v2-sci-readiness-v1",
+  "gates": [
+    {
+      "hard_checks": [
+        "protocol_and_statistical_plans_were_frozen_before_target_training_and_heldout_access",
+        "run_population_comparators_seeds_budgets_and_multiplicity_families_are_frozen",
+        "heldout_firewall_is_intact",
+        "execution_recovery_is_outcome_blind_and_preserves_failed_evidence",
+        "exact_frozen_campaign_can_resume_under_one_writer"
+      ],
+      "id": "A",
+      "name": "pre_execution_scientific_readiness",
+      "pass_action": "continue_exact_frozen_campaign_only",
+      "timing": "before_resuming_remaining_supplemental_training"
+    },
+    {
+      "hard_checks": [
+        "all_89_core_and_24_supplemental_target_rows_have_registered_terminal_outcomes",
+        "supplemental_postflight_passes_without_missing_or_duplicate_scientific_cells",
+        "committed_and_tracked_clean_stage1_and_stage2_release_receipts_exist",
+        "statistics_execution_gate_passes_for_the_exact_114_predictor_25536_case_row_population",
+        "no_primary_cell_is_dropped_imputed_or_selectively_retried",
+        "all_required_scientific_tests_and_leakage_checks_pass",
+        "fresh_clean_CPU_paper_bundle_reproduction_matches_all_bound_payload_hashes"
+      ],
+      "id": "G0",
+      "name": "integrity_and_reproducibility",
+      "timing": "after_release_before_interpretation"
+    },
+    {
+      "hard_checks": [
+        "core_primary.supportive_is_true_under_the_frozen_primary_definition",
+        "exact_two_sided_paired_sign_flip_p_value_is_below_0_05_as_corroborating_evidence",
+        "registered_standardized_effect_sizes_are_finite",
+        "all_primary_physics_and_numerical_guardrails_pass"
+      ],
+      "primary_supportive_checks": [
+        "bootstrap_ci_lower_above_zero",
+        "case_median_improvement_at_least_10_percent",
+        "peak_temperature_ratio_at_most_1_10",
+        "final_alpha_ratio_at_most_1_10",
+        "energy_residual_ratio_at_most_1_10",
+        "P_and_B7_zero_nonfinite_bound_monotonicity_violations"
+      ],
+      "id": "G1",
+      "name": "central_confirmatory_evidence",
+      "non_modification_note": "The exact-test and effect-size checks are an editorial SCI-readiness corroboration layer and do not redefine core_primary.supportive.",
+      "timing": "after_G0"
+    },
+    {
+      "hard_checks": [
+        "B5_B6_B7_and_clean_room_inspired_B8_B9_B10_are_complete_and_reported_with_fidelity_caveats",
+        "A0_through_A6_and_the_A7_alias_are_complete_and_reported",
+        "exact_inflation_restriction_RVS_LIS_and_CVS_evidence_supports_every_retained_structural_claim",
+        "conservative_physics_evidence_does_not_break_the_registered_field_guardrails",
+        "each_retained_component_mechanism_claim_has_a_directionally_supportive_registered_Holm_controlled_contrast",
+        "per_split_tail_and_source_seed_results_are_reported_without_upgrading_descriptive_analyses_to_confirmatory_claims"
+      ],
+      "id": "G2",
+      "name": "mechanism_robustness_and_comparator_coverage",
+      "timing": "after_G1"
+    },
+    {
+      "branches": {
+        "compatible_quantitative_external_bundle_passes": "PASS_VALIDATED",
+        "external_sources_are_frozen_context_only": "PASS_COMPUTATIONAL_SCOPE_ONLY",
+        "external_status_is_missing_or_posthoc_reclassified": "FAIL"
+      },
+      "id": "G3",
+      "name": "external_generalizability",
+      "timing": "P7"
+    },
+    {
+      "hard_checks": [
+        "novelty_matrix_is_refreshed_immediately_before_submission_against_current_closest_work",
+        "novelty_is_limited_to_the_combined_restriction_preserving_causal_conservative_transfer_framework",
+        "every_manuscript_number_and_panel_has_exact_run_ID_and_lineage_sidecar_traceability",
+        "baseline_names_distinguish_exact_reproductions_from_clean_room_inspired_controls",
+        "licenses_limitations_and_negative_results_are_explicit",
+        "all_final_claims_are_within_G1_G2_and_G3_permissions"
+      ],
+      "id": "G4",
+      "name": "novelty_claims_and_submission_package",
+      "timing": "immediately_before_manuscript_freeze_and_submission"
+    }
+  ],
+  "metric_hierarchy": {
+    "guardrails": [
+      "integrity_and_completeness",
+      "heldout_nonleakage",
+      "physics_and_numerical_safety",
+      "no_posthoc_retry_or_protocol_change",
+      "claim_traceability_and_reproducibility"
+    ],
+    "primary_outcomes": [
+      "central_confirmatory_evidence",
+      "mechanism_and_comparator_sufficiency",
+      "external_novelty_and_reproduction_readiness"
+    ],
+    "supporting_drivers": [
+      "six_budget_label_efficiency",
+      "registered_ablation_families",
+      "per_OOD_and_tail_robustness",
+      "source_seed_sensitivity",
+      "external_compatibility"
+    ]
+  },
+  "non_modification_contract": {
+    "adds_new_confirmatory_test_family": false,
+    "authorizes_heldout_access": false,
+    "authorizes_new_runs_or_retries": false,
+    "changes_primary_endpoint_estimand_or_supportive_rule": false,
+    "role": "editorial_and_program_management_meta_gate_only"
+  },
+  "outcome_blindness": {
+    "confirmatory_or_supplemental_heldout_values_present": false,
+    "ID_test_or_OOD_label_values_opened_hashed_or_indexed": false,
+    "result_selected_threshold_method_seed_or_case_present": false
+  },
+  "schema_version": 1,
+  "source_authorities": [
+    "AGENTS.md",
+    "analysis/p6_v2_protocol.md",
+    "analysis/p6_v2_supplemental_protocol_v1.md",
+    "analysis/statistical_analysis_plan.md",
+    "analysis/statistical_analysis_plan_p6_v2.md",
+    "analysis/statistical_analysis_plan_p6_v2_supplemental_v1.md",
+    "analysis/p6_v2_external_validation_contract_v1.json",
+    "literature/novelty_matrix.csv",
+    "manuscript/claims.md",
+    "KNOWN_ISSUES.md"
+  ],
+  "status": "frozen_preheldout_no_outcomes"
+}

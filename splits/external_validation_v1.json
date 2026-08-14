@@ -1,0 +1,8 @@
+{
+  "case_ids": [],
+  "phase": "P4",
+  "reason": "No external field case is silently assigned before P7.",
+  "role": "external_validation",
+  "schema_version": 1,
+  "status": "deferred_until_P7_compatibility_audit"
+}

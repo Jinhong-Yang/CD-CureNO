@@ -1,0 +1,85 @@
+schema_version: 1
+family: causal_axis_factorized_2d
+source_family: causal_factorized
+expected_source_checkpoint_sha256: 81bde9a8eb9c23404ea4011cead994be9162abe62ed2cf789fae362be708a0c4
+inflation_seed: 20260726
+temporal_family: causal_dilated_convolution
+causal: true
+structurally_causal: true
+pilot_role: final_causal_transfer_path
+noncausal_pilot_separation: >-
+  This target copies only the completed causal P3 checkpoint. It is distinct
+  from the spectral-noncausal RP-FFNO pilot and does not reuse that pilot's
+  temporal weights.
+axis_order:
+  - batch
+  - time
+  - z
+  - x
+  - channel
+output_order:
+  - batch
+  - time
+  - z
+  - x
+  - field
+output_fields:
+  - temperature
+  - alpha
+source_channel_names:
+  - air_temperature_normalized
+  - causal_physics_temperature_baseline_normalized
+  - time_normalized
+  - through_thickness_position_normalized
+  - composite_mask
+  - signed_distance_to_interface_normalized
+  - initial_degree_of_cure
+  - tool_thickness_normalized
+  - composite_thickness_normalized
+  - lower_htc_normalized
+  - upper_htc_normalized
+  - composite_conductivity_scale_normalized
+  - heat_of_reaction_scale_normalized
+  - low_fidelity_degree_of_cure
+new_channel_names:
+  - heterogeneity_gated_in_plane_position_normalized
+  - heterogeneity_gated_signed_distance_to_left_boundary_normalized
+  - heterogeneity_gated_signed_distance_to_right_boundary_normalized
+  - top_htc_anomaly_normalized
+  - edge_htc_boundary_map_normalized
+  - lateral_conductivity_scale_delta_normalized
+width: 34
+depth: 8
+modes_z: 12
+modes_x: 12
+lateral_rank: 8
+temporal_kernel_size: 3
+temporal_dilations:
+  - 1
+  - 2
+  - 4
+  - 8
+  - 16
+  - 32
+  - 64
+  - 128
+expected_parameter_count: 215698
+initialization:
+  new_input_projection: zero
+  lateral_input_factor: deterministic_nonzero
+  lateral_output_factor: zero
+  lateral_zero_mode: anchored_zero
+transfer_schedule:
+  T0:
+    trainable:
+      - target_input_geometry_projection
+      - lateral_spectral_adapters
+  T1:
+    trainable:
+      - target_input_geometry_projection
+      - lateral_spectral_adapters
+      - output_heads
+      - copied_channel_mixers
+  T2:
+    trainable:
+      - all

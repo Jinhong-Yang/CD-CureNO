@@ -1,0 +1,34 @@
+{
+  "causality_artifact": "outputs/tables/p2extended200-causal-w40d8-seed0-8ae6702_causality.json",
+  "cost_note": "The two extended CPU runs overlapped in wall-clock time on a 24-logical-CPU host. Per-run summed epoch time and peak process RSS are reported; concurrent wall time is not used for a speed claim.",
+  "gate_checks": {
+    "all_physical_constraints_passed": true,
+    "all_runs_independently_verified": true,
+    "at_least_one_model_matches_temperature_and_gradient": true,
+    "causal_checkpoint_passes_future_perturbation": true,
+    "epoch_time_reported": true,
+    "parameter_count_reported": true,
+    "peak_memory_reported": true
+  },
+  "limitations": [
+    "This is a seed-0 scientific gate, not a multi-seed confirmatory comparison.",
+    "The public Case1 field is 1+1-D and cannot establish true two-spatial-dimensional performance.",
+    "P3 may begin only if this gate passes; P6 still requires at least five seeds for main comparisons."
+  ],
+  "p1_corrected_reference": {
+    "field_relative_l2_mean": 0.0018982295490180452,
+    "spatial_gradient_relative_l2_mean": 0.08653273433446884
+  },
+  "qualifying_models": [
+    "causal_factorized",
+    "factorized_fno"
+  ],
+  "scope": "Frozen seed-0 extended factorized and causal Case1 joint runs; P1 reference is the corrected three-seed mean.",
+  "selection_policy": {
+    "test_used_for_configuration": false,
+    "validation_selected_model": "factorized_fno",
+    "validation_weighted_objective": 0.01677819397300482
+  },
+  "status": "P2_seed0_gate_passed",
+  "validation_assessment": "Share with caveats"
+}

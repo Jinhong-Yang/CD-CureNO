@@ -1,0 +1,469 @@
+{
+  "actual_p4_validation_f0": {
+    "case_id": 267,
+    "case_key": "p4-core-0267",
+    "difficulty_family": "F0",
+    "fields": {
+      "alpha": {
+        "absolute_tolerance": 1e-06,
+        "checks": {
+          "lateral_invariance": true,
+          "maximum_absolute_mismatch": true,
+          "maximum_lateral_range": true,
+          "restriction_relative_l2": true
+        },
+        "lateral_invariance_score": 6.561302362918795e-09,
+        "lis_tolerance": 1e-07,
+        "maximum_absolute_mismatch": 1.1920928955078125e-07,
+        "maximum_lateral_range": 1.1920928955078125e-07,
+        "passed": true,
+        "relative_l2_mismatch": 2.2957814428327392e-08,
+        "restriction_relative_l2": 2.2400088071670916e-08,
+        "rvs_tolerance": 1e-06
+      },
+      "cure_rate": {
+        "absolute_tolerance": 1e-05,
+        "checks": {
+          "lateral_invariance": true,
+          "maximum_absolute_mismatch": true,
+          "maximum_lateral_range": true,
+          "restriction_relative_l2": true
+        },
+        "lateral_invariance_score": 2.4405197938536023e-08,
+        "lis_tolerance": null,
+        "maximum_absolute_mismatch": 3.814697265625e-06,
+        "maximum_lateral_range": 3.814697265625e-06,
+        "passed": true,
+        "relative_l2_mismatch": 1.0915821673580808e-07,
+        "restriction_relative_l2": 1.0676372765956788e-07,
+        "rvs_tolerance": null
+      },
+      "temperature": {
+        "absolute_tolerance": 1e-06,
+        "checks": {
+          "lateral_invariance": true,
+          "maximum_absolute_mismatch": true,
+          "maximum_lateral_range": true,
+          "restriction_relative_l2": true
+        },
+        "lateral_invariance_score": 1.755187457022082e-08,
+        "lis_tolerance": 1e-07,
+        "maximum_absolute_mismatch": 5.960464477539063e-08,
+        "maximum_lateral_range": 5.960464477539063e-08,
+        "passed": true,
+        "relative_l2_mismatch": 3.4125814514371336e-08,
+        "restriction_relative_l2": 3.3319429181028043e-08,
+        "rvs_tolerance": 1e-06
+      },
+      "temperature_residual": {
+        "absolute_tolerance": 1e-06,
+        "checks": {
+          "lateral_invariance": true,
+          "maximum_absolute_mismatch": true,
+          "maximum_lateral_range": true,
+          "restriction_relative_l2": true
+        },
+        "lateral_invariance_score": 1.0502139035155202e-06,
+        "lis_tolerance": null,
+        "maximum_absolute_mismatch": 4.6566128730773926e-08,
+        "maximum_lateral_range": 4.470348358154297e-08,
+        "passed": true,
+        "relative_l2_mismatch": 4.654469001527995e-06,
+        "restriction_relative_l2": 4.54605406331533e-06,
+        "rvs_tolerance": null
+      }
+    },
+    "passed": true,
+    "shared_source_channels_exactly_x_invariant": true,
+    "source": "actual_pre_label_p4_validation_f0_input",
+    "source_input_shape": [
+      1,
+      112,
+      50,
+      14
+    ],
+    "target_input_shape": [
+      1,
+      112,
+      50,
+      40,
+      20
+    ],
+    "target_only_channel_names": [
+      "heterogeneity_gated_in_plane_position_normalized",
+      "heterogeneity_gated_signed_distance_to_left_boundary_normalized",
+      "heterogeneity_gated_signed_distance_to_right_boundary_normalized",
+      "top_htc_anomaly_normalized",
+      "edge_htc_boundary_map_normalized",
+      "lateral_conductivity_scale_delta_normalized"
+    ],
+    "target_only_nonzero_count": 0,
+    "target_only_suffix_exact_zero": true
+  },
+  "actual_validation_future_invariance": {
+    "cutoff_indices": [
+      28,
+      56,
+      83
+    ],
+    "maximum_prefix_abs_difference": 0.0,
+    "maximum_prefix_relative_l2": 0.0,
+    "passed": true,
+    "perturbed_channel_count": 20,
+    "rows": [
+      {
+        "cutoff_index": 28,
+        "future_start_index": 29,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 28,
+        "future_start_index": 29,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature_residual",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 28,
+        "future_start_index": 29,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "alpha",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 28,
+        "future_start_index": 29,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "cure_rate",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 56,
+        "future_start_index": 57,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 56,
+        "future_start_index": 57,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature_residual",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 56,
+        "future_start_index": 57,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "alpha",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 56,
+        "future_start_index": 57,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "cure_rate",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 83,
+        "future_start_index": 84,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 83,
+        "future_start_index": 84,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "temperature_residual",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 83,
+        "future_start_index": 84,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "alpha",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      },
+      {
+        "cutoff_index": 83,
+        "future_start_index": 84,
+        "maximum_prefix_abs_difference": 0.0,
+        "output": "cure_rate",
+        "passed": true,
+        "prefix_relative_l2": 0.0
+      }
+    ],
+    "test": "all_channel_counterfactual_future_perturbation",
+    "tested_nx": 7,
+    "tolerance": 1e-07
+  },
+  "actual_validation_restriction": {
+    "input_shape": [
+      1,
+      112,
+      51,
+      14
+    ],
+    "passed": true,
+    "per_nx": {
+      "1": {
+        "fields": {
+          "alpha": {
+            "maximum_absolute_mismatch": 0.0,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 0.0,
+            "tolerance": 1e-06
+          },
+          "cure_rate": {
+            "maximum_absolute_mismatch": 0.0,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 0.0,
+            "tolerance": 1e-05
+          },
+          "temperature": {
+            "maximum_absolute_mismatch": 0.0,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 0.0,
+            "tolerance": 1e-06
+          },
+          "temperature_residual": {
+            "maximum_absolute_mismatch": 0.0,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 0.0,
+            "tolerance": 1e-06
+          }
+        },
+        "nx_one_source_target_bitwise_equal": {
+          "alpha": true,
+          "cure_rate": true,
+          "temperature": true,
+          "temperature_residual": true
+        },
+        "passed": true
+      },
+      "2": {
+        "fields": {
+          "alpha": {
+            "maximum_absolute_mismatch": 5.960464477539063e-08,
+            "maximum_lateral_range": 5.960464477539063e-08,
+            "passed": true,
+            "relative_l2_mismatch": 1.9139584975929926e-08,
+            "tolerance": 1e-06
+          },
+          "cure_rate": {
+            "maximum_absolute_mismatch": 3.814697265625e-06,
+            "maximum_lateral_range": 2.86102294921875e-06,
+            "passed": true,
+            "relative_l2_mismatch": 1.1373245172855736e-07,
+            "tolerance": 1e-05
+          },
+          "temperature": {
+            "maximum_absolute_mismatch": 5.960464477539063e-08,
+            "maximum_lateral_range": 5.960464477539063e-08,
+            "passed": true,
+            "relative_l2_mismatch": 3.224413094067629e-08,
+            "tolerance": 1e-06
+          },
+          "temperature_residual": {
+            "maximum_absolute_mismatch": 5.21540641784668e-08,
+            "maximum_lateral_range": 4.842877388000488e-08,
+            "passed": true,
+            "relative_l2_mismatch": 2.664550188546425e-06,
+            "tolerance": 1e-06
+          }
+        },
+        "nx_one_source_target_bitwise_equal": {
+          "alpha": false,
+          "cure_rate": false,
+          "temperature": false,
+          "temperature_residual": false
+        },
+        "passed": true
+      },
+      "40": {
+        "fields": {
+          "alpha": {
+            "maximum_absolute_mismatch": 1.1920928955078125e-07,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 1.9985454178373478e-08,
+            "tolerance": 1e-06
+          },
+          "cure_rate": {
+            "maximum_absolute_mismatch": 3.814697265625e-06,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 1.0544329048780214e-07,
+            "tolerance": 1e-05
+          },
+          "temperature": {
+            "maximum_absolute_mismatch": 5.960464477539063e-08,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 3.298472430879085e-08,
+            "tolerance": 1e-06
+          },
+          "temperature_residual": {
+            "maximum_absolute_mismatch": 4.6566128730773926e-08,
+            "maximum_lateral_range": 0.0,
+            "passed": true,
+            "relative_l2_mismatch": 2.6730002955664634e-06,
+            "tolerance": 1e-06
+          }
+        },
+        "nx_one_source_target_bitwise_equal": {
+          "alpha": false,
+          "cure_rate": false,
+          "temperature": false,
+          "temperature_residual": false
+        },
+        "passed": true
+      },
+      "7": {
+        "fields": {
+          "alpha": {
+            "maximum_absolute_mismatch": 1.1920928955078125e-07,
+            "maximum_lateral_range": 1.1920928955078125e-07,
+            "passed": true,
+            "relative_l2_mismatch": 2.0824366490932183e-08,
+            "tolerance": 1e-06
+          },
+          "cure_rate": {
+            "maximum_absolute_mismatch": 4.76837158203125e-06,
+            "maximum_lateral_range": 4.76837158203125e-06,
+            "passed": true,
+            "relative_l2_mismatch": 1.1003705153357865e-07,
+            "tolerance": 1e-05
+          },
+          "temperature": {
+            "maximum_absolute_mismatch": 5.960464477539063e-08,
+            "maximum_lateral_range": 5.960464477539063e-08,
+            "passed": true,
+            "relative_l2_mismatch": 3.264267611310799e-08,
+            "tolerance": 1e-06
+          },
+          "temperature_residual": {
+            "maximum_absolute_mismatch": 5.4016709327697754e-08,
+            "maximum_lateral_range": 5.4016709327697754e-08,
+            "passed": true,
+            "relative_l2_mismatch": 2.6742286578873727e-06,
+            "tolerance": 1e-06
+          }
+        },
+        "nx_one_source_target_bitwise_equal": {
+          "alpha": false,
+          "cure_rate": false,
+          "temperature": false,
+          "temperature_residual": false
+        },
+        "passed": true
+      }
+    },
+    "tested_nx": [
+      1,
+      2,
+      7,
+      40
+    ],
+    "tolerances": {
+      "alpha": 1e-06,
+      "cure_rate": 1e-05,
+      "temperature": 1e-06,
+      "temperature_residual": 1e-06
+    },
+    "uses_labels": false
+  },
+  "checkpoint_integrity": {
+    "all_copied_tensors_bitwise_equal": true,
+    "all_source_metadata_matches_checkpoint": true,
+    "all_target_tensors_match_deterministic_reconstruction": true,
+    "all_tensor_hashes_match_embedded_report": true,
+    "architecture": {
+      "causal_temporal_module_count": 8,
+      "left_paddings": [
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        256
+      ],
+      "model_family": "causal_axis_factorized_2d",
+      "passed": true,
+      "structurally_causal": true,
+      "target_block_count": 8,
+      "temporal_dilations": [
+        1,
+        2,
+        4,
+        8,
+        16,
+        32,
+        64,
+        128
+      ],
+      "temporal_family": "causal_dilated_convolution",
+      "temporal_fft_module_count": 0
+    },
+    "copied_tensor_count": 100,
+    "embedded_verification_matches_recomputation": true,
+    "initial_lateral_output_is_exact_zero": true,
+    "initialized_tensor_count": 17,
+    "passed": true,
+    "source_checkpoint_sha256": "81bde9a8eb9c23404ea4011cead994be9162abe62ed2cf789fae362be708a0c4",
+    "target_config_sha256": "bb82c56a7cb2bfc21c392bdada4abe1dd7b4795a32115cdbab6aa569ba12fdab"
+  },
+  "dry_run": false,
+  "embedded_inflation_verification_passed": true,
+  "gate": "causal_source_to_causal_target_restriction",
+  "p4_fine_temperature_or_cure_labels_loaded": false,
+  "p4_id_split_sha256": "0628acabce004df2d9d3bb1ac6928e2439dfdbc636575e52ffb1afd9103417f0",
+  "p4_manifest_sha256": "983ced5f4bcb8bfb06de88b6f17ad46dccd479932e1ae18b942e693957dbd445",
+  "p4_plan_file_sha256": "12106526576ae73e2419079afea6ddbfba28cd40dac7a2be5d65e097dd23d808",
+  "passed": true,
+  "phase": "P5",
+  "restriction_comparisons_use_labels": false,
+  "role": "final_causal_transfer_path",
+  "schema_version": 1,
+  "separate_from_noncausal_rp_ffno_pilot": true,
+  "source_checkpoint_sha256": "81bde9a8eb9c23404ea4011cead994be9162abe62ed2cf789fae362be708a0c4",
+  "source_data_sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa",
+  "source_family": "causal_factorized",
+  "source_split_sha256": "9b06a09734ac04eb5b835948421b07b1db9244f5248841c39d8621b5a42f188c",
+  "source_validation_case": {
+    "case_id": 80,
+    "family_id": 0,
+    "input_shape": [
+      1,
+      112,
+      51,
+      14
+    ]
+  },
+  "source_validation_labels_loaded_by_preparation_but_not_used": true,
+  "target_checkpoint_sha256": "e8626ff782a2e1f079f013300656d88022ab8cf7bc627618c972af522443084f",
+  "target_config_sha256": "bb82c56a7cb2bfc21c392bdada4abe1dd7b4795a32115cdbab6aa569ba12fdab",
+  "target_family": "causal_axis_factorized_2d",
+  "temporal_family": "causal_dilated_convolution"
+}

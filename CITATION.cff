@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use CD-CureNO, please cite the tagged software release and the accompanying SoftwareX article."
+title: "CD-CureNO: Reproducible software for restriction-preserving causal neural operators in composite curing"
+type: software
+version: 0.0.1
+date-released: 2026-08-14
+license: Apache-2.0
+repository-code: "https://github.com/Jinhong-Yang/CD-CureNO"
+url: "https://github.com/Jinhong-Yang/CD-CureNO/tree/v0.0.1"
+authors:
+  - family-names: Park
+    given-names: Hyojin
+    affiliation: "Gyeongnam Intelligence Innovation Center (GIIC), Kyungnam University"
+  - family-names: Yoo
+    given-names: Nam-Hyun
+    affiliation: "Computer Engineering, Kyungnam University"
+  - family-names: Yang
+    given-names: Jinhong
+    email: jinhong@inje.ac.kr
+    affiliation: "Department of Medical Information Technology, Inje University"
+keywords:
+  - neural operator
+  - composite curing
+  - thermochemical simulation
+  - reproducible research software
+  - causal machine learning

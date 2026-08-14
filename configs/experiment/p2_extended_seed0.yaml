@@ -1,0 +1,30 @@
+phase: P2
+status: frozen_before_extended_test_evaluation
+dataset: p2_case1_joint
+split: legacy_case1_corrected_matched_v1
+seed: 0
+training:
+  maximum_epochs: 200
+  minimum_epochs: 100
+  early_stopping_patience: 40
+  batch_size: 5
+  optimizer: AdamW
+  learning_rate: 0.001
+  scheduler: cosine
+  gradient_clip: 1.0
+loss_weights:
+  temperature: 1.0
+  alpha: 0.5
+  spatial_gradient: 0.1
+models:
+  factorized_fno:
+    width: 40
+    depth: 4
+    modes_time: 16
+    modes_space: 12
+  causal_factorized:
+    width: 40
+    depth: 8
+    modes_space: 12
+selection_basis: frozen_validation_weighted_objective
+test_metrics_used_for_configuration: false

@@ -1,0 +1,24 @@
+name: p2_case1_joint
+data_path: external/ResFNO/data/Case1.mat
+split_manifest: splits/legacy_case1_corrected_matched_v1.json
+axis_order: [batch, time, through_thickness_position, channel]
+expected_shape:
+  cases: 200
+  time: 223
+  through_thickness_position: 51
+input_channels:
+  - air_temperature_normalized
+  - causal_temperature_baseline_normalized
+  - time_normalized
+  - through_thickness_position_normalized
+  - composite_mask
+  - signed_distance_to_interface_normalized
+  - initial_degree_of_cure
+normalization_scope: train_cases_only
+causal_baseline:
+  method: exponential_smoothing
+  smoothing: 0.2
+interface:
+  tool_indices: [0, 20]
+  composite_indices: [21, 50]
+  source: external/ResFNO/Step1_main.py

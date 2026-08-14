@@ -1,0 +1,58 @@
+{
+  "array_artifact_root": "data\\processed\\p4_2d_debug_v1",
+  "array_sha256": {
+    "air_temperature_K": "380773a7e164b50e91ae36495d2670a04843066e636e1d3e28a0cd3d33ce8346",
+    "alpha": "1cca3d67d13fa35190b70a581c4f5530704513e407ab8bb7b4354d5b5c92c98d",
+    "temperature_K": "462a832a60b1f0d0405ec67c805e9f323f1a543a497638047012ca56b9c9ffa9",
+    "top_h_W_m2_K": "c1252403de27d3e062c41cdf765adfd502cfb6b4b6594f36dd22fadc5c6b55a9"
+  },
+  "array_shape_case_time_z_x": [
+    8,
+    112,
+    10,
+    10
+  ],
+  "case_count": 8,
+  "case_hashes": {
+    "p4-debug-0000": "bba586c8160add976a59478d0e6411cf5503444dd4e5bdbbafb8e954b6d8efb5",
+    "p4-debug-0001": "1260293fb7f2d0c5d7de1b41a97aee44ed99902c6eb096783e85f741251bdd17",
+    "p4-debug-0002": "2996722cec9aa64e70bb1c5a00df03e838daf7c47f2cdf993bc23460d287fc5a",
+    "p4-debug-0003": "826078ca0a80fcd8baa23bf2a545d548f256b7d43877deabcce1a4793b6c257f",
+    "p4-debug-0004": "7b0b7482d7b42149f99d9f7dd46cb473b91aa0dd2cb104ae8466a48a523c58e3",
+    "p4-debug-0005": "f3c9aa607d66b08382d1348f3f9e15d139531a68d4e9effbc76aa475c26f23e4",
+    "p4-debug-0006": "8a7759c5d865f37e120612baea845ceb62622c6e31aaa15b467dd06b149d4a8b",
+    "p4-debug-0007": "35a4c5977333380c84a479ef4071878da473952e9880591f223e237bc513d286"
+  },
+  "dataset_id": "p4_2d_debug_v1",
+  "generation_status": {
+    "failed_case_ids": [],
+    "passed_case_ids": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "metadata_path": "outputs\\tables\\p4_2d_debug_v1_cases.jsonl",
+  "metadata_sha256": "4b5455a60e9305502ae8ce0cf6ba5cc1ec950504c4930b99661e28b2016565df",
+  "nested_training_budgets": [],
+  "schema_version": 1,
+  "seed": 20260723,
+  "splits": {
+    "debug": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ]
+  },
+  "tier": "debug"
+}

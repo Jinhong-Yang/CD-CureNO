@@ -1,0 +1,57 @@
+{
+  "architecture_is_causal": true,
+  "case_ids": [
+    75,
+    100,
+    150
+  ],
+  "checks": [
+    {
+      "cutoff_index": 55,
+      "future_start_index": 56,
+      "maximum_past_difference": {
+        "alpha": 0.0,
+        "cure_rate": 0.0,
+        "temperature": 0.0,
+        "temperature_residual": 0.0
+      },
+      "passed": true
+    },
+    {
+      "cutoff_index": 111,
+      "future_start_index": 112,
+      "maximum_past_difference": {
+        "alpha": 0.0,
+        "cure_rate": 0.0,
+        "temperature": 0.0,
+        "temperature_residual": 0.0
+      },
+      "passed": true
+    },
+    {
+      "cutoff_index": 167,
+      "future_start_index": 168,
+      "maximum_past_difference": {
+        "alpha": 0.0,
+        "cure_rate": 0.0,
+        "temperature": 0.0,
+        "temperature_residual": 0.0
+      },
+      "passed": true
+    }
+  ],
+  "cutoffs": [
+    55,
+    111,
+    167
+  ],
+  "interpretation": "A causal checkpoint must pass. A noncausal checkpoint result is a descriptive sensitivity control and is not required to pass.",
+  "model_family": "causal_factorized",
+  "passed": true,
+  "perturbed_channels": [
+    "air_temperature_normalized",
+    "causal_temperature_baseline_normalized"
+  ],
+  "run_id": "p2extended200-causal-w40d8-seed0-8ae6702",
+  "tolerance": 2e-06
+}

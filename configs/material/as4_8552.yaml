@@ -1,0 +1,76 @@
+schema_version: 1
+material_system: AS4/8552
+temperature_unit: K
+time_unit: s
+
+kinetics:
+  model_id: hubert_johnston_modified_autocatalytic
+  equation: "dalpha_dt = A*exp(-delta_E/(R*T))*alpha^M*(1-alpha)^N/(1+exp(C*(alpha-C_T*T-C_0)))"
+  A_per_s: 1.528e5
+  delta_E_J_per_mol: 6.650e4
+  M: 0.8129
+  N: 2.7360
+  C: 43.09
+  C_0: -1.6840
+  C_T_per_K: 5.475e-3
+  R_J_per_mol_K: 8.314
+  initial_alpha: 0.05
+  heat_of_reaction_J_per_kg_resin: 5.40e5
+  provenance:
+    law: johnston1997thesis_eq_6_13
+    constants: niaki2021_table_1_citing_hubert2001
+    heat_of_reaction: johnston1997thesis_table_C_11
+    note: "Niaki et al. Eq. (31) prints the denominator without the leading 1; Johnston Eq. (6.13) includes it. The public Case1 alpha arrays support the Johnston form. Both variants are retained in the provenance table."
+
+public_case1_constituents:
+  fibre:
+    volume_fraction: 0.574
+    density_kg_per_m3: 1790.0
+    specific_heat_J_per_kg_K: 914.0
+    transverse_conductivity_W_per_m_K: 3.960
+  resin:
+    volume_fraction: 0.426
+    density_kg_per_m3: 1300.0
+    specific_heat_J_per_kg_K: 1304.2
+    conductivity_W_per_m_K: 0.212
+  invar_tool:
+    density_kg_per_m3: 8150.0
+    specific_heat_J_per_kg_K: 510.0
+    conductivity_W_per_m_K: 13.0
+
+p4_anisotropic_conductivity:
+  laminate_orientation: "unidirectional AS4 fibres aligned with the x axis"
+  reference_temperature_K: 293.15
+  longitudinal_composite_model:
+    equation: "k_c11 = 4.49 + 9.12e-3 * T_degC"
+    intercept_W_per_m_K: 4.49
+    slope_W_per_m_K_per_C: 9.12e-3
+    reference_value_W_per_m_K: 4.6724
+    provenance: "johnston1997integrated, Figure 6.5, measured cured AS4/8552"
+  through_thickness_composite_model:
+    equation: "Springer-Tsai relation using the public Case1 constituent values"
+    reference_value_W_per_m_K: 0.6369802947587432
+    provenance: "niaki2021pinn Table 2 and Johnston 1997 Chapter 6"
+  frozen_coefficient_limitation: "The P4 v1 solver holds both directions constant at the 293.15 K reference; temperature- and cure-dependent conductivity is deferred and must be stated as a limitation."
+
+public_case1_geometry_and_boundaries:
+  tool_thickness_m: 0.020
+  composite_thickness_m: 0.030
+  lower_tool_convection_W_per_m2_K: 70.0
+  upper_composite_convection_W_per_m2_K: 120.0
+  initial_temperature_K: 293.0
+  output_spacing_m: 0.001
+  output_interval_s: 60.0
+  provenance:
+    geometry: niaki2021_page_15_and_public_Case1_mask
+    boundaries: chen2021resfno_page_7
+    note: "The final journal article text reverses the 20/30 mm labels, while the public alpha mask and the cited Niaki benchmark both use a 20 mm tool and 30 mm composite. Validation follows the immutable public arrays."
+
+public_case1_validation_acceptance:
+  temperature_field_relative_l2_mean_max: 5.0e-3
+  temperature_field_absolute_error_K_max: 10.0
+  alpha_field_relative_l2_mean_max: 5.0e-2
+  alpha_bound_violation_count_max: 0
+  alpha_monotonicity_violation_count_max: 0
+  maximum_abs_energy_residual_W_per_m3_max: 1.0e-4
+  maximum_relative_global_energy_residual_max: 1.0e-8

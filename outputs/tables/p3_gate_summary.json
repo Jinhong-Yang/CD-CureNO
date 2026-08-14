@@ -1,0 +1,166 @@
+{
+  "failed_development_runs": {
+    "v1": {
+      "failed_checks": [
+        "held_out_linf"
+      ],
+      "held_out_temperature_linf_K_max": 44.78759765625,
+      "held_out_temperature_relative_l2_mean": 0.006576465081889182
+    },
+    "v2": {
+      "failed_checks": [
+        "held_out_linf"
+      ],
+      "held_out_temperature_linf_K_max": 38.383575439453125,
+      "held_out_temperature_relative_l2_mean": 0.0068631569982972
+    },
+    "v3": {
+      "failed_checks": [
+        "held_out_linf"
+      ],
+      "held_out_temperature_linf_K_max": 38.1165771484375,
+      "held_out_temperature_relative_l2_mean": 0.002724293039354961
+    }
+  },
+  "gate_checks": {
+    "failed_v1_v2_v3_preserved": true,
+    "held_out_labels_excluded_from_training": true,
+    "mesh_time_convergence_passed": true,
+    "public_case_acceptance_passed": true,
+    "public_case_rows_match_summary": true,
+    "source_array_checksum_matches": true,
+    "source_case_rows_match_summary": true,
+    "source_family_rows_match_summary": true,
+    "source_generation_energy_passed": true,
+    "source_pretraining_acceptance_passed": true,
+    "source_splits_do_not_overlap": true,
+    "source_splits_partition_all_cases": true
+  },
+  "independent_recomputation": {
+    "public_metric_matches": {
+      "alpha_bound_violation_count": true,
+      "alpha_field_relative_l2_mean": true,
+      "alpha_monotonicity_violation_count": true,
+      "case_count": true,
+      "maximum_abs_energy_residual_W_per_m3": true,
+      "maximum_relative_global_energy_residual": true,
+      "temperature_field_absolute_error_K_max": true,
+      "temperature_field_relative_l2_mean": true
+    },
+    "source_family_matches": {
+      "smart_cure": true,
+      "three_hold": true
+    },
+    "source_metric_matches": {
+      "alpha_bound_violation_count": true,
+      "alpha_monotonicity_violation_count": true,
+      "alpha_relative_l2_mean": true,
+      "case_count": true,
+      "temperature_linf_K_max": true,
+      "temperature_relative_l2_mean": true
+    }
+  },
+  "passed": true,
+  "phase": "P3",
+  "schema_version": 1,
+  "solver": {
+    "convergence_reference": {
+      "maximum_abs_energy_residual_W_m3": 5.650920502375811e-05,
+      "maximum_relative_global_energy_residual": 1.9145233165270372e-12,
+      "maximum_step_s": 2.5,
+      "spacing_m": 0.00025,
+      "wall_seconds": 1.7189082999975653
+    },
+    "public_case_validation": {
+      "alpha_bound_violation_count": 0,
+      "alpha_field_absolute_error_max": 0.05922203201178,
+      "alpha_field_relative_l2_mean": 0.013231955489211418,
+      "alpha_mae_mean": 0.002807665117346899,
+      "alpha_monotonicity_violation_count": 0,
+      "case_count": 200,
+      "composite_temperature_relative_l2_mean": 0.001272989660415896,
+      "maximum_abs_energy_residual_W_per_m3": 3.9863552956376225e-06,
+      "maximum_relative_global_energy_residual": 5.303757060881615e-13,
+      "peak_composite_temperature_error_K_mae": 1.4119069964374518,
+      "summed_case_wall_seconds": 84.62623689997417,
+      "temperature_field_absolute_error_K_max": 6.1400049445391005,
+      "temperature_field_relative_l2_mean": 0.0011432268259326103,
+      "temperature_field_relative_l2_median": 0.001165302678702203,
+      "temperature_field_relative_l2_p95": 0.0015699328346129764,
+      "temperature_mae_K_mean": 0.29862733980489914,
+      "tool_alpha_nonzero_count": 0,
+      "tool_temperature_relative_l2_mean": 0.0009082683221570836
+    }
+  },
+  "source_data": {
+    "array_sha256": "9db82081f71e444265087531369a2293d4b7880db9b183943490862594d10ffa",
+    "case_count": 400,
+    "dataset_id": "p3_source_1d_v3",
+    "maximum_abs_energy_residual_W_m3": 4.025861016998533e-06,
+    "maximum_relative_global_energy_residual": 4.634975638610195e-12
+  },
+  "source_pretraining": {
+    "held_out_combined": {
+      "alpha_bound_violation_count": 0,
+      "alpha_monotonicity_violation_count": 0,
+      "alpha_relative_l2_mean": 0.06487927872221917,
+      "case_count": 200,
+      "temperature_linf_K_max": 8.08953857421875,
+      "temperature_relative_l2_mean": 0.0012800587501260452
+    },
+    "model": {
+      "depth": 4,
+      "family": "factorized_fno",
+      "input_channels": 14,
+      "modes_space": 12,
+      "modes_time": 24,
+      "parameter_count": 160130,
+      "width": 32
+    },
+    "split_metrics": {
+      "in_family_test": {
+        "alpha_bound_violation_count": 0,
+        "alpha_mae_mean": 0.007781195850111544,
+        "alpha_monotonicity_violation_count": 0,
+        "alpha_relative_l2_mean": 0.023806272307410836,
+        "case_count": 20,
+        "temperature_linf_K_max": 6.732086181640625,
+        "temperature_mae_K_mean": 0.3614153414964676,
+        "temperature_relative_l2_mean": 0.0012271789528313093,
+        "temperature_relative_l2_median": 0.0010389408562332392
+      },
+      "smart_cure": {
+        "alpha_bound_violation_count": 0,
+        "alpha_mae_mean": 0.03801041412167251,
+        "alpha_monotonicity_violation_count": 0,
+        "alpha_relative_l2_mean": 0.10091764964163304,
+        "case_count": 100,
+        "temperature_linf_K_max": 7.761444091796875,
+        "temperature_mae_K_mean": 0.4041140272468329,
+        "temperature_relative_l2_mean": 0.0013364061233005486,
+        "temperature_relative_l2_median": 0.0011306266533210874
+      },
+      "three_hold": {
+        "alpha_bound_violation_count": 0,
+        "alpha_mae_mean": 0.010142882759682835,
+        "alpha_monotonicity_violation_count": 0,
+        "alpha_relative_l2_mean": 0.028840907802805304,
+        "case_count": 100,
+        "temperature_linf_K_max": 8.08953857421875,
+        "temperature_mae_K_mean": 0.37809790432453155,
+        "temperature_relative_l2_mean": 0.0012237113769515418,
+        "temperature_relative_l2_median": 0.001018690934870392
+      }
+    },
+    "training": {
+      "best_validation_objective": 0.02095469944179058,
+      "executed_epochs": 100,
+      "held_out_labels_used": false,
+      "selected_epoch": 93,
+      "summed_epoch_seconds": 305.6556824000072,
+      "train_case_count": 160,
+      "validation_case_count": 20,
+      "wall_seconds": 305.6558971000013
+    }
+  }
+}

@@ -1,0 +1,6 @@
+CD-CureNO audits legacy curing operators without silently repairing them.
+Conservative 1-D and true 2-D solvers share immutable data contracts.
+Checkpoint inflation preserves the homogeneous dimensional-reduction limit.
+Causal future-perturbation and hash-bound postflight checks are executable.
+Manuscript numbers remain traceable to complete-case run artifacts.
+

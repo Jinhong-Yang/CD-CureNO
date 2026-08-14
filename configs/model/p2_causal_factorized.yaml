@@ -1,0 +1,7 @@
+name: causal_factorized
+input_channels: 7
+width: 48
+depth: 8
+modes_space: 16
+axis_order: [batch, time, through_thickness_position, channel]
+causal: true

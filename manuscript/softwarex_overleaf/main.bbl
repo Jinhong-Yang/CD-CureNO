@@ -1,0 +1,72 @@
+\begin{thebibliography}{1}
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{\texttt{#1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \def\href#1#2{#2} \def\path#1{#1}\fi
+
+\bibitem{li2021fno}
+Z.~Li, N.~Kovachki, K.~Azizzadenesheli, B.~Liu, K.~Bhattacharya, A.~Stuart,
+  A.~Anandkumar, \href{https://openreview.net/forum?id=c8P9NQVtmnO}{Fourier
+  neural operator for parametric partial differential equations}, in:
+  International Conference on Learning Representations, 2021.
+\newline\urlprefix\url{https://openreview.net/forum?id=c8P9NQVtmnO}
+
+\bibitem{niaki2021pinn}
+S.~Amini~Niaki, E.~Haghighat, T.~Campbell, A.~Poursartip, R.~Vaziri,
+  Physics-informed neural network for modelling the thermochemical curing
+  process of composite-tool systems during manufacture, Computer Methods in
+  Applied Mechanics and Engineering 384 (2021) 113959.
+\newblock \href {https://doi.org/10.1016/j.cma.2021.113959}
+  {\path{doi:10.1016/j.cma.2021.113959}}.
+
+\bibitem{chen2023resfno}
+G.~Chen, Y.~Li, X.~Liu, C.~Mehdi-Souzani, Q.~Meng, J.~Zhou, X.~Hao,
+  Physics-guided neural operator for data-driven composites manufacturing
+  process modelling, Journal of Manufacturing Systems 70 (2023) 217--229.
+\newblock \href {https://doi.org/10.1016/j.jmsy.2023.07.010}
+  {\path{doi:10.1016/j.jmsy.2023.07.010}}.
+
+\bibitem{meng2023pino}
+Q.~Meng, Y.~Li, X.~Liu, G.~Chen, X.~Hao, A novel physics-informed neural
+  operator for thermochemical curing analysis of carbon-fibre-reinforced
+  thermosetting composites, Composite Structures 321 (2023) 117197.
+\newblock \href {https://doi.org/10.1016/j.compstruct.2023.117197}
+  {\path{doi:10.1016/j.compstruct.2023.117197}}.
+
+\bibitem{chen2021resfno}
+G.~Chen, Y.~Li, X.~Liu, Q.~Meng, J.~Zhou, X.~Hao, Residual fourier neural
+  operator for thermochemical curing of composites, arXiv preprint
+  arXiv:2111.10262 (2021).
+\newblock \href {https://doi.org/10.48550/arXiv.2111.10262}
+  {\path{doi:10.48550/arXiv.2111.10262}}.
+
+\bibitem{hemmasian2024prelowd}
+A.~Hemmasian, A.~Barati~Farimani,
+  \href{https://openreview.net/forum?id=ZewaRoZehI}{Pretraining a neural
+  operator in lower dimensions}, Transactions on Machine Learning Research
+  (2024).
+\newline\urlprefix\url{https://openreview.net/forum?id=ZewaRoZehI}
+
+\bibitem{kashi2024lpfno}
+A.~Kashi, A.~Daw, M.~Gopalakrishnan~Meena, H.~Lu,
+  \href{https://arxiv.org/abs/2406.16740}{Learning the boundary-to-domain
+  mapping using lifting product fourier neural operators for partial
+  differential equations}, in: ICML 2024 AI for Science Workshop, 2024.
+\newblock \href {http://arxiv.org/abs/2406.16740} {\path{arXiv:2406.16740}}.
+\newline\urlprefix\url{https://arxiv.org/abs/2406.16740}
+
+\bibitem{liu2024causal}
+L.~Liu, K.~Nath, W.~Cai, A causality-deeponet for causal responses of linear
+  dynamical systems, Communications in Computational Physics 35~(5) (2024)
+  1194--1228.
+\newblock \href {https://doi.org/10.4208/CICP.OA-2023-0078}
+  {\path{doi:10.4208/CICP.OA-2023-0078}}.
+
+\bibitem{smith2016software}
+A.~M. Smith, D.~S. Katz, K.~E. Niemeyer, {FORCE11 Software Citation Working
+  Group}, Software citation principles, PeerJ Computer Science 2 (2016) e86.
+\newblock \href {https://doi.org/10.7717/peerj-cs.86}
+  {\path{doi:10.7717/peerj-cs.86}}.
+
+\end{thebibliography}

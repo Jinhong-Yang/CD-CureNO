@@ -1,0 +1,260 @@
+{
+  "acceptance_checks": {
+    "deterministic_selected_replay": true,
+    "f0_exact_lateral_extrusion": true,
+    "full_test_suite": true,
+    "generation_acceptance": true,
+    "immutable_split_replay": true,
+    "initial_composite_alpha": true,
+    "initial_temperature": true,
+    "initial_tool_alpha": true,
+    "no_failed_or_silent_cases": true,
+    "non_f0_has_lateral_structure": true,
+    "solver_validation": true,
+    "strict_core_manifest_validation": true
+  },
+  "core_dataset": {
+    "array_sha256": {
+      "air_temperature_K": "9b63fdaedbe3c598d47645567cbfc61c7ab38c67b332a836c71463c844f4d270",
+      "alpha": "229162bce49c3e5b108b7e9f5b279c90be64605ca9f385f83435a280061f6f06",
+      "composite_mask": "023bf5c66343c9212f9f04203ee09e4e9d1a3bdbc412364eedc41f49fd976af3",
+      "temperature_K": "2a6aa1f75ee91041e296522649c57f94d5225ffb60a9a07c50899e1b0619e18b",
+      "time_s": "b193db76ab3e4833ca0ba0c250ab9a34f857a57b0847c7b80d9c4f8e6b620762",
+      "top_h_W_m2_K": "19dd34d37de9faef1348d6f47346e5d8a172bec32195e9bcb6caa596223a0ac8",
+      "x_m": "3889c82360e38e5ae507d634b5258f8e4bc4d29bc276b215953eeae3cdba0854",
+      "z_m": "0e70b3ed41ee2c76017f6182c3bb557a4aca5169d52051acf7d07cba68ac702d"
+    },
+    "array_shape_case_time_z_x": [
+      512,
+      112,
+      50,
+      40
+    ],
+    "array_total_bytes": 917819936,
+    "case_count": 512,
+    "dataset_id": "p4_2d_core_v1",
+    "failed_case_count": 0,
+    "manifest_file_sha256": "983ced5f4bcb8bfb06de88b6f17ad46dccd479932e1ae18b942e693957dbd445",
+    "maximum_abs_energy_residual_W_m3": 1.831188137657591e-05,
+    "maximum_relative_global_energy_residual": 1.3448985065225257e-12,
+    "metadata_sha256": "239f5ba04af79bc7819f3e6f9b90a6dfe5bcbe69139bddc29b5d290bebc42a7c",
+    "nested_training_budgets": [
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "plan_sha256": "a97511e192450a11d3af3c966bae3fd26523b3eb12b8df5728ca49b25d55b0bb",
+    "prelabel_git_commit_sha": "6d0b31f63428e00524a89445e9f4d7148f46d8f7",
+    "recovered_failure_attempt_count": 0,
+    "silent_failure_count": 0,
+    "split_counts": {
+      "combined_ood": 40,
+      "cycle_ood": 40,
+      "htc_ood": 40,
+      "id_test": 64,
+      "pattern_ood": 40,
+      "train": 256,
+      "validation": 32
+    }
+  },
+  "deterministic_replay": [
+    {
+      "case_id": 0,
+      "case_key": "p4-core-0000",
+      "cycle_family": "single_hold",
+      "difficulty_family": "F1_piecewise",
+      "output_slice_sha256": {
+        "alpha": "4624eedcfcccb541096c159c01da6fe0aa0c1b75d96dcb1e53be22548c0905eb",
+        "temperature_K": "1b901d93fc4dbb1e16fda6d375d816533c21174fb6cb8d95e515df0f3f06c62c"
+      },
+      "split": "train"
+    },
+    {
+      "case_id": 1,
+      "case_key": "p4-core-0001",
+      "cycle_family": "two_hold",
+      "difficulty_family": "F0",
+      "output_slice_sha256": {
+        "alpha": "319095f0e733f390f52fe0cf5628243b569b5b267c27b82466558f24e3e082e8",
+        "temperature_K": "55139a457d823ea299e1da07de8e238b531cf86836928649eef7932e31a50eb6"
+      },
+      "split": "train"
+    },
+    {
+      "case_id": 2,
+      "case_key": "p4-core-0002",
+      "cycle_family": "two_hold",
+      "difficulty_family": "F1_smooth",
+      "output_slice_sha256": {
+        "alpha": "5267c956efee2801aa80bc5bc9fca5dae271fdb26f044e08e8e81ce7ac7e1102",
+        "temperature_K": "ac71effefa0f9701b37c5f34a491d793a64c61243a05edb46487b19a365c95aa"
+      },
+      "split": "train"
+    },
+    {
+      "case_id": 3,
+      "case_key": "p4-core-0003",
+      "cycle_family": "two_hold",
+      "difficulty_family": "F2_both",
+      "output_slice_sha256": {
+        "alpha": "06f7340e7a2071a029c62b47c3c0e3ded67bc2d169f9fb0d4c01bdc665ad6828",
+        "temperature_K": "8f5c9a03df59abd4076dc33f7c40ff2022961737a9aff9b4a4739c358ded5942"
+      },
+      "split": "train"
+    },
+    {
+      "case_id": 5,
+      "case_key": "p4-core-0005",
+      "cycle_family": "two_hold",
+      "difficulty_family": "F2_left",
+      "output_slice_sha256": {
+        "alpha": "9668c89fe06e45ac6bd3067b69254f4bcb55b3ab1ceb98934834af41cb8992ff",
+        "temperature_K": "5d4141ee760cb9b87cb3e76b48c8be1d82e2fe27cfd5d4a7bd386aed71aa14d1"
+      },
+      "split": "train"
+    },
+    {
+      "case_id": 256,
+      "case_key": "p4-core-0256",
+      "cycle_family": "single_hold",
+      "difficulty_family": "F2_left",
+      "output_slice_sha256": {
+        "alpha": "fe294c407f86e8484f62b2972bbff17968f6baf626aca8918d14a931e83a991c",
+        "temperature_K": "2806e746747b272ec93873ed6f540f34d8afba0656320a807c8e8260c3636cfd"
+      },
+      "split": "validation"
+    },
+    {
+      "case_id": 288,
+      "case_key": "p4-core-0288",
+      "cycle_family": "single_hold",
+      "difficulty_family": "F2_both",
+      "output_slice_sha256": {
+        "alpha": "2e0cc287074e484ac07e722cfc4ed36e2bd0ba7a82d3bfc4ff0b6734c5736a8b",
+        "temperature_K": "03bf37305f4dc5711dc4ff215ae057ae0efc23cfc738a016636100f8284c55b9"
+      },
+      "split": "id_test"
+    },
+    {
+      "case_id": 352,
+      "case_key": "p4-core-0352",
+      "cycle_family": "smart_cure",
+      "difficulty_family": "F1_piecewise",
+      "output_slice_sha256": {
+        "alpha": "4492f142313d9a09e1d799771ea5b81b4dc3f94b4783d75436591d4fd4c92460",
+        "temperature_K": "5c0c2a761ca7467cc51efc04f3f540980774923364919de33548571213ad96d2"
+      },
+      "split": "cycle_ood"
+    },
+    {
+      "case_id": 392,
+      "case_key": "p4-core-0392",
+      "cycle_family": "single_hold",
+      "difficulty_family": "F2_both",
+      "output_slice_sha256": {
+        "alpha": "099971c3b68e07e97b21525e76552268090a0b7867dfc99a426b7b94883174fa",
+        "temperature_K": "1a5a2ee1eabd2e5deb1ac5a826bb4ba0268fbb7643550e42dd9a5c70fb43205c"
+      },
+      "split": "htc_ood"
+    },
+    {
+      "case_id": 432,
+      "case_key": "p4-core-0432",
+      "cycle_family": "single_hold",
+      "difficulty_family": "F1_smooth",
+      "output_slice_sha256": {
+        "alpha": "33e61a6543cc205c8e192608f9262e9f3ea017d477b8a39cfd3fffe3526fe8db",
+        "temperature_K": "04668ae807cc32f6583de2438dd1cd3435f66f014907a51b409012316a4026ae"
+      },
+      "split": "pattern_ood"
+    },
+    {
+      "case_id": 472,
+      "case_key": "p4-core-0472",
+      "cycle_family": "smart_cure",
+      "difficulty_family": "F1_F2_combined",
+      "output_slice_sha256": {
+        "alpha": "573e55cf3254bd81a7027134370468856d7ce931b6e9f58b67074c145012fd0b",
+        "temperature_K": "efdad7200153f8c9f1f85da879477969894f4288e377faa5b47515fe690d3181"
+      },
+      "split": "combined_ood"
+    }
+  ],
+  "field_diagnostics": {
+    "alpha_max": 0.9272493124008179,
+    "alpha_min": 0.0,
+    "f0_case_count": 40,
+    "f0_max_lateral_temperature_range_K": 0.0,
+    "final_composite_alpha_max": 0.9272493124008179,
+    "final_composite_alpha_min": 0.6380996108055115,
+    "initial_composite_alpha_max_abs_error": 0.0,
+    "initial_temperature_max_abs_error_K": 0.0,
+    "initial_tool_alpha_nonzero_count": 0,
+    "non_f0_case_count": 472,
+    "non_f0_min_peak_lateral_temperature_range_K": 1.0540771484375,
+    "temperature_max_K": 527.2767333984375,
+    "temperature_min_K": 293.0
+  },
+  "frozen_manifests": [
+    "2d_combined_ood_v1.json",
+    "2d_cycle_ood_v1.json",
+    "2d_geometry_ood_v1.json",
+    "2d_htc_ood_v1.json",
+    "2d_id_v1.json",
+    "2d_pattern_ood_v1.json",
+    "external_validation_v1.json",
+    "phase_a_v1.json",
+    "source_1d_v1.json"
+  ],
+  "passed": true,
+  "phase": "P4",
+  "schema_version": 1,
+  "solver_validation": {
+    "acceptance_check_count": 27,
+    "acceptance_checks": {
+      "core_time_alpha_accuracy": true,
+      "core_time_temperature_accuracy": true,
+      "coupling_convergence": true,
+      "energy_global": true,
+      "energy_local": true,
+      "extrusion_alpha": true,
+      "extrusion_temperature": true,
+      "extrusion_temperature_max": true,
+      "finite_and_cure_invariants": true,
+      "full_cycle_alpha_observed_order": true,
+      "full_cycle_core_alpha_accuracy": true,
+      "full_cycle_core_temperature_accuracy": true,
+      "full_cycle_core_temperature_max_accuracy": true,
+      "full_cycle_core_temperature_rise_accuracy": true,
+      "full_cycle_temperature_observed_order": true,
+      "full_cycle_time_alpha_errors_decrease": true,
+      "full_cycle_time_temperature_errors_decrease": true,
+      "independent_alpha": true,
+      "independent_temperature": true,
+      "interface_flux_continuity": true,
+      "interface_temperature_continuity": true,
+      "lateral_invariance": true,
+      "mesh_alpha_errors_decrease": true,
+      "mesh_temperature_errors_decrease": true,
+      "robin_flux_continuity": true,
+      "time_alpha_errors_decrease": true,
+      "time_temperature_errors_decrease": true
+    },
+    "artifact": "outputs/tables/p4_solver_validation.json",
+    "full_cycle_alpha_relative_l2": 0.001343586486464365,
+    "full_cycle_temperature_max_abs_K": 0.42996066057139615,
+    "full_cycle_temperature_relative_l2": 0.00023347533716552477,
+    "full_cycle_temperature_rise_relative_l2": 0.0006921968834713095,
+    "independent_alpha_relative_l2": 1.2746433470421783e-06,
+    "independent_cross_check_limitation": "The independent assembly uses the same grid, material values, and cure law; it independently checks flux assembly and time integration, not those shared inputs.",
+    "independent_temperature_relative_l2": 4.375331921876506e-05
+  },
+  "test_suite": {
+    "passed_count": 111,
+    "skipped": false,
+    "summary": "111 passed in 20.13s"
+  }
+}
