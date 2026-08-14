@@ -2971,15 +2971,17 @@ def train_causal_source(
     git_sha = _git(project_root, "rev-parse", "HEAD")
     run_id = config.run_id or make_causal_source_run_id(config, git_sha)
     resolved = replace(config, run_id=run_id)
-    # The two preregistered P6-v2 supplemental source run IDs are a managed
-    # namespace.  Validate the live launcher/worker authorization before even
-    # inspecting or creating their canonical run directories.  All ordinary
-    # P3 runs, including the frozen seed-0 run, remain unchanged.
-    from cdcureno.training.p6_v2_supplemental_source import (
-        validate_reserved_source_training_authorization,
-    )
-
-    validate_reserved_source_training_authorization(resolved)
+    # P6 orchestration is intentionally absent from the public P0--P5 release.
+    # Fail closed for its two reserved source-run IDs while leaving ordinary
+    # P3 behavior unchanged and free of a private P6 module dependency.
+    reserved_p6_run_ids = {
+        "p3-source-causal-v1-seed1-fix1",
+        "p3-source-causal-v1-seed2-fix1",
+    }
+    if run_id in reserved_p6_run_ids:
+        raise ValueError(
+            "This P6 supplemental run ID is not part of public release v0.0.1."
+        )
     run_dir = resolved.output_root.resolve() / run_id
     if run_dir.exists() and not resolved.resume:
         raise FileExistsError(f"Run already exists; use --resume: {run_dir}")

@@ -27,6 +27,11 @@ python -m pytest -q
 CPU execution is sufficient for audits and tests. CUDA is optional for model
 training.
 
+Tests that reproduce or audit the upstream ResFNO implementation are skipped
+when its code and `Case1.mat` are absent. They become active only after those
+artifacts are acquired separately under valid upstream terms and placed below
+`external/ResFNO/`; CD-CureNO does not redistribute them.
+
 ## Repository layout
 
 - `src/cdcureno/`: installable Python package.
