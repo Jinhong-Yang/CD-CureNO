@@ -1,80 +1,80 @@
-# Validation report
+# CD-CureNO v0.0.2 SoftwareX package validation report
 
-## Overall assessment: Share with caveats
+## Overall assessment
 
-The manuscript is structurally aligned with the official SoftwareX original
-article template (Version 6, March 2026), compiles as an Elsevier `elsarticle`
-manuscript, and confines scientific statements to stored P0-P5 evidence. It is
-not yet administratively submission-ready because the CRediT and conflict
-statements remain unresolved. Authorship, affiliations, corresponding/support
-email, funding, acknowledgements, Apache-2.0 open-source license, public GitHub
-URL, and documentation URL have been supplied.
+The `v0.0.2` release manuscript is structurally and
+editorially suitable for SoftwareX submission without additional scientific
+experiments. It uses only existing P0--P5 artifacts and maintains the
+distinction between software validation and confirmatory predictive evidence.
+Publication of the immutable GitHub tag and release was authorized by the
+corresponding author; the release workflow includes post-publication URL
+verification before handoff.
 
-## Methodology review
+## Automated manuscript checks
 
-- Audience: research-software reviewers and computational materials users.
-- Question answered: what the software does, why it is needed, how it is used,
-  and which stored evidence validates its current functionality.
-- Main claim class: software architecture, safeguards, reproducibility, and
-  staged validation; not final P6 superiority.
-- Evidence cutoff: the P0--P5 artifacts packaged in public release `v0.0.1`.
-  Existing P6 outputs are excluded from the public release and are not used
-  for empirical manuscript claims.
-- Display selection: case 100, fixed by identifier and documented in the P2
-  figure contract; no performance-ranked case selection.
+- Mandatory SoftwareX sections: present
+- Metadata C1--C8: present
+- Estimated manuscript words: 2,677
+- Figure environments: 2
+- Unresolved `SOFTWAREX-REPLACE` markers: 0
+- Forbidden unsupported claim phrases: absent
+- Strict `submission_check.py`: PASS
 
-## Calculation spot checks
+## Clean-install and command QA
 
-- P2 model counts and metrics: verified against
-  `outputs/tables/p2_extended_seed0_runs.csv`.
-- P3 public solver metrics: verified against
-  `outputs/tables/p3_gate_summary.json` and `analysis/p3_validation.md`.
-- P4 case count, shape, energy residual, and replay: verified against
-  `outputs/tables/p4_gate_summary.json` and `analysis/p4_validation.md`.
-- P5 causal tensor mapping, restriction, and future invariance: verified
-  against `outputs/tables/p5_causal_restriction_gate.json`.
-- P5 pilot results are described only as a one-seed validation gate, consistent
-  with `analysis/p5_pilot_results.md`.
-- No value from a P6 ID-test/OOD statistics bundle is used; that bundle does
-  not exist in the inspected workspace.
+- Environment: Windows, Python 3.11.9, PyTorch 2.13.0+cpu
+- Editable install from the local `v0.0.2` candidate: PASS
+- Full test suite: 210 passed, 30 explicitly skipped
+- Focused P4 contract suite: 17 passed
+- Noncanonical P4 plan review: PASS; 512 cases, no labels generated
+- P5 inflation and verification command help: PASS
+- Full P4 label generation, checkpoint inflation, model training, and other
+  scientific experiments: not run
 
-## Visualization review
+The first installation attempt under a deeply nested Windows path failed with
+`WinError 206` while installing PyTorch's license tree. Repeating the same
+installation from a short virtual-environment path succeeded. The public
+README now documents this Windows path-length prerequisite. Detailed command
+results and raw-log hashes are recorded in `CLEAN_INSTALL_QA.md`.
 
-- The architecture diagram uses a left-to-right process flow and a separate
-  guardrail band; it does not encode quantitative magnitudes.
-- The included P2 temperature heatmap has common temperature/error scales,
-  units, case/seed labels, and a sign explanation. Its frozen QA contract and
-  SHA-256 are stored in `analysis/p2_figure_contract.md`.
-- The caption and adjacent text identify the display as 1+1-D, one-seed, and
-  descriptive.
+## Compilation and visual QA
 
-## Material caveats
+- Engine: pdfLaTeX
+- Bibliography: `bibtexu` with `elsarticle-num.bst`
+- Final passes: two pdfLaTeX runs after bibliography generation
+- LaTeX log scan: no fatal errors, unresolved citations/references, rerun
+  warnings, or overfull boxes
+- Final page count: 16
+- Embedded fonts: all PDF fonts embedded
+- Visual QA: all 16 pages rendered at 140 dpi and inspected; commands, figures,
+  declarations, and references are visible without clipping
 
-1. **Medium:** the public GitHub release, permanent tag URL, README
-   documentation, and Apache-2.0 license satisfy the software-sharing package
-   structure, subject to publisher review.
-2. **Medium:** author identity, affiliations, corresponding/support email,
-   funding, acknowledgements, and Apache-2.0 license are supplied, but CRediT
-   roles and competing-interest confirmation remain author-level decisions.
-3. **Medium:** the upstream ResFNO license remains `NOASSERTION`; public release
-   packaging must not silently redistribute upstream code/data.
-4. **Medium:** P6 confirmatory held-out evidence and final external validation
-   are unavailable; the article therefore avoids final superiority claims.
-5. **Medium:** the canonical two-dimensional labels are generated numerical
-   fields; the BDF cross-check shares physical inputs and is not a fully
-   independent external solver.
-6. **Low:** the official SoftwareX source template is DOCX, so the package maps
-   its required structure into Elsevier's accepted `elsarticle` class for
-   Overleaf rather than reproducing Word styling.
+## Evidence and claim boundaries
 
-## Required final action
+- Evidence cutoff: the frozen P0--P5 artifacts underlying public release
+  `v0.0.1`; `v0.0.2` changes documentation and release metadata only.
+- P2 joint-model values remain one-seed descriptive results.
+- P4 512-case and 27-check values remain solver/release validation.
+- P5 restriction and future-invariance values remain label-free contract tests.
+- The unfinished P6 campaign is not used for superiority, OOD, or experimental
+  validation claims.
+- No new training, data generation, statistical analysis, or experiment was
+  performed for this revision.
+- The existing Table 3 layout was retained without modification, as requested.
 
-The package compiled locally to a 13-page PDF with no unresolved citations,
-references, LaTeX errors, or overfull boxes. All 13 final rendered pages were
-visually inspected for clipping, overlap, table fit, figure legibility, and
-placeholder visibility. The placeholder-tolerant structural checker passed
-with 2,060 estimated words, two figure environments, and two intentionally
-unresolved human-input markers.
+## Data and license review
 
-Resolve every item in `SUBMISSION_CHECKLIST.md`, run the strict checker, and
-perform one final clean Overleaf build after the human metadata is supplied.
+- CD-CureNO code: Apache-2.0.
+- Upstream ResFNO arrays: not redistributed; upstream terms and manifest
+  checksums govern acquisition.
+- Generated P4 core arrays: approximately 918 MB and not bundled in the tagged
+  code release; frozen plan/config/code/hash and compact summaries are present.
+- The manuscript states these boundaries explicitly.
+
+## Release status and remaining author checks
+
+The package, manuscript, citation metadata, and README all identify `v0.0.2`.
+The corresponding author authorized publication of this exact immutable
+commit, tag, and release. Every versioned GitHub URL is checked as part of the
+release handoff. Funding, competing-interest, generative-AI, and co-author
+CRediT confirmations remain author responsibilities.

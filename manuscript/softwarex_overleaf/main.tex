@@ -46,7 +46,7 @@
 
 \begin{frontmatter}
 
-\title{CD-CureNO: Reproducible software for restriction-preserving causal neural operators in composite curing}
+\title{CD-CureNO: Auditable software for restriction-preserving causal neural operators in composite curing}
 
 \author[aff1]{\AuthorOne}
 \author[aff2]{\AuthorTwo}
@@ -58,19 +58,20 @@
 \address[aff3]{\AffiliationThree}
 
 \begin{abstract}
-CD-CureNO is a Python research-software stack for reproducible operator
-learning in thermochemical composite curing. It audits legacy position-wise
-ResFNO workflows, implements conservative one- and two-dimensional solvers,
-creates immutable datasets and splits, trains joint and causal operators,
-inflates one-dimensional checkpoints into restriction-preserving
-two-dimensional models, and independently verifies saved experiments.
-Scientific safeguards include train-only normalization, complete-case splits,
-held-out firewalls, transactional run journals, hash-bound manifests, causal
-future-perturbation tests, and conservative energy diagnostics. In staged
-validation, a 512-case two-dimensional benchmark passed 27 solver checks and
-deterministic replay, while checkpoint inflation preserved homogeneous
-solutions to numerical tolerance. The package supports auditable development
-without converting validation-only evidence into confirmatory claims.
+CD-CureNO is an Apache-2.0 Python package for auditable neural-operator studies
+of thermochemical composite curing. It combines conservative one- and
+two-dimensional reference solvers, immutable manifests and complete-case
+splits, joint-field and strictly causal operators, deterministic checkpoint
+inflation that preserves a homogeneous dimensional-reduction limit, managed
+execution, and independent postflight verification. The tagged release
+provides command-line workflows, tests, frozen configurations, compact
+validation records, and number-to-artifact traceability. Existing P0--P5
+validation includes a 512-case two-dimensional benchmark, 27 pre-specified
+solver checks, deterministic replay, and label-free restriction and
+future-input perturbation tests. These results establish release functionality
+and numerical contracts, not confirmatory predictive superiority. The package
+is intended for researchers who need a reusable solver-to-surrogate workflow
+with explicit provenance, redistribution boundaries, and claim control.
 \end{abstract}
 
 \begin{keyword}
@@ -123,10 +124,18 @@ implementation of that idea~\cite{li2021fno}.
 
 Existing composite-curing work already includes physics-informed neural
 networks~\cite{niaki2021pinn}, residual neural operators~\cite{chen2023resfno},
-and physics-informed neural operators~\cite{meng2023pino}. CD-CureNO therefore
+and physics-informed neural operators~\cite{meng2023pino}. General scientific
+machine-learning packages address complementary layers: DeepXDE and PINA
+provide reusable physics-informed modeling workflows
+~\cite{lu2021deepxde,coscia2023pina}, while NeuralOperator supplies tested
+PyTorch components for operator learning~\cite{kossaifi2024neuraloperator}.
+CD-CureNO is not a replacement for these general libraries. It is a
+domain-specific integration and verification layer for composite curing,
+coupling conservative label generation, legacy-behavior audit,
+cross-dimensional checkpoint transfer, and evidence-bound reporting. It
 does not claim novelty for using an FNO, jointly predicting temperature and
-cure, or adding a physics loss. Its software problem is narrower and more
-practical: how can a research team develop, transfer, evaluate, and report
+cure, or adding a physics loss. Its software problem is narrower and practical:
+how can a research team develop, transfer, evaluate, and report
 cross-dimensional curing operators without losing the provenance and
 scientific controls needed to interpret the result?
 
@@ -139,8 +148,10 @@ batch-local metric aggregation, incomplete field outputs, and ambiguity about
 whether a displayed position-by-time image is a jointly coupled spatial
 operator. CD-CureNO provides a behaviorally faithful legacy path and a
 separately named corrected path, then moves to a single joint 1+1-D model and a
-true two-spatial-dimensional target. The terminology is enforced in code,
-manifests, and reporting artifacts.
+true two-spatial-dimensional target. Here, ``1+1-D'' denotes a jointly
+predicted through-thickness--time field, whereas ``true 2-D'' denotes two
+spatial coordinates, lateral and through-thickness, evolved over time. The
+terminology is enforced in code, manifests, and reporting artifacts.
 
 Lower-dimensional pretraining and boundary-to-domain lifting have become
 important precedents for data-efficient operator learning
@@ -241,6 +252,29 @@ Independent reporting & Recompute per-case metrics, release frozen populations, 
 \end{tabularx}
 \end{table}
 
+\subsection{Typical user workflow and generated artifacts}
+
+A typical release-level workflow has four auditable checkpoints. First, the
+user creates an isolated environment, installs the package, and runs the test
+suite; tests that depend on separately acquired upstream artifacts are skipped
+with an explicit reason when those artifacts are absent. Second, the user
+either audits the pinned ResFNO source or reviews a generated benchmark plan
+before label generation. Third, a source model can be trained or loaded and
+inflated into a target model, after which restriction and causality contracts
+are evaluated independently of predictive labels. Fourth, postflight commands
+reopen saved predictions, recompute complete-case metrics, and emit a report
+bound to run, configuration, data, and checkpoint identifiers.
+
+The expected products are not only model weights. Each completed path emits a
+resolved configuration, environment and Git metadata, immutable data or split
+manifests, per-case records, checkpoints and predictions where applicable, and
+a machine-readable verification receipt. This artifact-first interface lets a
+user inspect or reuse an individual stage without accepting later scientific
+claims. The tagged release contains the source, tests, frozen configurations,
+compact validation summaries, and traceability records; data that cannot be
+redistributed are handled through acquisition or regeneration instructions
+rather than silently bundled.
+
 \subsection{Restriction-preserving and causal target construction}
 
 The target model uses canonical input order
@@ -295,22 +329,27 @@ CPU test run are:
 
 \begin{lstlisting}[language=bash]
 python -m venv .venv
-.venv/Scripts/python -m pip install -e ".[dev]"
-.venv/Scripts/python -m pytest -q
+# Activate .venv with the command appropriate for the local shell.
+python -m pip install --upgrade pip
+python -m pip install -e ".[dev]"
+python -m pytest -q
 \end{lstlisting}
 
 The legacy audit is read-only and supports a dry run:
 
 \begin{lstlisting}[language=bash]
-.venv/Scripts/python scripts/audit_legacy_repo.py \
+python scripts/audit_legacy_repo.py \
   --repo-root external/ResFNO \
   --output-dir outputs/audit \
   --dry-run
 \end{lstlisting}
 
-The implemented CLI also exposes auditable exact, corrected, joint
-factorized, and joint causal training modes. Independent evaluation reloads a
-saved run by identifier and recomputes its complete-case metrics.
+A successful audit creates a JSON/Markdown inventory under the requested
+output directory; no upstream file is modified. The implemented CLI also
+exposes auditable exact, corrected, joint factorized, and joint causal training
+modes. Independent evaluation reloads a saved run by identifier and recomputes
+its complete-case metrics. Commands and expected artifact names are documented
+in the versioned release README.
 
 \subsection{Conservative two-dimensional benchmark}
 
@@ -318,11 +357,24 @@ The two-dimensional workflow separates plan generation from label generation,
 which allows users to review case families and split semantics before solving:
 
 \begin{lstlisting}[language=bash]
-.venv/Scripts/python scripts/generate_p4_2d.py \
-  --tier core --plan-only
-.venv/Scripts/python scripts/validate_p4_solver.py
-.venv/Scripts/python scripts/verify_p4_gate.py
+python -m pytest -q tests/unit/test_p4_dataset_pipeline.py
+python scripts/generate_p4_2d.py \
+  --tier core --plan-only \
+  --plan tmp/p4_2d_core_v1_plan_release_review.json
+python scripts/generate_p4_2d.py --tier core \
+  --plan splits/p4_2d_core_v1_plan.json
+python scripts/validate_p4_solver.py \
+  --input external/ResFNO/data/Case1.mat
+python scripts/verify_p4_gate.py
 \end{lstlisting}
+
+The focused tests validate plan integrity and immutable-generation contracts.
+The plan-only command writes a noncanonical release-review copy without field
+labels; it does not replace the pre-label plan. Production generation loads
+the included immutable plan and creates the approximately 918 MB array set.
+Solver validation requires the separately acquired, checksum-verified
+\texttt{Case1.mat}; the final gate requires the generated arrays. Storage,
+worker, resume, and expected-output details are in the release README.
 
 The frozen core benchmark contains 512 cases with temperature/cure field shape
 \([512,112,50,40]\). The production solver passed 27 pre-specified checks;
@@ -334,14 +386,31 @@ and cure law, so it is not described as a fully independent external solver.
 
 \subsection{Checkpoint inflation and restriction verification}
 
-The causal inflation path can execute all checks in memory before writing:
+The command interfaces can be inspected in a clean checkout without the
+non-redistributed artifacts:
 
 \begin{lstlisting}[language=bash]
-.venv/Scripts/python \
-  scripts/inflate_causal_1d_to_2d_checkpoint.py --dry-run
-.venv/Scripts/python \
-  scripts/verify_p5_causal_restriction.py --dry-run
+python scripts/inflate_causal_1d_to_2d_checkpoint.py --help
+python scripts/verify_p5_causal_restriction.py --help
 \end{lstlisting}
+
+Full verification requires the P3 source checkpoint, the persisted inflated
+target, the P3 data/split, and the P4 plan, manifest, ID split, and generated
+array root. The target must therefore be written before it is verified:
+
+\begin{lstlisting}[language=bash]
+python scripts/inflate_causal_1d_to_2d_checkpoint.py \
+  --source outputs/runs/p3-source-causal-v1-seed0-fix1/checkpoints/best.pt \
+  --output outputs/checkpoints/p5_causal_inflated_source.pt
+python scripts/verify_p5_causal_restriction.py \
+  --source-checkpoint outputs/runs/p3-source-causal-v1-seed0-fix1/checkpoints/best.pt \
+  --target-checkpoint outputs/checkpoints/p5_causal_inflated_source.pt \
+  --source-data data/processed/p3_source_1d_v3.npz \
+  --p4-array-root data/processed/p4_2d_core_v1
+\end{lstlisting}
+
+The remaining frozen config and split paths use the documented defaults.
+Here `--dry-run` suppresses output writes but does not remove any prerequisite.
 
 For the saved causal target, 100 source tensors were copied bitwise and 17
 target tensors were initialized; the complete 117-tensor state matched a
@@ -364,9 +433,10 @@ through-thickness-by-time result, not a true two-spatial-dimensional field.
 \centering
 \includegraphics[width=\textwidth]{figures/p2_case100_temperature.png}
 \caption{Representative joint 1+1-D temperature reconstruction for fixed test
-case 100 and seed 0. The factorized and causal models were selected by the
-validation objective. This single-case display is descriptive and does not
-establish statistical superiority.}
+case 100 and seed 0. The displayed configurations were fixed by the validation
+protocol, and the case identifier was specified before plotting. This
+single-case display is descriptive and does not establish statistical
+superiority.}
 \label{fig:p2temperature}
 \end{figure}
 
@@ -440,14 +510,17 @@ that a cited version should be identifiable and recoverable
 ~\cite{smith2016software}.
 
 The current repository has no defensible public download, user, or commercial
-adoption count, so this article makes no adoption claim. At submission, the
-tagged GitHub release, license, README, and developer documentation named in
-Table~\ref{tab:metadata} must be public. CD-CureNO is released under the
+adoption count, so this article makes no adoption claim. The tagged source,
+license, versioned README, tests, and validation records are publicly
+inspectable~\cite{cdcureno2026release}. CD-CureNO is released under the
 OSI-approved Apache License 2.0, which permits use, modification, and
-redistribution, including commercial use, subject to its terms. External/ResFNO
-code and data must not be redistributed under an assumed license; the release
-should retain only the submodule pointer or documented acquisition/checksum
-workflow allowed by the upstream terms.
+redistribution, including commercial use, subject to its terms. External
+ResFNO code and data are not redistributed under an assumed license; the
+release retains documented acquisition paths and checksums. The generated P4
+arrays are likewise not part of the code release, but their deterministic plan,
+generator configuration, canonical manifest hash, and compact validation
+records are included. This separation makes the reuse boundary explicit rather
+than presenting unavailable bytes as open data.
 
 Scientific scope also remains bounded. The canonical benchmark uses a
 rectangular grid, reference-temperature conductivity, and a unidirectional
@@ -459,15 +532,15 @@ evidence of superiority, broad generalization, or experimental validation.
 
 \section{Conclusions}
 
-CD-CureNO packages the complete research workflow needed to study
-cross-dimensional neural operators for composite curing: legacy audit,
+CD-CureNO packages an integrated P0--P5 workflow for studying
+cross-dimensional neural operators in composite curing: legacy audit,
 conservative one- and two-dimensional solvers, immutable data manifests,
 joint and causal models, deterministic restriction-preserving inflation,
 resumable managed execution, independent evaluation, and traceable reporting.
-The current validation demonstrates software correctness and staged scientific
-readiness while explicitly preserving the boundary between validation and
-confirmation. The package is intended to make future claims easier to audit,
-reproduce, narrow, or reject when the evidence requires it.
+The current validation demonstrates release functionality and staged
+scientific readiness while explicitly preserving the boundary between
+validation and confirmation. The package is intended to make future claims
+easier to audit, reproduce, narrow, or reject when the evidence requires it.
 
 \section*{Data and code availability}
 
@@ -480,9 +553,18 @@ The open-source release license is:
 
 \CodeLicenseText
 
-Generated arrays, public-data acquisition steps, manifests, and redistribution
-restrictions are documented in the release README. Upstream ResFNO artifacts
-remain subject to their own license status and are not relicensed by CD-CureNO.
+The tagged repository contains the installable source, tests, frozen
+configurations, compact P0--P5 validation records, and the claim-to-artifact
+traceability table. Two data classes are intentionally not bundled. First,
+the upstream ResFNO files \code{Case1.mat} and
+\code{double\_hold\_200\_HL.mat} have no license assertion recorded by this
+project; users must obtain them from the upstream source under its terms and
+verify the checksums in \path{DATA_MANIFEST.csv}. Second, the generated P4
+core arrays (approximately 918 MB) are not distributed in the tagged Git
+release. The deterministic plan, generator configuration, code, canonical
+manifest hash, and compact gate summaries are included so that users can
+regenerate and audit the benchmark locally. The Apache-2.0 license applies to
+CD-CureNO code and does not relicense third-party or generated data.
 
 \section*{CRediT author statement}
 \CreditText
@@ -496,7 +578,14 @@ remain subject to their own license status and are not relicensed by CD-CureNO.
 \section*{Declaration of competing interest}
 The authors declare that they have no known competing financial interests or
 personal relationships that could have appeared to influence the work reported
-in this paper. % SOFTWAREX-REPLACE: authors must confirm this statement.
+in this paper.
+
+\section*{Declaration of generative AI and AI-assisted technologies in the manuscript preparation process}
+During the preparation of this work, the authors used OpenAI ChatGPT
+(GPT-5.6 Pro) to assist with journal-specific structural review, language
+editing, and consistency checking. After using this tool, the authors reviewed
+and edited the content as needed and take full responsibility for the content
+of the publication.
 
 \bibliographystyle{elsarticle-num}
 \bibliography{references}

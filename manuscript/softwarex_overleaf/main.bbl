@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 \expandafter\ifx\csname url\endcsname\relax
   \def\url#1{\texttt{#1}}\fi
 \expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
@@ -34,6 +34,25 @@ Q.~Meng, Y.~Li, X.~Liu, G.~Chen, X.~Hao, A novel physics-informed neural
 \newblock \href {https://doi.org/10.1016/j.compstruct.2023.117197}
   {\path{doi:10.1016/j.compstruct.2023.117197}}.
 
+\bibitem{lu2021deepxde}
+L.~Lu, X.~Meng, Z.~Mao, G.~E. Karniadakis, {DeepXDE}: A deep learning library
+  for solving differential equations, SIAM Review 63~(1) (2021) 208--228.
+\newblock \href {https://doi.org/10.1137/19M1274067}
+  {\path{doi:10.1137/19M1274067}}.
+
+\bibitem{coscia2023pina}
+D.~Coscia, A.~Ivagnes, N.~Demo, G.~Rozza, Physics-informed neural networks for
+  advanced modeling, Journal of Open Source Software 8~(87) (2023) 5352.
+\newblock \href {https://doi.org/10.21105/joss.05352}
+  {\path{doi:10.21105/joss.05352}}.
+
+\bibitem{kossaifi2024neuraloperator}
+J.~Kossaifi, N.~Kovachki, Z.~Li, D.~Pitt, M.~Liu-Schiaffini, R.~J. George,
+  B.~Bonev, K.~Azizzadenesheli, J.~Berner, A.~Anandkumar, A library for
+  learning neural operators, arXiv preprint arXiv:2412.10354 (2024).
+\newblock \href {https://doi.org/10.48550/arXiv.2412.10354}
+  {\path{doi:10.48550/arXiv.2412.10354}}.
+
 \bibitem{chen2021resfno}
 G.~Chen, Y.~Li, X.~Liu, Q.~Meng, J.~Zhou, X.~Hao, Residual fourier neural
   operator for thermochemical curing of composites, arXiv preprint
@@ -68,5 +87,11 @@ A.~M. Smith, D.~S. Katz, K.~E. Niemeyer, {FORCE11 Software Citation Working
   Group}, Software citation principles, PeerJ Computer Science 2 (2016) e86.
 \newblock \href {https://doi.org/10.7717/peerj-cs.86}
   {\path{doi:10.7717/peerj-cs.86}}.
+
+\bibitem{cdcureno2026release}
+H.~Park, N.-H. Yoo, J.~Yang,
+  \href{https://github.com/Jinhong-Yang/CD-CureNO/releases/tag/v0.0.2}{{CD-CureNO}
+  v0.0.2}, apache-2.0 licensed software release (2026).
+\newline\urlprefix\url{https://github.com/Jinhong-Yang/CD-CureNO/releases/tag/v0.0.2}
 
 \end{thebibliography}

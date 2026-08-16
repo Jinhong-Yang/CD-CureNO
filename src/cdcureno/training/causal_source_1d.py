@@ -2980,7 +2980,7 @@ def train_causal_source(
     }
     if run_id in reserved_p6_run_ids:
         raise ValueError(
-            "This P6 supplemental run ID is not part of public release v0.0.1."
+            "This P6 supplemental run ID is not part of the public P0--P5 release."
         )
     run_dir = resolved.output_root.resolve() / run_id
     if run_dir.exists() and not resolved.resume:

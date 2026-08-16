@@ -1,12 +1,12 @@
 cff-version: 1.2.0
 message: "If you use CD-CureNO, please cite the tagged software release and the accompanying SoftwareX article."
-title: "CD-CureNO: Reproducible software for restriction-preserving causal neural operators in composite curing"
+title: "CD-CureNO: Auditable software for restriction-preserving causal neural operators in composite curing"
 type: software
-version: 0.0.1
-date-released: 2026-08-14
+version: 0.0.2
+date-released: 2026-08-16
 license: Apache-2.0
 repository-code: "https://github.com/Jinhong-Yang/CD-CureNO"
-url: "https://github.com/Jinhong-Yang/CD-CureNO/tree/v0.0.1"
+url: "https://github.com/Jinhong-Yang/CD-CureNO/tree/v0.0.2"
 authors:
   - family-names: Park
     given-names: Hyojin

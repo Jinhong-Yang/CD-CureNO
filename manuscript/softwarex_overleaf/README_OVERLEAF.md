@@ -1,78 +1,56 @@
-# CD-CureNO SoftwareX Overleaf package
+# CD-CureNO SoftwareX Overleaf package v0.0.2
 
-This package follows the official **SoftwareX original article template,
-Version 6 (March 2026)** while using Elsevier's `elsarticle` LaTeX class for
-Overleaf. The manuscript preserves the required metadata table and the five
-mandatory sections:
+This package follows the SoftwareX Original Software Publication structure and
+uses Elsevier's `elsarticle` class. The revision uses only frozen P0--P5
+evidence. It does not convert the unfinished P6 held-out campaign, P2 one-seed
+results, or the P5 validation pilot into confirmatory performance claims.
 
-1. Motivation and significance
-2. Software description
-3. Illustrative examples
-4. Impact
-5. Conclusions
+Version `v0.0.2` is a documentation and release-metadata patch. It aligns the
+manuscript title, CRediT statement, citation metadata, traceability table,
+public README, and executable command descriptions. It does not change a
+scientific algorithm, numerical result, checkpoint, split, or gate decision.
 
-The main body is intentionally software-centered. It uses only passed P0-P5
-artifacts and does not treat the unfinished P6 held-out campaign as evidence.
+## Build in Overleaf
 
-## Overleaf
-
-1. Upload the ZIP or all files in this directory to a new Overleaf project.
+1. Upload this directory or its ZIP archive to a new Overleaf project.
 2. Set `main.tex` as the Main document.
-3. Use pdfLaTeX.
-4. Replace every `SOFTWAREX-REPLACE` item in `author_metadata.tex` and confirm
-   the competing-interest statement in `main.tex`.
-5. Recompile until references resolve.
+3. Select pdfLaTeX.
+4. Recompile until bibliography and cross-references are resolved.
 
 ## Local build
 
-```powershell
-latexmk -pdf -interaction=nonstopmode -halt-on-error main.tex
+```bash
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+bibtex main
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
+pdflatex -interaction=nonstopmode -halt-on-error main.tex
 ```
 
-Clean auxiliary files with:
-
-```powershell
-latexmk -C
-```
+A TeX installation with `latexmk` can instead use `latexmk -pdf main.tex`.
+The supplied `main.bbl` also allows the manuscript to compile when BibTeX is
+not available in an initial source check.
 
 ## Submission gate
 
-The package compiles with visible red placeholders so that missing human
-metadata cannot be mistaken for final content. Structural QA can be run with:
-
-```powershell
-python submission_check.py --allow-placeholders
-```
-
-The strict pre-submission check is:
-
-```powershell
+```bash
 python submission_check.py
 ```
 
-The strict check must fail until the CRediT statement and
-conflict-of-interest confirmation have been completed. Author, affiliation,
-corresponding/support email, funding, acknowledgements, Apache-2.0 license,
-public GitHub URL, and documentation URL have been populated.
+The gate enforces the 3,000-word limit used for this package, required
+SoftwareX sections and C1--C8 metadata, the version-pinned README, the
+generative-AI declaration heading, and the absence of unresolved markers.
 
-## Important release constraint
+## Supporting QA files
 
-SoftwareX requires a public GitHub repository with a documented `README.md`
-and `License.txt`. CD-CureNO uses the OSI-approved Apache License 2.0 and its
-public release is `https://github.com/Jinhong-Yang/CD-CureNO`. The upstream
-ResFNO repository/data have no explicit license recorded in this project; do
-not redistribute or relicense them by assumption.
+- `VALIDATION_REPORT.md`: clean-install, build, rendering, and evidence QA.
+- `CLEAN_INSTALL_QA.md`: environment, tests, command checks, and raw-log hashes.
+- `SOURCE_TRACEABILITY.csv`: manuscript claim-to-artifact mapping.
+- `SUBMISSION_CHECKLIST.md`: completed and author-confirmation checks.
+- `PACKAGE_MANIFEST.sha256`: checksums for this exact source package.
+- `CITATION.cff`: versioned software citation metadata.
+- `LICENSE.txt`: Apache License 2.0 text.
 
-## Package contents
-
-- `main.tex`: SoftwareX manuscript.
-- `author_metadata.tex`: single human-input surface.
-- `references.bib`: numerical references.
-- `figures/`: frozen, non-result-selected manuscript figure.
-- `highlights.txt`: Elsevier highlights draft.
-- `LICENSE.txt`: Apache License 2.0 distribution terms.
-- `CITATION.cff`: GitHub/software citation metadata.
-- `SOURCE_TRACEABILITY.csv`: claim-to-artifact map.
-- `VALIDATION_REPORT.md`: evidence QA and remaining limitations.
-- `SUBMISSION_CHECKLIST.md`: final human/editorial gate.
-- `submission_check.py`: automated structural and placeholder gate.
+Before journal upload, the corresponding author should reconfirm the frozen
+CRediT roles, funding, competing-interest statement, and exact generative-AI
+tool/version. The GitHub `v0.0.2` tag and release URL must be live before the
+manuscript is submitted.

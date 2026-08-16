@@ -78,14 +78,19 @@ def main() -> int:
 
     stripped = strip_tex(main_tex)
     word_count = len(re.findall(r"\b[A-Za-z][A-Za-z0-9'-]*\b", stripped))
-    if word_count > 4000:
-        errors.append(f"estimated main-document word count {word_count} exceeds 4000")
-    elif word_count > 3800:
-        warnings.append(f"estimated word count {word_count} is close to the 4000-word limit")
+    if word_count > 3000:
+        errors.append(f"estimated main-document word count {word_count} exceeds 3000")
 
     placeholder_count = (main_tex + author_tex).count("SOFTWAREX-REPLACE")
     if placeholder_count and not args.allow_placeholders:
         errors.append(f"{placeholder_count} SOFTWAREX-REPLACE markers remain")
+
+    if ".venv/Scripts" in main_tex:
+        errors.append("Windows-specific virtual-environment executable remains in the manuscript")
+    if "Declaration of generative AI and AI-assisted technologies in the manuscript preparation process" not in main_tex:
+        errors.append("missing generative-AI manuscript-preparation declaration")
+    if "/blob/v0.0.2/README.md" not in author_tex:
+        errors.append("C7 documentation URL is not pinned to the v0.0.2 README")
 
     forbidden_claims = ["first-ever", "state-of-the-art", "statistically superior"]
     lower = main_tex.lower()
