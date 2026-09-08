@@ -100,7 +100,9 @@ class RestrictionPreservingLift(nn.Module):
             raise ValueError(
                 f"Expected {self.input_channels} channels, got {inputs.shape[-1]}."
             )
-        shared = inputs[..., : self.shared_channels]
+        # Match the source lift's contiguous channel layout. A strided slice
+        # can select a different CPU linear kernel and lose nx=1 bitwise parity.
+        shared = inputs[..., : self.shared_channels].contiguous()
         geometry = inputs[..., self.shared_channels :]
         hidden = self.shared(shared) + self.geometry(geometry)
         return self.projection(functional.gelu(hidden))

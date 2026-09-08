@@ -86,7 +86,10 @@ historical prerequisite categories.
 | Full revised suite | Revised source, Linux CPU | 221 passed, 30 skipped; 33.37 s | `linux_revised_pytest.log`, `linux_revised_pytest.xml` |
 | Full revised suite | Revised source, reused Windows CPU environment | 218 passed, 30 skipped; 36.66 s | `windows_revised_pytest.log`, `windows_revised_pytest.xml` |
 | Full revised suite | Revised source, fresh Windows CPU environment | 223 passed, 30 skipped; 57.07 s | `windows_clean_pytest.log`, `windows_clean_pytest.xml` |
-| Remote Linux CI | Exact revised commit | Pending | Pending |
+| Initial remote Linux CI, before CPU-layout correction | AMD EPYC 7763, Python 3.11.16, CPU PyTorch 2.13.0 | 19 failed, 204 passed, 30 skipped; 34.69 s | GitHub Actions run `34213790415` |
+| CPU-layout and restriction-audit focused suite | Revised source, clean Linux CPU | 34 passed, 1 skipped, 1 deselected; 5.07 s | `linux_cpu_layout_focused.log`, `linux_cpu_layout_focused.xml` |
+| CPU-layout and restriction-audit focused suite | Revised source, clean Windows CPU | 34 passed, 1 skipped, 1 deselected; 5.38 s | `windows_cpu_layout_focused.log`, `windows_cpu_layout_focused.xml` |
+| Remote Linux CI after CPU-layout correction | Exact corrected revised commit | Pending | Pending |
 
 Local revision logs are retained outside the source checkout under
 `../logs/w1/`. Environment differences from the historical release pins,
@@ -109,3 +112,38 @@ submitted commit. No baseline source was changed. The initial 15-failure log
 is preserved as `linux_baseline_pytest.log`; the corrected-environment run
 above isolated the one software regression. This worktree setup issue is not
 a claimed defect in the released source.
+
+## Additional CPU-layout regression found by CI
+
+The initial AMD-hosted CI run exposed a second platform-sensitive numerical
+contract. Eighteen inflation tests failed their scientific gate. The unchanged
+gate diagnostics from run `34214174512` showed that the field errors still
+passed the frozen numerical tolerances, but the separately required `nx=1`
+bitwise source/target comparison failed. Maximum `nx=1` differences were
+approximately `2.38e-7` for the noncausal family and `1.19e-7` for the causal
+family. The `nx=2,7,40` gates passed, and causal prefix differences were zero.
+
+An isolated linear-layer probe on that runner compared the same values in
+the source's contiguous 14-channel layout and the target's strided
+14-of-20-channel slice. The strided comparison differed by
+`1.1920928955078125e-7`; materializing the channel slice contiguously restored
+bitwise equality with maximum difference zero. The target lift now makes
+that shared slice contiguous before applying the copied linear layer. This
+does not change its mathematical mapping, tensor values, parameters, or any
+verification threshold. It does change the implementation hash, so later
+demonstration runs must bind to the revised source. The new regression
+checks `nx=1` bitwise parity with explicitly strided target input storage.
+
+The nineteenth failure was a negative test that amplified lateral Fourier
+weights and expected a homogeneous input to violate the restriction gate.
+Because the adapter excludes the DC mode, numerical FFT leakage is not a
+portable way to create that violation. The test now temporarily injects a
+finite, nonuniform temperature output and checks that the unchanged frozen
+range threshold rejects it. The hook is removed afterwards; no production
+model weights or audit thresholds are altered by that fixture.
+
+Both local focused runs above passed with unchanged source-file hashes
+between snapshots. They cover both inflation families and the corrected
+negative fixture. The one deselected test is the longer synthetic
+pause/resume training test, which remains in the full CI suite. These focused
+results do not substitute for the pending complete corrected remote run.

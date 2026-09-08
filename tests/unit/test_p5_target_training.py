@@ -151,18 +151,29 @@ def test_selected_model_restriction_audit_enforces_frozen_thresholds() -> None:
     assert passing["passed"]
     assert all(passing["contract_checks"].values())
 
-    with torch.no_grad():
-        model.blocks[0].lateral.input_factor.fill_(1.0e10)
-        model.blocks[0].lateral.output_factor.fill_(1.0e10)
-    failing = evaluate_restriction_validation(
-        model,
-        source,
-        nx=40,
-        case_count=4,
-        device=torch.device("cpu"),
-    )
+    def violate_lateral_invariance(_module, _inputs, outputs):
+        # Deliberately break the output contract. Amplifying high-pass weights
+        # cannot guarantee leakage from an exactly homogeneous FFT input.
+        broken = dict(outputs)
+        broken["temperature"] = outputs["temperature"].clone()
+        broken["temperature"][..., 0] += 1.0
+        return broken
+
+    hook = model.register_forward_hook(violate_lateral_invariance)
+    try:
+        failing = evaluate_restriction_validation(
+            model,
+            source,
+            nx=40,
+            case_count=4,
+            device=torch.device("cpu"),
+        )
+    finally:
+        hook.remove()
     assert not failing["passed"]
-    assert not all(failing["contract_checks"].values())
+    assert not failing["contract_checks"]["temperature_maximum_lateral_range"]
+    assert failing["contract_checks"]["temperature_is_finite"]
+    assert failing["thresholds"] == passing["thresholds"]
 
 
 class _SyntheticTargetDataset(
