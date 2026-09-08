@@ -117,6 +117,23 @@ def test_inflated_target_preserves_source_on_multiple_lateral_resolutions() -> N
                 assert float(torch.max(lateral_range)) <= tolerance
 
 
+def test_strided_target_input_preserves_nx_one_source_mapping_bitwise() -> None:
+    source, target = _models()
+    inputs = _source_input()
+    geometry = torch.randn(*inputs.shape[:-1], 1, len(NEW_CHANNELS))
+    packed = torch.cat((inputs.unsqueeze(3), geometry), dim=-1)
+    storage = torch.empty(*packed.shape[:-1], 2 * packed.shape[-1])
+    strided = storage[..., ::2]
+    strided.copy_(packed)
+    assert not strided.is_contiguous()
+    assert inputs.is_contiguous()
+    with torch.no_grad():
+        expected = source(inputs)
+        actual = target(strided)
+    for field in ("temperature", "temperature_residual", "alpha", "cure_rate"):
+        assert torch.equal(actual[field].squeeze(3), expected[field])
+
+
 def test_lateral_adapter_is_high_pass_and_has_a_live_zero_residual_init() -> None:
     torch.manual_seed(92)
     adapter = LateralSpectralAdapter(
