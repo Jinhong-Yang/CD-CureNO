@@ -48,6 +48,9 @@ jobs:
       - name: Require CPU-only PyTorch
         run: |
           python -c 'import torch; print("torch=" + torch.__version__); print("compiled CUDA=" + str(torch.version.cuda)); assert torch.version.cuda is None, "CI requires CPU-only PyTorch"' 2>&1 | tee qa-results/torch-platform.log
+      - name: Diagnose CPU restriction behavior
+        run: |
+          python scripts/diagnose_revision_cpu.py > qa-results/restriction-diagnostic.jsonl
       - name: Run full suite with explicit skip reasons
         run: |
           python -m pytest -q -ra --junitxml=qa-results/pytest.xml 2>&1 | tee qa-results/pytest.log
