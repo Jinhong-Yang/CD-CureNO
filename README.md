@@ -10,8 +10,11 @@ managed execution, and independent evaluation and reporting utilities.
 
 Version `v0.0.3` adds a platform-independent canonical-path regression fix,
 Linux CPU CI, independent continuous-reference solver verification, and a
-small public two-dimensional training/reload/evaluation example. The production
-solvers, model algorithms, and frozen P0--P5 scientific authorities are preserved.
+small public two-dimensional training/reload/evaluation example. It also makes
+the target lift's shared channels contiguous to preserve the existing `nx=1`
+bitwise contract across CPU kernels. The model equations and validation
+thresholds are unchanged; the target implementation hash is updated. The
+production solvers and frozen P0--P5 scientific authorities are preserved.
 
 The public software claim is limited to functionality validated in stages
 P0--P5. The unfinished P6 held-out campaign is not used to claim predictive
@@ -63,10 +66,14 @@ Historical v0.0.2 QA on 16 August 2026 was a manual Windows run with
 Python 3.11.9: `210 passed, 30 skipped`. The revision reproduced one failing
 Windows-drive path rejection on clean Linux (`209 passed, 30 skipped, 1 failed`)
 and fixes it without relying on host path semantics. A fresh Windows CPU
-installation of the integrated revision passes `223 passed, 30 skipped`:
+installation of the corrected revision passes `224 passed, 30 skipped`:
 210 existing tests, eight new path cases, four solver-reference tests, and one
-complete demo/tampering integration test. See [platform QA](docs/revision_platform_qa.md)
-for environments, exact skip scope, and subsequent Linux CI evidence.
+complete demo/tampering integration test, plus one strided-input bitwise
+regression. The corrected commit also passes `224 passed, 30 skipped` on
+[Ubuntu CPU CI](https://github.com/Jinhong-Yang/CD-CureNO/actions/runs/34214599882)
+with Python 3.11.16 on an AMD EPYC 7763 runner. See
+[platform QA](docs/revision_platform_qa.md) for tested commits, environments,
+the preceding CI regression and exact skip scope.
 
 ## Public revision examples
 

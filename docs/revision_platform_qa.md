@@ -42,8 +42,8 @@ skip reasons as a GitHub Actions artifact for 30 days, including when a
 preceding step fails.
 
 The workflow is configured for pushes, pull requests and manual dispatch.
-Its presence does not establish a successful remote run. Record the actual
-run URL and tested commit below after execution. Python versions or operating
+Its presence alone does not establish a successful remote run. The actual
+run URL and tested commit are recorded below. Python versions or operating
 systems absent from this job are not represented as CI-tested.
 
 ## Revision execution evidence
@@ -86,10 +86,11 @@ historical prerequisite categories.
 | Full revised suite | Revised source, Linux CPU | 221 passed, 30 skipped; 33.37 s | `linux_revised_pytest.log`, `linux_revised_pytest.xml` |
 | Full revised suite | Revised source, reused Windows CPU environment | 218 passed, 30 skipped; 36.66 s | `windows_revised_pytest.log`, `windows_revised_pytest.xml` |
 | Full revised suite | Revised source, fresh Windows CPU environment | 223 passed, 30 skipped; 57.07 s | `windows_clean_pytest.log`, `windows_clean_pytest.xml` |
+| Full corrected suite | Commit `5ccaa3cb86cfc6fdb810b2301ede9651ccb9a9d9`, fresh Windows CPU environment | 224 passed, 30 skipped; 47.99 s | `windows_final_pytest.log`, `windows_final_pytest.xml` |
 | Initial remote Linux CI, before CPU-layout correction | AMD EPYC 7763, Python 3.11.16, CPU PyTorch 2.13.0 | 19 failed, 204 passed, 30 skipped; 34.69 s | GitHub Actions run `34213790415` |
 | CPU-layout and restriction-audit focused suite | Revised source, clean Linux CPU | 34 passed, 1 skipped, 1 deselected; 5.07 s | `linux_cpu_layout_focused.log`, `linux_cpu_layout_focused.xml` |
 | CPU-layout and restriction-audit focused suite | Revised source, clean Windows CPU | 34 passed, 1 skipped, 1 deselected; 5.38 s | `windows_cpu_layout_focused.log`, `windows_cpu_layout_focused.xml` |
-| Remote Linux CI after CPU-layout correction | Exact corrected revised commit | Pending | Pending |
+| Remote Linux CI after CPU-layout correction | Commit `5ccaa3cb86cfc6fdb810b2301ede9651ccb9a9d9`, Ubuntu 24.04, AMD EPYC 7763, Python 3.11.16 CPU | 224 passed, 30 skipped; 35.59 s | [Actions run 34214599882](https://github.com/Jinhong-Yang/CD-CureNO/actions/runs/34214599882) |
 
 Local revision logs are retained outside the source checkout under
 `../logs/w1/`. Environment differences from the historical release pins,
@@ -100,8 +101,8 @@ an unavailable historical environment.
 The Windows skip breakdown remained 28 upstream-dependent, one P4/P3
 artifact-dependent, and one CUDA-device regression in both runs. The full
 test command was `python -m pytest -q -ra --junitxml=<log-path>`.
-The YAML workflow parsed successfully with PyYAML; this structural check is
-not a substitute for the pending remote Actions execution.
+The YAML workflow parsed successfully with PyYAML; that structural check is
+separate from the completed remote Actions execution.
 
 The original Linux failure was exactly the reported drive-prefixed path
 reaching `FileNotFoundError` instead of `ValueError`. An earlier full baseline
@@ -146,4 +147,21 @@ Both local focused runs above passed with unchanged source-file hashes
 between snapshots. They cover both inflation families and the corrected
 negative fixture. The one deselected test is the longer synthetic
 pause/resume training test, which remains in the full CI suite. These focused
-results do not substitute for the pending complete corrected remote run.
+results are distinguished from the complete corrected remote run above.
+
+After the CPU-layout correction was committed, the complete Windows suite
+was rerun on commit `5ccaa3cb86cfc6fdb810b2301ede9651ccb9a9d9` in the fresh
+Windows CPU environment described above. It passed **224 tests with 30
+explicit skips in 47.99 s**, including the new strided-input bitwise test.
+The complete source-file inventory was unchanged during this run. Earlier
+218/221/223 pass counts in this document identify intermediate snapshots,
+not the corrected release's current test count. The final environment freeze
+and source snapshots are retained under the `windows_final_*` log prefix.
+
+The complete corrected remote run on the same commit also passed **224 tests
+with 30 skips in 35.59 s**. Its AMD EPYC 7763 runner used Ubuntu 24.04,
+Python 3.11.16 and CPU PyTorch 2.13.0. Downloaded environment, installation,
+commit, pytest and JUnit evidence is retained under
+`github_ci_34214599882/linux-python311-cpu-34214599882-1/`. This is the
+successful corrected CI run; the earlier failing runs remain in the audit
+trail and are not counted as successful verification.
