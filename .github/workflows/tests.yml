@@ -1,0 +1,61 @@
+name: CPU release tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    name: Linux / Python 3.11 / CPU
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CUDA_VISIBLE_DEVICES: ""
+      OMP_NUM_THREADS: "2"
+      MKL_NUM_THREADS: "2"
+      OPENBLAS_NUM_THREADS: "2"
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install pinned CPU environment
+        run: |
+          mkdir -p qa-results
+          python -m pip install --upgrade pip 2>&1 | tee qa-results/pip-bootstrap.log
+          torch_spec="$(python -c 'import tomllib; print(next(s for s in tomllib.load(open("pyproject.toml", "rb"))["project"]["dependencies"] if s.lower().startswith("torch==")))')"
+          python -m pip install "$torch_spec" --index-url https://download.pytorch.org/whl/cpu 2>&1 | tee qa-results/torch-install.log
+          python -m pip install -e ".[dev]" 2>&1 | tee qa-results/install.log
+          python -m pip check 2>&1 | tee qa-results/pip-check.log
+      - name: Record environment and source identity
+        if: always()
+        run: |
+          mkdir -p qa-results
+          git rev-parse HEAD > qa-results/commit.txt
+          git status --short > qa-results/git-status.txt
+          python --version > qa-results/python.txt
+          uname -a > qa-results/platform.txt
+          lscpu > qa-results/cpu.txt
+          python -m pip freeze > qa-results/environment.txt
+      - name: Require CPU-only PyTorch
+        run: |
+          python -c 'import torch; print("torch=" + torch.__version__); print("compiled CUDA=" + str(torch.version.cuda)); assert torch.version.cuda is None, "CI requires CPU-only PyTorch"' 2>&1 | tee qa-results/torch-platform.log
+      - name: Run full suite with explicit skip reasons
+        run: |
+          python -m pytest -q -ra --junitxml=qa-results/pytest.xml 2>&1 | tee qa-results/pytest.log
+      - name: Preserve logs, test results, and skip inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-python311-cpu-${{ github.run_id }}-${{ github.run_attempt }}
+          path: qa-results/
+          if-no-files-found: error
+          retention-days: 30

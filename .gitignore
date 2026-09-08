@@ -25,3 +25,10 @@ tmp/
 *.fls
 *.out
 *.spl
+
+# Local revision attempts; selected final artifacts are archived separately.
+outputs/public_demo/development_*/
+outputs/public_demo/clean_linux_v1/
+outputs/revision_solver_verification/cleanlinux_v1/
+outputs/revision_solver_verification/development_*/
+outputs/revision_solver_verification/plan_diagnosis_*.json

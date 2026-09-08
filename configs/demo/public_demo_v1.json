@@ -1,0 +1,14 @@
+{
+  "schema": "cdcureno-public-demo-v1",
+  "purpose": "CPU functionality demonstration; not a P4/P5/P6 benchmark or predictive-superiority experiment",
+  "seed": 20260908,
+  "threads": 1,
+  "split": {"train": [0, 1, 2, 3], "validation": [4, 5], "heldout": [6, 7]},
+  "source_case_ids": [0, 1, 2, 3, 4, 5],
+  "grid": {"width_m": 0.12, "spacing_x_m": 0.02, "spacing_z_m": 0.005},
+  "solver": {"duration_s": 1200.0, "output_times": 17, "maximum_step_s": 5.0, "initial_temperature_K": 330.0, "initial_alpha": 0.05},
+  "cases": {"air_rise_K": [58, 64, 70, 76, 61, 73, 67, 79], "upper_h_W_m2_K": [40, 50, 60, 70, 45, 65, 55, 75], "lateral_amplitude": [0.20, -0.25, 0.30, -0.35, 0.25, -0.30, 0.35, -0.20]},
+  "model": {"width": 8, "depth": 2, "modes_z": 3, "modes_x": 3, "lateral_rank": 2},
+  "training": {"source_epochs": 32, "target_epochs": 48, "learning_rate": 0.003, "optimizer": "Adam", "checkpoint_selection": "minimum validation temperature_normalized_MSE + composite_alpha_MSE; first epoch wins ties"},
+  "acceptance": {"restriction_absolute_tolerance": 0.00001, "causality_absolute_tolerance": 0.0000001, "metric_absolute_tolerance": 0.000000000001, "alpha_tolerance": 0.000001, "minimum_reference_lateral_range_K": 0.000001, "predictive_accuracy_threshold": null}
+}

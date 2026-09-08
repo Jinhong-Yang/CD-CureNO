@@ -8,9 +8,10 @@ managed execution, and independent evaluation and reporting utilities.
 
 ## Release and scientific scope
 
-Version `v0.0.2` is a documentation and release-metadata patch over `v0.0.1`.
-It aligns the public manual, citation metadata, and SoftwareX sources without
-changing the frozen P0--P5 numerical evidence or any scientific algorithm.
+Version `v0.0.3` adds a platform-independent canonical-path regression fix,
+Linux CPU CI, independent continuous-reference solver verification, and a
+small public two-dimensional training/reload/evaluation example. The production
+solvers, model algorithms, and frozen P0--P5 scientific authorities are preserved.
 
 The public software claim is limited to functionality validated in stages
 P0--P5. The unfinished P6 held-out campaign is not used to claim predictive
@@ -26,11 +27,12 @@ sufficient for the data-independent tests and documentation checks.
 python -m venv .venv
 # Activate .venv using the command appropriate for the local shell.
 python -m pip install --upgrade pip
-python -m pip install -e ".[dev]"
+python -m pip install torch==2.13.0 --index-url https://download.pytorch.org/whl/cpu
+python -m pip install -e ".[dev,revision]"
 python -m pytest -q
 ```
 
-CUDA is optional and is used only when running model training. The exact
+CUDA is optional; the public demo trains and evaluates on a CPU. The exact
 package versions used by this release are pinned in `pyproject.toml`.
 On Windows systems that have legacy path-length handling enabled, create the
 virtual environment at a short path (for example, `C:\venvs\cdcureno`) or
@@ -57,11 +59,40 @@ freeze and resume contracts. The plan-only command emits a separate release
 review copy and does not generate field labels or overwrite the canonical
 pre-label plan.
 
-Release QA on 16 August 2026 used Python 3.11.9 and the pinned CPU packages on
-Windows. The clean test suite completed with `210 passed, 30 skipped`; the
-skips were explicitly limited to unavailable upstream data/code, unbundled P4
-arrays/checkpoints, and the CUDA-only device branch. The focused P4 plan tests
-completed with `17 passed`.
+Historical v0.0.2 QA on 16 August 2026 was a manual Windows run with
+Python 3.11.9: `210 passed, 30 skipped`. The revision reproduced one failing
+Windows-drive path rejection on clean Linux (`209 passed, 30 skipped, 1 failed`)
+and fixes it without relying on host path semantics. A fresh Windows CPU
+installation of the integrated revision passes `223 passed, 30 skipped`:
+210 existing tests, eight new path cases, four solver-reference tests, and one
+complete demo/tampering integration test. See [platform QA](docs/revision_platform_qa.md)
+for environments, exact skip scope, and subsequent Linux CI evidence.
+
+## Public revision examples
+
+No upstream data or pretrained model is needed for these examples:
+
+```bash
+python scripts/verify_revision_solver.py --output-dir outputs/revision_solver_verification/my_run --environment-label my_cpu_environment
+python scripts/run_public_demo.py --config configs/demo/public_demo_v1.json --output outputs/public_demo/my_run
+python scripts/verify_public_demo.py --input outputs/public_demo/my_run
+```
+
+The solver example compares the unchanged production solver with continuous
+analytical/manufactured references across 17 configurations. The demo generates
+its own labels, trains source and target production models, selects a validation
+checkpoint, reloads it in a new process, evaluates two held-out cases, and
+independently recomputes saved metrics with NumPy. See the [solver protocol](docs/revision_solver_verification.md)
+and [demo guide](docs/public_demo.md) for definitions and limitations. These
+examples do not reproduce the historical P3/P5 campaign or establish superiority.
+
+Exact canonical P4 replay has a stricter contract than ordinary numerical
+portability: the frozen plan records Python 3.11.9 and package versions and
+requires bitwise design equality. The fresh Windows environment accepts the
+plan; Linux Python 3.12.3 rejects tiny differences in 33 HTC values and the
+Python provenance mismatch. Read the [canonical replay study](docs/revision_canonical_replay.md)
+before attempting the original 512-case replay. No numerical-tolerance bypass
+has been added.
 
 ## Repository layout
 

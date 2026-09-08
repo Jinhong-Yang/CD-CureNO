@@ -6,7 +6,7 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 import time
 from typing import Any
 
@@ -151,7 +151,8 @@ def _resolve_path(value: Any, project_root: Path, *, label: str) -> Path:
     pure = PurePosixPath(value)
     if (
         pure.is_absolute()
-        or Path(value).is_absolute()
+        # Reject both absolute and drive-relative Windows paths on every OS.
+        or bool(PureWindowsPath(value).drive)
         or pure.as_posix() != value
         or any(part in {"", ".", ".."} for part in pure.parts)
     ):

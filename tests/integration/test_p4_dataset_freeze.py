@@ -519,6 +519,14 @@ def test_freezer_enforces_exact_positive_budgets_and_split_counts(
         r"splits\p4_2d_core_v1_plan.json",
         "splits/../splits/p4_2d_core_v1_plan.json",
         "C:/absolute/p4_2d_core_v1_plan.json",
+        "c:/absolute/p4_2d_core_v1_plan.json",
+        "C:relative/p4_2d_core_v1_plan.json",
+        "C:",
+        "/absolute/p4_2d_core_v1_plan.json",
+        "//server/share/p4_2d_core_v1_plan.json",
+        r"\\server\share\p4_2d_core_v1_plan.json",
+        "./splits/p4_2d_core_v1_plan.json",
+        "splits//p4_2d_core_v1_plan.json",
     ],
 )
 def test_freezer_rejects_noncanonical_core_paths(

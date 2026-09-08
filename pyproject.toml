@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "cdcureno"
-version = "0.0.2"
+version = "0.0.3"
 description = "Cross-dimensional causal neural operators for composite curing"
 readme = "README.md"
 license = {file = "LICENSE.txt"}
@@ -20,6 +20,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
+revision = ["psutil==7.2.2"]
 dev = [
   "pytest==9.1.1",
 ]
